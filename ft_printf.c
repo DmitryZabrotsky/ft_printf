@@ -19,6 +19,11 @@ int		count_specs(char *specs)
 	return (res);
 }
 
+/*void	printer(char *format, va_list args)
+{
+	//
+}*/
+
 int		func(char *format, ...)
 {
 	va_list args;
@@ -28,7 +33,6 @@ int		func(char *format, ...)
 
 	va_start(args, format);
 	specs_value = count_specs(format);
-		//printf("%i", specs_value);
 	res = 0;
 	while (specs_value > 0)
 	{
@@ -44,5 +48,5 @@ int		func(char *format, ...)
 
 int		main(void)
 {
-	ft_putnbr(func("%%%%%", "1", "2", "3", "4", "5"));
+	ft_putnbr(func("%%%%%%", "1", "2", "3", "4", "5", "DIMAZ"));
 }	
