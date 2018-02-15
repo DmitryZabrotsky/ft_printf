@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <stdint.h>
 
 typedef struct		s_list
 {
@@ -100,4 +101,5 @@ void				ft_lstaddend(t_list **lst, t_list *elem);
 t_list				*ft_arrtolst(char **arr);
 char				**ft_lsttoarr(t_list *lst);
 
+char				*ft_itoa_base(uintmax_t num, int base);
 #endif
