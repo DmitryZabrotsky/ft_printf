@@ -22,7 +22,7 @@ static void		conversion(uintmax_t num, int base, char *res, size_t len)
 	map = "0123456789abcdef";
 	res[len] = '\0';
 	len--;
-	while (num >= base)
+	while (num >= (unsigned int)base)
 	{
 		res[len] = map[num % base];
 		num /= base;

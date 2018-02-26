@@ -46,7 +46,20 @@ int		func(char *format, ...)
 	return(res);
 }
 
+void		func2(char *format, ...)
+{
+		va_list args;
+		va_start(args, format);
+		ft_putstr(va_arg(args, char *));
+		ft_putstr(va_arg(args, char *));
+		ft_putstr(va_arg(args, char *));
+		ft_putnbr((va_arg(args, int)));
+		va_end(args);
+}
+
 int		main(void)
 {
-	ft_putnbr(func("%%%%%%", "1", "2", "3", "4", "5", "DIMAZ"));
+	//ft_putnbr(func("%%%%%%", "1", "2", "3", "4", "5", "DIMAZ"));
+	
+	func2("start", "afterstart", "\n", "nextint\n", 666);
 }	
