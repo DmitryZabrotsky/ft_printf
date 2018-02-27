@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-static int		handle_flag(char fchr, t_format *format)
+static int		handle_flag(const char fchr, t_format *format)
 {
 	if (fchr == '-') 
 		return (format->minus = 1);
@@ -15,7 +15,7 @@ static int		handle_flag(char fchr, t_format *format)
 	return (0);
 }
 
-int				handle_flags(char *fstr, t_format *format)
+int				handle_flags(const char *fstr, t_format *format)
 {
 	int			i;
 

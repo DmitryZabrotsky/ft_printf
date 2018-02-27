@@ -102,4 +102,5 @@ t_list				*ft_arrtolst(char **arr);
 char				**ft_lsttoarr(t_list *lst);
 
 char				*ft_itoa_base(uintmax_t num, int base);
+void				ft_lstfree(t_list **lst);
 #endif

@@ -25,8 +25,17 @@ void			print_format(t_format *format);
 void			free_format(t_format **format);
 
 /*
- ** handle_flags.c
+ ** flags_handler.c
 */
-int				handle_flags(char *fstr, t_format *format);
+int				handle_flags(const char *fstr, t_format *format);
 
+/*
+ ** strings_handler.c
+*/
+int				handle_string(const char *fstr, t_list **lst);
+
+/*
+ ** lst_printer.c
+*/
+int				print_lst(t_list *lst);
 #endif
