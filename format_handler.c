@@ -7,12 +7,14 @@ int		handle_format(const char *fstr, va_list args)
 
 	i = 0;
 	format = init_format();
+	ft_putendl(fstr);
 	while (fstr[i])
 	{
 		if (fstr[i] == '%')
 		{
+			ft_putendl(fstr);
 			i++;
-			ft_putstr("%");
+			ft_putstr("% WAS FINDED");
 		}
 		else
 		{
