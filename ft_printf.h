@@ -38,4 +38,15 @@ int				handle_string(const char *fstr, t_list **lst);
  ** lst_printer.c
 */
 int				print_lst(t_list *lst);
+
+/*
+ ** width_handler.c
+ */
+int				handle_width(const char *fstr, t_format *format, va_list args);
+
+/*
+ ** format_handler.c
+*/
+int				handle_format(const char *fstr, va_list args, t_list **lst);
+
 #endif
