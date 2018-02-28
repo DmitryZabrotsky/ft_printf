@@ -8,8 +8,8 @@ int		handle_format(const char *fstr, va_list args)
 	i = 0;
 	format = init_format();
 	ft_putendl(fstr);
-	while (fstr[i])
-	{
+	//while (fstr[i])
+	//{
 		if (fstr[i] == '%')
 		{
 			ft_putendl(fstr);
@@ -18,10 +18,10 @@ int		handle_format(const char *fstr, va_list args)
 		}
 		else
 		{
-			i += handle_flags(fstr, format);
-			i += handle_width(fstr, format, args);
+			i += handle_flags(fstr + i, format);
+			i += handle_width(fstr + i, format, args);
 		}
-	}
+	//}
 	print_format(format);
 	return (i);
-}
+}	
