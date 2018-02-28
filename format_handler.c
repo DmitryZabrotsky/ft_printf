@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int		handle_format(const char *fstr, va_list args, t_list **lst)
+int		handle_format(const char *fstr, va_list args)
 {
 	int i;
 	t_format *format;
@@ -16,8 +16,8 @@ int		handle_format(const char *fstr, va_list args, t_list **lst)
 		}
 		else
 		{
-			i += handle_flags(fstr, );
-			i += handle_width();
+			i += handle_flags(fstr, format);
+			i += handle_width(fstr, format, args);
 		}
 	}
 	print_format(format);

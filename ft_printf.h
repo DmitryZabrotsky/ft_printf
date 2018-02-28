@@ -47,6 +47,6 @@ int				handle_width(const char *fstr, t_format *format, va_list args);
 /*
  ** format_handler.c
 */
-int				handle_format(const char *fstr, va_list args, t_list **lst);
+int				handle_format(const char *fstr, va_list args);
 
 #endif
