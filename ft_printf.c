@@ -15,7 +15,7 @@ int			ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			i = i + handle_format(format + i, args); 
+			i = i + handle_format(format + i, &lst, args); 
 		}
 		else
 			i = i + handle_string(format + i, &lst);
