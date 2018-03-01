@@ -12,7 +12,7 @@ int		handle_width(const char *fstr, t_format *format, va_list args)
 	}
 	else
 	{
-		while (fstr[i] && fstr[i] != '.' && ft_isdigit(fstr[i]))
+		while (ft_isdigit(fstr[i]))
 			i++;
 		format->width = ft_atoi(fstr); 
 	}

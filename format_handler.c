@@ -20,6 +20,7 @@ int		handle_format(const char *fstr, t_list **lst, va_list args)
 	{
 		i += handle_flags(fstr + i, format);
 		i += handle_width(fstr + i, format, args);
+		i += handle_precision(fstr + i, format, args);
 	}
 	print_format(format);
 	free_format(&format);

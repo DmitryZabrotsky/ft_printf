@@ -49,4 +49,9 @@ int				handle_width(const char *fstr, t_format *format, va_list args);
 */
 int				handle_format(const char *fstr, t_list **lst, va_list args);
 
+/*
+ ** percision_handler.c
+*/
+int				handle_precision(const char *fstr, t_format *format, va_list args);
+
 #endif
