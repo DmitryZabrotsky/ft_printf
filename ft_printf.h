@@ -13,8 +13,8 @@ typedef struct	s_format
 	int			zero;
 	int			width;
 	int			precision;
-	char		*type;
-	char		conversion;
+	char		*size;
+	char		type;
 }				t_format;
 
 /*
@@ -54,4 +54,8 @@ int				handle_format(const char *fstr, t_list **lst, va_list args);
 */
 int				handle_precision(const char *fstr, t_format *format, va_list args);
 
+/*
+ ** size_handler.c
+*/
+int				handle_size(const char *fstr, t_format *format);
 #endif

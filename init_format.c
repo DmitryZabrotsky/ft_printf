@@ -15,21 +15,23 @@ t_format			*init_format(void)
 		ret->zero = 0;
 		ret->width = 0;
 		ret->precision = 0;
-		ret->type = 0;
-		ret->conversion = '\0';
+		ret->size = 0;
+		ret->type = '\0';
 	}
 	return (ret);
 }
 
 void 		print_format(t_format *format)
 {
-	printf(" -----> FLAGS:\nminus: %d\nplus: %d\nspace: %d\nhash: %d\nzero: %d\n\n ----> FORMAT:\nwidth: %d\nprecision: %d\ntype: %s\nconversion: %c\n", format->minus, format->plus, 
+	printf(" -----> FLAGS:\nminus: %d\nplus: %d\nspace: %d\nhash: %d\nzero: %d\n\n ----> FORMAT:\nwidth: %d\nprecision: %d\nsize: %s\ntype: %c\n", format->minus, format->plus, 
 	format->space, format->hash, format->zero, format->width, 
-	format->precision, format->type, format->conversion);
+	format->precision, format->size, format->type);
 }
 
 void	free_format(t_format **format)
 {
+	if ((*format)->size)
+		free((*format)->size);
 	free(*format);
 	*format = NULL;
 }
