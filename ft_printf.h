@@ -58,4 +58,9 @@ int				handle_precision(const char *fstr, t_format *format, va_list args);
  ** size_handler.c
 */
 int				handle_size(const char *fstr, t_format *format);
+
+/*
+ ** type_handler.c
+ */
+int				handle_type(const char *fstr, t_format *format);
 #endif

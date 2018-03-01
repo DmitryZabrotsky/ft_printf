@@ -8,7 +8,6 @@ int		handle_format(const char *fstr, t_list **lst, va_list args)
 
 	i = 0;
 	format = init_format();
-	ft_putendl(fstr);
 	if (fstr[i] == '%')
 	{
 		i++;
@@ -18,12 +17,18 @@ int		handle_format(const char *fstr, t_list **lst, va_list args)
 	}
 	else
 	{
+ft_putendl(fstr + i);
 		i += handle_flags(fstr + i, format);
+ft_putendl(fstr + i);
 		i += handle_width(fstr + i, format, args);
+ft_putendl(fstr + i);
 		i += handle_precision(fstr + i, format, args);
+ft_putendl(fstr + i);
 		i += handle_size(fstr + i, format);
+ft_putendl(fstr + i);
+		i += handle_type(fstr +i, format);
 	}
-	print_format(format);
+//print_format(format);
 	free_format(&format);
 	return (i);
 }	
