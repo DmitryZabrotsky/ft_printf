@@ -13,11 +13,6 @@ int			handle_size(const char *fstr, t_format *format)
 	else if (ft_strnequ(fstr, "j", 1))
 		format->size = ft_strdup("j");
 	else if (ft_strnequ(fstr, "z", 1))
-		format->size = ft_strdup("z");
-	int i; 
-	
-	i = (int)ft_strlen(format->size);
-	printf("format size length --> %i\n", (int)i);
-	
-	return (0);
+		format->size = ft_strdup("z");	
+	return ((int)ft_strlen(format->size));
 }
