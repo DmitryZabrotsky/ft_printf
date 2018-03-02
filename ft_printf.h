@@ -23,6 +23,7 @@ typedef struct	s_format
 t_format		*init_format(void);
 void			print_format(t_format *format);
 void			free_format(t_format **format);
+void 			print_format_table(t_format *format);
 
 /*
  ** flags_handler.c

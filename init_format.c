@@ -23,10 +23,14 @@ t_format			*init_format(void)
 
 void 		print_format(t_format *format)
 {
-	printf(" -----> FLAGS:\nminus: %d\nplus: %d\nspace: %d\nhash: %d\nzero: %d\n\n ----> FORMAT:\nwidth: %d\nprecision: %d\nsize: %s\ntype: %c\n", format->minus, format->plus, 
-	format->space, format->hash, format->zero, format->width, 
-	format->precision, format->size, format->type);
+	printf("\n--- FLAGS:       --- FORMAT:\nminus: %-10dwidth: %-10d\nplus: %-10d precision: %-10d\nspace: %-10dsize: %-10s\nhash: %-10d type: %-10c\nzero: %-10d\n\n",
+	format->minus, format->width,
+	format->plus, format->precision,
+	format->space, format->size,
+	format->hash, format->type, 
+	format->zero);
 }
+
 
 void	free_format(t_format **format)
 {

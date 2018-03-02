@@ -28,7 +28,7 @@ ft_putendl(fstr + i);
 ft_putendl(fstr + i);
 		i += handle_type(fstr +i, format);
 	}
-//print_format(format);
+print_format(format);
 	free_format(&format);
 	return (i);
 }	
