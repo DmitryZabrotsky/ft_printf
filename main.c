@@ -15,4 +15,8 @@ int		main(void)
 	*/
 
 	ft_printf("Privet\n%%\nend of str\n%+-0#*.42jX", 67);
+	ft_printf("%+0#.5");
+	ft_printf("%+ 0#");
+
+
 }

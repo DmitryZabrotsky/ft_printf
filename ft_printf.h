@@ -64,4 +64,10 @@ int				handle_size(const char *fstr, t_format *format);
  ** type_handler.c
  */
 int				handle_type(const char *fstr, t_format *format);
+
+/*
+  ** string_assembler.c
+*/
+char			*assemble_string(t_format *format);
+
 #endif

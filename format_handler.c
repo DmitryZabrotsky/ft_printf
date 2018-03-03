@@ -3,7 +3,7 @@
 int		handle_format(const char *fstr, t_list **lst, va_list args)
 {
 	int i;
-	char *percent;
+	char *str;
 	t_format *format;
 
 	i = 0;
@@ -11,9 +11,7 @@ int		handle_format(const char *fstr, t_list **lst, va_list args)
 	if (fstr[i] == '%')
 	{
 		i++;
-		percent = ft_strdup("%");
-		ft_lstaddend(lst, ft_lstnew(percent, ft_strlen(percent) + 1));
-		free(percent);
+		str = ft_strdup("%");
 	}
 	else
 	{
@@ -27,8 +25,11 @@ ft_putendl(fstr + i);
 		i += handle_size(fstr + i, format);
 ft_putendl(fstr + i);
 		i += handle_type(fstr +i, format);
+		str = assemble_string(format);
 	}
 print_format(format);
+	ft_lstaddend(lst, ft_lstnew(str, ft_strlen(str) + 1));
+	free(str);
 	free_format(&format);
 	return (i);
 }	

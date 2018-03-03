@@ -10,7 +10,13 @@ int main(void)
 	++i = i + x;
 	printf("%i\n", i);
 	*/
-	wchar_t c = L'ы';
-	printf("---> %C", c);
+//	wchar_t c = L'ы';
+//	printf("---> %C", c);
 	//ft_putstr("p");
+
+	char *str = "stroka";
+	int i = 63;
+	int si = -3666;
+
+	printf("%20.3s\n%-#20.5x\n%- 20d\n", str, i, si);
 }
