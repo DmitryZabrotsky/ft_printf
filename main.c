@@ -14,9 +14,11 @@ int		main(void)
 	ft_putnbr(len = ft_strlen("п"));
 	*/
 
-	ft_printf("Privet\n%%\nend of str\n%+-0#*.42jX", 67);
+	/*ft_printf("Privet\n%%\nend of str\n%+-0#*.42jX", 67);
 	ft_printf("%+0#.5");
-	ft_printf("%+ 0#");
+	ft_printf("%+ 0#");*/
 
+	char chr = 'Y';
+	ft_printf("%-10c\n", chr);
 
 }

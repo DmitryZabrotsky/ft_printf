@@ -23,7 +23,8 @@ static int		check_format(t_format *format)
 char			*assemble_string(t_format *format, va_list args)
 {
 	check_format(format);
-	if (format->type == 'c' || format_type == 'C')
+	if (format->type == 'c' || format->type == 'C')
 		return (build_c(format, args));
-	//str = ft_strdup("assembleing!\n");
+	else
+		return (NULL);
 }

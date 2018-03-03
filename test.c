@@ -19,5 +19,5 @@ int main(void)
 	int i = 63;
 	int si = -3666;
 
-	printf("%20c\n%20s\n%-#20.5x\n%20.10d\n", c, str, i, si);
+	printf("%10c\n%20s\n%-#20.5x\n%20.10d\n", c, str, i, si);
 }
