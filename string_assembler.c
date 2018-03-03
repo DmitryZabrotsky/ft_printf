@@ -20,11 +20,10 @@ static int		check_format(t_format *format)
 	return (0);
 }
 
-char			*assemble_string(t_format *format)
+char			*assemble_string(t_format *format, va_list args)
 {
-	char *str;
-
-	str = ft_strdup("assembleing!\n");
-	ft_putnbr(check_format(format));
-	return (str);
+	check_format(format);
+	if (format->type == 'c' || format_type == 'C')
+		return (build_c(format, args));
+	//str = ft_strdup("assembleing!\n");
 }

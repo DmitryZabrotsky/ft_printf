@@ -14,9 +14,10 @@ int main(void)
 //	printf("---> %C", c);
 	//ft_putstr("p");
 
+	char c = 'C';
 	char *str = "stroka";
 	int i = 63;
 	int si = -3666;
 
-	printf("%20.3s\n%-#20.5x\n%- 20d\n", str, i, si);
+	printf("%20c\n%20s\n%-#20.5x\n%20.10d\n", c, str, i, si);
 }

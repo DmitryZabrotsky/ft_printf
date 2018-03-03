@@ -68,6 +68,11 @@ int				handle_type(const char *fstr, t_format *format);
 /*
   ** string_assembler.c
 */
-char			*assemble_string(t_format *format);
+char			*assemble_string(t_format *format, va_list args);
+
+/*
+ ** builders/build_c.c
+*/
+char			*build_c(t_format *format, va_list args);
 
 #endif
