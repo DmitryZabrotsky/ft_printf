@@ -71,8 +71,20 @@ int				handle_type(const char *fstr, t_format *format);
 char			*assemble_string(t_format *format, va_list args);
 
 /*
- ** builders/build_c.c
+ ** builders/c_builder.c
 */
 char			*build_c(t_format *format, va_list args);
+
+/*
+ ** builders/s_builder.c
+*/
+char			*build_s(t_format *format, va_list args);
+
+/*
+ ** builders_tools.c
+*/
+void			set_precision(char **str, size_t precision);
+char			*set_width(int minus, size_t width, char *arg);
+void			sp_to_zero(char **str, size_t width);
 
 #endif

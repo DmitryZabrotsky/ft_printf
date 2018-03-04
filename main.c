@@ -21,4 +21,6 @@ int		main(void)
 	char chr = 'Y';
 	ft_printf("%-10c\n", chr);
 
+	char *str = "Hello ft_printf!";
+	ft_printf("%-10.0s\n", str);
 }

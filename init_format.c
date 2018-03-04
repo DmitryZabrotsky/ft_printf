@@ -14,7 +14,7 @@ t_format			*init_format(void)
 		ret->hash = 0;
 		ret->zero = 0;
 		ret->width = 0;
-		ret->precision = 0;
+		ret->precision = -1;
 		ret->size = 0;
 		ret->type = '\0';
 	}

@@ -25,6 +25,8 @@ char			*assemble_string(t_format *format, va_list args)
 	check_format(format);
 	if (format->type == 'c' || format->type == 'C')
 		return (build_c(format, args));
+	else if (format->type == 's' || format->type == 'S')
+		return (build_s(format, args));
 	else
 		return (NULL);
 }
