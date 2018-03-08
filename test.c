@@ -2,7 +2,7 @@
 #include "./libft/libft.h"
 #include <wchar.h>
 
-void		set_precision(char **str, size_t precision)
+/*void		set_precision(char **str, size_t precision)
 {
 	size_t	len;
 	size_t	del;
@@ -17,13 +17,25 @@ void		set_precision(char **str, size_t precision)
 		printf("%s\n", *str);
 	}
 }
-
+*/
 int main(void)
 {
-	char *h;
+	int i = 543;
+	int d = -219;
+	
+
+	printf("%- 20.10i\n%020.10d\n", i, d);
+
+	char *s = ft_strdup("-543");
+	if (*s == '-')
+		s = ft_strdup(s + 1);
+	printf("%s\n", s);
+//	printf("%hhi %hi %li %lli %ji %zi", d, d, d, d, d, d);
+
+	/*char *h;
 	h = ft_strdup("hello");
 	set_precision(&h, 3);
-	ft_putendl(h);
+	ft_putendl(h);*/
 	
 	/*int i = 0;
 	int x = 8;

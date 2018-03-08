@@ -81,10 +81,20 @@ char			*build_c(t_format *format, va_list args);
 char			*build_s(t_format *format, va_list args);
 
 /*
- ** builders_tools.c
+ ** tools.c
 */
 void			set_precision(char **str, size_t precision);
 char			*set_width(int minus, size_t width, char *arg);
 void			sp_to_zero(char **str, size_t width);
+
+/*
+ ** /builders/build_di.c
+*/
+char			*build_di(t_format *format, va_list args);
+
+/*
+ ** /builders/numtools.c
+*/
+char			*set_sign(t_format *format, char *arg);
 
 #endif

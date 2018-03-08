@@ -13,18 +13,20 @@ char		*set_width(int minus, size_t width, char *arg)
 	len = ft_strlen(arg);
 	if (width > len)
 	{	
-		str = ft_strnew(width);
-		if (minus)
+		if ((str = ft_strnew(width)))
 		{
-			ft_strcpy(str, arg);
-			ft_memset(str + len, ' ', width - len);
+			if (minus)
+			{
+				ft_strcpy(str, arg);
+				ft_memset(str + len, ' ', width - len);
+			}
+			else
+			{
+				ft_memset(str, ' ', width - len);
+				ft_strcpy(str + width - len, arg);
+			}
+			return (str);
 		}
-		else
-		{
-			ft_memset(str, ' ', width - len);
-			ft_strcpy(str + width - len, arg);
-		}
-		return (str);
 	}
 	else
 		return (arg);
