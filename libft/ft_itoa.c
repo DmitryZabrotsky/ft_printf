@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-static int			s_len(int n)
+static int			s_len(intmax_t n)
 {
-	unsigned int	nbr;
+	uintmax_t		nbr;
 	int				c;
 
 	c = 0;
@@ -35,7 +35,7 @@ static int			s_len(int n)
 	return (c + 1);
 }
 
-static char			*setter(int len, unsigned int n, int sign)
+static char			*setter(int len, uintmax_t n, int sign)
 {
 	char			*res;
 
@@ -52,10 +52,10 @@ static char			*setter(int len, unsigned int n, int sign)
 	return (res);
 }
 
-char				*ft_itoa(int n)
+char				*ft_itoa(intmax_t n)
 {
 	int				sign;
-	unsigned int	nbr;
+	uintmax_t		nbr;
 
 	sign = 0;
 	if (n < 0)

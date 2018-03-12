@@ -18,13 +18,14 @@ int		main(void)
 	ft_printf("%+0#.5");
 	ft_printf("%+ 0#");*/
 
-	char chr = 'Y';
+	/*char chr = 'Y';
 	ft_printf("%-10c\n", chr);
 
 	char *str = "Hello ft_printf!";
-	ft_printf("%-10s\n", str);
+	char *str1 = "Hello Dina!";
+	ft_printf("%s\n%s\n", str, str1);*/
 
 	int p = 532;
-	int n = -36;
-	ft_printf("%i\n%d\n", p, n);
+	int n = -74;
+	ft_printf("%.5i\n%0.5d\n", p, n);
 }

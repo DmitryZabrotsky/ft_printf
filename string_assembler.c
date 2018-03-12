@@ -7,7 +7,7 @@ static int		check_format(t_format *format)
 		format->zero = 0;
 		return (1);
 	}
-	if (format->zero && format->precision)
+	if (format->zero && format->precision >= 0)
 	{
 		format->zero = 0;
 		return (2);
