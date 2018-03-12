@@ -1,10 +1,5 @@
 #include "../ft_printf.h"
 
-void		sp_to_zero(char **str, size_t width)
-{
-	*str = (char *)(ft_memset(str, '0', width));
-}
-
 char		*set_width(int minus, size_t width, char *arg)
 {
 	char	*str;
@@ -28,8 +23,7 @@ char		*set_width(int minus, size_t width, char *arg)
 			return (str);
 		}
 	}
-	else
-		return (arg);
+	return (arg);
 }
 
 void		set_precision(char **str, size_t precision)

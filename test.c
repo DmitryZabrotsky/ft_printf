@@ -24,7 +24,7 @@ int main(void)
 	int d = -219;
 	
 
-	printf("%- 20.10i\n%020.10d\n", i, d);
+	printf("%- 20.10i\n%010d\n", i, d);
 
 	char *s = ft_strdup("-543");
 	if (*s == '-')

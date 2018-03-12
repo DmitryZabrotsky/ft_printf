@@ -22,5 +22,9 @@ int		main(void)
 	ft_printf("%-10c\n", chr);
 
 	char *str = "Hello ft_printf!";
-	ft_printf("%-10.0s\n", str);
+	ft_printf("%-10s\n", str);
+
+	int p = 532;
+	int n = -36;
+	ft_printf("%i\n%d\n", p, n);
 }

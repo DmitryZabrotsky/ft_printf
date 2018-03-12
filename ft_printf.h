@@ -85,7 +85,6 @@ char			*build_s(t_format *format, va_list args);
 */
 void			set_precision(char **str, size_t precision);
 char			*set_width(int minus, size_t width, char *arg);
-void			sp_to_zero(char **str, size_t width);
 
 /*
  ** /builders/build_di.c
@@ -93,8 +92,11 @@ void			sp_to_zero(char **str, size_t width);
 char			*build_di(t_format *format, va_list args);
 
 /*
- ** /builders/numtools.c
+ ** /builders/num_tools.c
 */
 char			*set_sign(t_format *format, char *arg);
+char			*set_num_precision(int precision, char *arg);
+char			*set_free_width(size_t width, int zero);
+char			*del_sign(char *arg);
 
 #endif
