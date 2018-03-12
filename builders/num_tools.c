@@ -39,8 +39,8 @@ char			*set_num_precision(int precision, char *arg)
 	{
 		if ((str = ft_strnew(precision)))
 		{
-			ft_strcpy(str + len, num);
 			ft_memset(str, '0', precision - len);
+			ft_strcpy(str + precision - len, num);
 			free(num);
 			num = NULL;
 			return (str); 

@@ -26,7 +26,6 @@ static void			make_di(t_format *format, char **arg)
 
 	num = del_sign(*arg);
 	sign = set_sign(format, *arg);
-printf("SIGN: %s\n", sign);
 	if (format->zero && format->width)
 		num = build_zero_str(format->width, *arg, sign);
 	else

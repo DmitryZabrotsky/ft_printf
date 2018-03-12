@@ -27,5 +27,5 @@ int		main(void)
 
 	int p = 532;
 	int n = -74;
-	ft_printf("%.5i\n%0.5d\n", p, n);
+	ft_printf("% .10i\n%.10d\n", p, n);
 }

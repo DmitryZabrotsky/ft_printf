@@ -23,14 +23,14 @@ int main(void)
 	int i = 543;
 	int d = -219;
 	
-	printf("%s\n%s\n%x\n", ft_itoa(i), ft_itoa(d), d);
+//	printf("%s\n%s\n%x\n", ft_itoa(i), ft_itoa(d), d);
 
-	/*printf("%- 20.10i\n%010d\n", i, d);
+	printf("%- .10i\n%.10d\n", i, d);
 
 	char *s = ft_strdup("-543");
 	if (*s == '-')
 		s = ft_strdup(s + 1);
-	printf("%s\n", s);*/
+	printf("%s\n", s);
 //	printf("%hhi %hi %li %lli %ji %zi", d, d, d, d, d, d);
 
 	/*char *h;
