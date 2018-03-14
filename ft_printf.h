@@ -99,4 +99,9 @@ char			*set_num_precision(int precision, char *arg);
 char			*set_free_width(size_t width, int zero);
 char			*del_sign(char *arg);
 
+/*
+ ** /builders/oux_builder.c
+*/
+char			*build_oux(t_format *format, va_list args);
+
 #endif

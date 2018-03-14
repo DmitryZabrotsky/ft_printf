@@ -18,19 +18,32 @@
 	}
 }
 */
+
+void to_upper(char **str)
+{
+	int i;
+
+	i = 0;
+	while ((*str)[i])
+	{
+		if ((*str)[i] >= 'a' && (*str)[i] <= 'z')
+			(*str)[i] = (*str)[i] - 32;
+		printf("%c\n", (*str)[i]);
+		i++;
+	}
+}
+
 int main(void)
 {
-	int i = 543;
-	int d = -219;
-	
+//	int i = 543;
+//	int d = -219;
+	char *str = ft_strdup("0x142hello!");
+	to_upper(&str);
+	printf("%s\n", str);
 //	printf("%s\n%s\n%x\n", ft_itoa(i), ft_itoa(d), d);
 
-	printf("%- .10i\n%.10d\n", i, d);
-
-	char *s = ft_strdup("-543");
-	if (*s == '-')
-		s = ft_strdup(s + 1);
-	printf("%s\n", s);
+//	printf("%- .10i\n%.10d\n", i, d);
+	
 //	printf("%hhi %hi %li %lli %ji %zi", d, d, d, d, d, d);
 
 	/*char *h;

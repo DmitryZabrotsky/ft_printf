@@ -49,9 +49,9 @@ static char			*take_di(t_format *format, va_list args)
 		if (format->size)
 		{
 			if (ft_strequ(format->size, "hh"))
-				return (ft_itoa((int)va_arg(args, int)));
+				return (ft_itoa((signed char)va_arg(args, int)));
 			else if (ft_strequ(format->size, "h"))
-				return (ft_itoa((int)va_arg(args, int)));
+				return (ft_itoa((short)va_arg(args, int)));
 			else if (ft_strequ(format->size, "l"))
 				return (ft_itoa(va_arg(args, long)));
 			else if (ft_strequ(format->size, "ll"))
@@ -72,7 +72,6 @@ char				*build_di(t_format *format, va_list args)
 	char			*arg;
 
 	arg = take_di(format, args);
-printf("arg after take_di: %s\n", arg);
 	make_di(format, &arg);
 	return (arg);
 }
