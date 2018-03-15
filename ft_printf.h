@@ -104,4 +104,9 @@ char			*del_sign(char *arg);
 */
 char			*build_oux(t_format *format, va_list args);
 
+/*
+ ** /builders/p_builder.c
+*/
+char			*build_p(t_format *format, va_list args);
+
 #endif

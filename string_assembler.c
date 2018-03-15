@@ -32,8 +32,8 @@ char			*assemble_string(t_format *format, va_list args)
 	else if (format->type == 'o' || format->type == 'u' || format->type == 'U'
 		|| format->type == 'x' || format->type == 'X')
 		return (build_oux(format, args));
-	/*else if (format->type == 'p')
-		return (build_p(format, args));*/
+	else if (format->type == 'p')
+		return (build_p(format, args));
 	else
 		return (NULL);
 }

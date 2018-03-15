@@ -40,7 +40,13 @@ int		main(void)
 
 	ft_printf("%D\n%hhi\n%hi\n%li\n%lli\n%ji\n%zi\n", D, hh, h, l, ll, intmax, s);*/
 
-	int n = 689;
+	/*int n = 689;
 
-	ft_printf("%#o\n%u\n%#.10x\n%#.10X\n", n, n, n, n);
+	ft_printf("%#o\n%u\n%#.10x\n%#.10X\n", n, n, n, n);*/
+
+	char *ptr = "Hi!";
+
+	printf("addr of ptr: %20p\n", ptr);
+	ft_printf("my addr of ptr: %-20p\n", ptr);
+	//ft_printf("my addr of ptr: %#lx\n", ptr);
 }
