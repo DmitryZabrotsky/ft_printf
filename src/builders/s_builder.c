@@ -1,4 +1,4 @@
-#include "../ft_printf.h"
+#include "../../inc/ft_printf.h"
 
 char		*build_s(t_format *format, va_list args)
 {

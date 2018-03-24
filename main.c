@@ -44,9 +44,20 @@ int		main(void)
 
 	ft_printf("%#o\n%u\n%#.10x\n%#.10X\n", n, n, n, n);*/
 
-	char *ptr = "Hi!";
+
+	/*char *ptr = "Hi!";
 
 	printf("addr of ptr: %20p\n", ptr);
 	ft_printf("my addr of ptr: %-20p\n", ptr);
-	//ft_printf("my addr of ptr: %#lx\n", ptr);
+	//ft_printf("my addr of ptr: %#lx\n", ptr);*/
+
+
+	/*int b = 38;
+
+	ft_printf("%b\n", b);*/
+
+
+	double d = 5.64;
+
+	ft_printf("%f", d);
 }

@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "../../inc/ft_printf.h"
 
 static int		handle_flag(const char fchr, t_format *format)
 {

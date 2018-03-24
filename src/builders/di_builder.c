@@ -1,4 +1,4 @@
-#include "../ft_printf.h"
+#include "../../inc/ft_printf.h"
 
 static char			*build_zero_str(size_t width, char *num, char *sign)
 {

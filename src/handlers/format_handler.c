@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "../../inc/ft_printf.h"
 
 int		handle_format(const char *fstr, t_list **lst, va_list args)
 {

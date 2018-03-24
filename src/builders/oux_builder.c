@@ -1,4 +1,4 @@
-#include "../ft_printf.h"
+#include "../../inc/ft_printf.h"
 
 static void			to_upper(char **str)
 {
@@ -83,6 +83,8 @@ char				*build_oux(t_format *format, va_list args)
 		arg = take_oux(format, args, 8);
 	else if (format->type == 'x' || format->type == 'X')
 		arg = take_oux(format, args, 16);
+	else if (format->type == 'b')
+		arg = take_oux(format, args, 2);
 	make_oux(format, &arg);
 	if (format->type == 'X')
 		to_upper(&arg);

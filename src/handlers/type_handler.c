@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "../../inc/ft_printf.h"
 
 int			handle_type(const char *fstr, t_format *format)
 {

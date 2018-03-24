@@ -1,4 +1,4 @@
-#include "../ft_printf.h"
+#include "../../inc/ft_printf.h"
 
 static unsigned char		take_c(va_list args)
 {

@@ -1,4 +1,4 @@
-#include "../ft_printf.h"
+#include "../../inc/ft_printf.h"
 
 char		*set_width(int minus, size_t width, char *arg)
 {

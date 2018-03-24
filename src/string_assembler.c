@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "../inc/ft_printf.h"
 
 static int		check_format(t_format *format)
 {
@@ -34,6 +34,13 @@ char			*assemble_string(t_format *format, va_list args)
 		return (build_oux(format, args));
 	else if (format->type == 'p')
 		return (build_p(format, args));
+	else if (format->type == 'b')
+		return (build_oux(format, args));
+	else if (format->type == 'f' || format->type == 'F')
+	{
+		build_f(format, args);
+		return(ft_strdup("FLOAT INDA HOUSE!"));
+	}
 	else
 		return (NULL);
 }

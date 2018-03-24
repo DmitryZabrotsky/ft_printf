@@ -1,7 +1,7 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libftprintf.h"
+# include "../libftprintf.h"
 # include <stdio.h> //DELETE after done!
 
 typedef struct	s_format
@@ -108,5 +108,10 @@ char			*build_oux(t_format *format, va_list args);
  ** /builders/p_builder.c
 */
 char			*build_p(t_format *format, va_list args);
+
+/*
+ **
+*/
+void			build_f(t_format *format, va_list args);
 
 #endif

@@ -1,4 +1,4 @@
-#include "../ft_printf.h"
+#include "../../inc/ft_printf.h"
 
 char			*set_sign(t_format *format, char *arg)
 {
