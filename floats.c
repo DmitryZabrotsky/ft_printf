@@ -37,11 +37,15 @@ int main(void)
 	//double f = 12;
 	//printf("%f\n%20e\n%20a\n\n", f, f, f);
 	//PRIVET GIT!
-	long double num = 64;
-	printf("%Lf\n", num);
+	long double num = 64.654;
+	printf("%.2Lf\n", num);
 	printf("%.64Lf\n\n", num);
 	num += 1e-9;
 	printf("%.64Lf\n\n\n", num);
-	printf("\n%s\n", f_to_str(6 ,num));
+	printf("\n%s\n", f_to_str(2 ,num));
+
+	/*double d = 5.64;
+	printf("%f\n\n", d);
+	printf("%s\n", f_to_str(6, (long double)d));*/
 }
 

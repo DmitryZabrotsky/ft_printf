@@ -112,6 +112,6 @@ char			*build_p(t_format *format, va_list args);
 /*
  **
 */
-void			build_f(t_format *format, va_list args);
+char			*build_f(t_format *format, va_list args);
 
 #endif

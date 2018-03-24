@@ -58,6 +58,7 @@ int		main(void)
 
 
 	double d = 5.64;
+	long double ld = 32.41;
 
-	ft_printf("%f", d);
+	ft_printf("%.7f\n%F\n", d, ld);
 }

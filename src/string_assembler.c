@@ -37,10 +37,7 @@ char			*assemble_string(t_format *format, va_list args)
 	else if (format->type == 'b')
 		return (build_oux(format, args));
 	else if (format->type == 'f' || format->type == 'F')
-	{
-		build_f(format, args);
-		return(ft_strdup("FLOAT INDA HOUSE!"));
-	}
+		return(build_f(format, args));
 	else
 		return (NULL);
 }
