@@ -36,7 +36,7 @@ int main(void)
 {
 	//double f = 12;
 	//printf("%f\n%20e\n%20a\n\n", f, f, f);
-
+	//PRIVET GIT!
 	long double num = 64;
 	printf("%Lf\n", num);
 	printf("%.64Lf\n\n", num);
