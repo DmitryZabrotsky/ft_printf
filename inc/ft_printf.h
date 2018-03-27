@@ -98,6 +98,7 @@ char			*set_sign(t_format *format, char *arg);
 char			*set_num_precision(int precision, char *arg);
 char			*set_free_width(size_t width, int zero);
 char			*del_sign(char *arg);
+char			*build_zero_str(size_t width, char *num, char *sign);
 
 /*
  ** /builders/oux_builder.c

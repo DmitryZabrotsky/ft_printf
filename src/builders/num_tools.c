@@ -61,6 +61,25 @@ char			*set_free_width(size_t width, int zero)
 	return(str);
 }
 
+char			*build_zero_str(size_t width, char *num, char *sign)
+{
+	char			*str;
+	char			*buf;
+
+	str = set_free_width(width, 1);
+	buf = del_sign(num);
+	if (sign)
+	{
+		ft_memcpy(str, sign, ft_strlen(sign));
+		ft_memcpy(str + width - ft_strlen(buf), buf, ft_strlen(buf));
+	}
+	else
+		ft_memcpy(str + width - ft_strlen(buf), buf, ft_strlen(buf));
+	free (buf);
+	buf = NULL;
+	return (str);
+}
+
 char			*del_sign(char *arg)
 {
 	char		*num;

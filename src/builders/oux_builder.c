@@ -14,25 +14,6 @@ static void			to_upper(char **str)
 	}
 }
 
-static char			*build_zero_str(size_t width, char *num, char *sign)
-{
-	char			*str;
-	char			*buf;
-
-	str = set_free_width(width, 1);
-	buf = del_sign(num);
-	if (sign)
-	{
-		ft_memcpy(str, sign, ft_strlen(sign));
-		ft_memcpy(str + width - ft_strlen(buf), buf, ft_strlen(buf));
-	}
-	else
-		ft_memcpy(str + width - ft_strlen(buf), buf, ft_strlen(buf));
-	free (buf);
-	buf = NULL;
-	return (str);
-}
-
 static void			make_oux(t_format *format, char **arg)
 {
 	char			*num;

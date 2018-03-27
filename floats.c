@@ -38,7 +38,7 @@ int main(void)
 	//printf("%f\n%20e\n%20a\n\n", f, f, f);
 	//PRIVET GIT!
 	long double num = 64.654;
-	printf("%.2Lf\n", num);
+	printf("\n%+020Lf\n\n", num);
 	printf("%.64Lf\n\n", num);
 	num += 1e-9;
 	printf("%.64Lf\n\n\n", num);
