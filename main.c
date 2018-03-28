@@ -60,5 +60,5 @@ int		main(void)
 	double d = -5.64;
 	long double ld = 32.41;
 
-	ft_printf("%020f\n%020F\n", d, ld);
+	ft_printf("%020f\n%+-20F\n", d, ld);
 }
