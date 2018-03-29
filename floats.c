@@ -35,42 +35,46 @@ int f_to_e(long double *num)
 	}
 	return (e);
 }
+	ft_dmleak
+int ft_assign(char **src, char *dst)
+{
+	if (!(*src) || !(dst))
+		return (0);
+	free (*src);
+	*src = dst;
+	return (1);
+}
 
 char *find_exp(int e)
 {
 	char *res;
 
-	if (e == 0)
-		return ("00");
+	if (e < 0)
+	{
+		e *= -1;
+		res = ft_itoa(e);
+		if (e < 10)
+		{	
+			ft_assign(&res, ft_strjoin("0", res));
+			ft_assign(&res, ft_strjoin("e-", res));
+		}
+		else
+			ft_assign(&res, ft_strjoin("e-", res));
+	}
 	else
 	{
 		res = ft_itoa(e);
-		if (e < 1)
-		{
-			e *= -1;
-			if (e < 10)
-			{	
-				res = ft_strjoin("0", res);
-				res = ft_strjoin("e-", res);
-			}
-			else
-				res = ft_strjoin("e-", res);
-		}
+		if (e < 10)
+			ft_assign(&res, ft_strjoin("e+0", res));
 		else
-		{
-			if (e < 10)
-				res = ft_strjoin("e+0", res);
-			else
-				res = ft_strjoin("e+", res); 
-	
-		}
-		return (res);
+			ft_assign(&res, ft_strjoin("e+", res)); 
 	}
+	return (res);
 }
 //01234567890123456789012345678901234567890123456789012345678901234567890123456789
 int main(void)
 {
-	long double f = 0.64;
+	long double f = -1.02;
 	long double num = f;
 	int e;
 
