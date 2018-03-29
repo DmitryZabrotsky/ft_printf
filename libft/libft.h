@@ -103,4 +103,6 @@ char				**ft_lsttoarr(t_list *lst);
 
 char				*ft_itoa_base(uintmax_t num, int base);
 void				ft_lstfree(t_list **lst);
+int					ft_mleak(char **src, char *dst);
+
 #endif

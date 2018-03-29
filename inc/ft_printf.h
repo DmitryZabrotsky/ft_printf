@@ -104,6 +104,7 @@ char			*build_zero_str(size_t width, char *num, char *sign);
  ** /builders/oux_builder.c
 */
 char			*build_oux(t_format *format, va_list args);
+void			to_upper(char **str);
 
 /*
  ** /builders/p_builder.c
@@ -111,8 +112,20 @@ char			*build_oux(t_format *format, va_list args);
 char			*build_p(t_format *format, va_list args);
 
 /*
- **
+ ** /builders/f_builder.c
 */
 char			*build_f(t_format *format, va_list args);
+char			*f_to_str(int prec, long double num);
+
+/*
+ ** /builders/floats_tools.c
+*/
+char			*check_sign(long double *num);
+
+/*
+ ** /builders/e_builder.c
+*/
+char			*build_e(t_format *format, va_list args);
+
 
 #endif

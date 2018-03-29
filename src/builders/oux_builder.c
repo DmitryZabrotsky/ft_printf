@@ -1,6 +1,6 @@
 #include "../../inc/ft_printf.h"
 
-static void			to_upper(char **str)
+void			to_upper(char **str)
 {
 	int i;
 
@@ -9,7 +9,6 @@ static void			to_upper(char **str)
 	{
 		if ((*str)[i] >= 'a' && (*str)[i] <= 'z')
 			(*str)[i] = (*str)[i] - 32;
-		printf("%c\n", (*str)[i]);
 		i++;
 	}
 }

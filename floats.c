@@ -35,8 +35,8 @@ int f_to_e(long double *num)
 	}
 	return (e);
 }
-	ft_dmleak
-int ft_assign(char **src, char *dst)
+	
+int ft_mleak(char **src, char *dst)
 {
 	if (!(*src) || !(dst))
 		return (0);
@@ -55,19 +55,19 @@ char *find_exp(int e)
 		res = ft_itoa(e);
 		if (e < 10)
 		{	
-			ft_assign(&res, ft_strjoin("0", res));
-			ft_assign(&res, ft_strjoin("e-", res));
+			ft_mleak(&res, ft_strjoin("0", res));
+			ft_mleak(&res, ft_strjoin("e-", res));
 		}
 		else
-			ft_assign(&res, ft_strjoin("e-", res));
+			ft_mleak(&res, ft_strjoin("e-", res));
 	}
 	else
 	{
 		res = ft_itoa(e);
 		if (e < 10)
-			ft_assign(&res, ft_strjoin("e+0", res));
+			ft_mleak(&res, ft_strjoin("e+0", res));
 		else
-			ft_assign(&res, ft_strjoin("e+", res)); 
+			ft_mleak(&res, ft_strjoin("e+", res)); 
 	}
 	return (res);
 }
@@ -80,7 +80,7 @@ int main(void)
 
 	check_sign(&num);
 	e = f_to_e(&num);
-	printf("e: %i  num: %Lf  exp: %s\n%Le\n%La\n", e, num, find_exp(e), f, f);
+	printf("e: %i  num: %Lf  exp: %s\n%.0Le\n%La\n", e, num, find_exp(e), f, f);
 }
 
 /*char *f_to_str(int prec, long double num)

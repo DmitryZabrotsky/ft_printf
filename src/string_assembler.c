@@ -38,6 +38,8 @@ char			*assemble_string(t_format *format, va_list args)
 		return (build_oux(format, args));
 	else if (format->type == 'f' || format->type == 'F')
 		return(build_f(format, args));
+	else if (format->type == 'e' || format->type == 'E')
+		return(build_e(format, args));
 	else
 		return (NULL);
 }

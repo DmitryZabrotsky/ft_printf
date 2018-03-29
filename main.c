@@ -57,8 +57,14 @@ int		main(void)
 	ft_printf("%b\n", b);*/
 
 
-	double d = -5.64;
+	/*double d = -5.64;
 	long double ld = 32.41;
 
-	ft_printf("%020f\n%+-20F\n", d, ld);
+	ft_printf("%020f\n%+-20F\n", d, ld);*/
+
+
+	double e = 0.64;
+	long double le = 32.41;
+
+	ft_printf("%.10e\n%+-20E\n", e, le);
 }

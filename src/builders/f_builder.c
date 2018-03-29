@@ -1,17 +1,6 @@
 #include "../../inc/ft_printf.h"
 
-static char				*check_sign(long double *num)
-{
-	if (*num < 0)
-	{
-		*num *= -1;
-		return ("-"); 
-	}
-	else
-		return (NULL);
-}
-
-static char				*f_to_str(int prec, long double num)
+char				*f_to_str(int prec, long double num)
 {
 	char *str;
 	char *dot;

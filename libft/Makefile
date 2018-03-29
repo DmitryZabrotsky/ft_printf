@@ -29,7 +29,7 @@ SRC = ft_lstprint.c	ft_striter.c ft_striteri.c \
 	  ft_strtrim.c ft_lstiter.c ft_strcmp.c ft_tolower.c  \
 	  ft_strcpy.c ft_toupper.c ft_lstmap.c ft_strdel.c \
 	  ft_lstnew.c ft_strdup.c ft_strequ.c ft_itoa_base.c \
-	  ft_lstfree.c
+	  ft_lstfree.c ft_mleak.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
