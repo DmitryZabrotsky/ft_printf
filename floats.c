@@ -6,34 +6,63 @@ int f_to_a(long double *num)
 	int p;
 
 	p = 0;
-	while (8 > (int)(*num) || 16 < (int)(*num))
+	while (8 >= (intmax_t)(*num) || 16 < (intmax_t)(*num))
 	{
 		
-		if ((int)(*num) < 8)
+		if ((intmax_t)(*num) < 8)
 		{
 			*num *= 2;
 			p--;
-			//printf("p--: %i\n", p);
 		}
-		if ((int)(*num) > 16)
+		if ((intmax_t)(*num) > 16)
 		{
 			*num /= 2;
 			p++;
-			//printf("p++: %i\n", p);
 		}
 	}
 	return (p);
 }
 
+char				*f_to_hexstr(int prec, long double num)
+{
+	char *str;
+	char *dot;
+	int i;
+	char alph[16] = "0123456789abcdef";
+
+	str = ft_itoa_base(num, 16);
+	if (prec > 0)
+	{	
+		str = ft_strjoin(str, ".");
+		dot = ft_strnew(prec);
+		/*if (prec <= 13)
+			num += 1e-9;*/
+		i = 0;
+		while (prec > 0)
+		{
+			num -= (intmax_t)num;
+			num *= 16;
+			dot[i] = alph[(intmax_t)num];
+			i++;
+			prec--;
+		}
+		str = ft_strjoin(str, dot);
+	}
+	return (str);
+}
+
 int main(void)
 {
-	long double f = 1;
+	long double f = 5.64;
 	long double num = f;
 	int p;
+	char *res;
 
 	check_sign(&num);
 	p = f_to_a(&num);
 	printf("\np: %i  num: %Lf\n\n%Lf => %La\n\n", p, num, f, f);
+	res = f_to_hexstr(15, num);
+	printf("p: %.15La\nres: %s\n", f, res);
 }
 
 /*static char				*check_sign(long double *num)

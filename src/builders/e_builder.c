@@ -5,20 +5,17 @@ static int				f_to_e(long double *num)
 	int					e;
 
 	e = 0;
-	while (1 > (int)(*num) || 9 < (int)(*num))
+	while (1 > (intmax_t)(*num) || 9 < (intmax_t)(*num))
 	{
-		printf("while!\n");
-		if ((int)(*num) < 1)
+		if ((intmax_t)(*num) < 1)
 		{
 			*num *= 10;
 			e--;
-			printf("e--: %i\n", e);
 		}
-		if ((int)(*num) > 9)
+		if ((intmax_t)(*num) > 9)
 		{
 			*num /= 10;
 			e++;
-			printf("e++: %i\n", e);
 		}
 	}
 	return (e);
