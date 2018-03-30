@@ -6,9 +6,9 @@ int f_to_a(long double *num)
 	int p;
 
 	p = 0;
-	while (8 >= (intmax_t)(*num) || 16 < (intmax_t)(*num))
+	while (8 > (intmax_t)(*num) || 16 < (intmax_t)(*num))
 	{
-		
+		//printf("in while: %Lf\n", *num);
 		if ((intmax_t)(*num) < 8)
 		{
 			*num *= 2;
@@ -23,6 +23,27 @@ int f_to_a(long double *num)
 	return (p);
 }
 
+static char				*find_exp(int p)
+{
+	char				*res;
+
+	if (p < 0)
+	{
+		p *= -1;
+		res = ft_itoa(p);
+		if (p < 10)
+			ft_mleak(&res, ft_strjoin("p-", res));
+		else
+			ft_mleak(&res, ft_strjoin("p-", res));
+	}
+	else
+	{
+		res = ft_itoa(p);
+		ft_mleak(&res, ft_strjoin("p+", res)); 
+	}
+	return (res);
+}
+
 char				*f_to_hexstr(int prec, long double num)
 {
 	char *str;
@@ -32,11 +53,9 @@ char				*f_to_hexstr(int prec, long double num)
 
 	str = ft_itoa_base(num, 16);
 	if (prec > 0)
-	{	
+	{
 		str = ft_strjoin(str, ".");
 		dot = ft_strnew(prec);
-		/*if (prec <= 13)
-			num += 1e-9;*/
 		i = 0;
 		while (prec > 0)
 		{
@@ -53,15 +72,17 @@ char				*f_to_hexstr(int prec, long double num)
 
 int main(void)
 {
-	long double f = 5.64;
+	long double f = 2;
+	printf("PRF: %La\n", f);
 	long double num = f;
-	int p;
 	char *res;
+	char *exp;
 
 	check_sign(&num);
-	p = f_to_a(&num);
-	printf("\np: %i  num: %Lf\n\n%Lf => %La\n\n", p, num, f, f);
+	exp = find_exp(f_to_a(&num));
 	res = f_to_hexstr(15, num);
+	res = ft_strjoin("0x", res);
+	res = ft_strjoin(res, exp);
 	printf("p: %.15La\nres: %s\n", f, res);
 }
 

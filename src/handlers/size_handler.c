@@ -10,6 +10,8 @@ int			handle_size(const char *fstr, t_format *format)
 		format->size = ft_strdup("ll");
 	else if (ft_strnequ(fstr, "l", 1))
 		format->size = ft_strdup("l");
+	else if (ft_strnequ(fstr, "L", 1))
+		format->size = ft_strdup("L");
 	else if (ft_strnequ(fstr, "j", 1))
 		format->size = ft_strdup("j");
 	else if (ft_strnequ(fstr, "z", 1))

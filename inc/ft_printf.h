@@ -127,5 +127,8 @@ char			*check_sign(long double *num);
 */
 char			*build_e(t_format *format, va_list args);
 
-
+/*
+ ** /builders/a_builder.c
+*/
+char			*build_a(t_format *format, va_list args);
 #endif

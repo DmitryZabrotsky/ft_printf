@@ -1,0 +1,125 @@
+#include "../../inc/ft_printf.h"
+
+static int f_to_a(long double *num, t_format *format)
+{
+	int p;
+	int min;
+	int max;
+
+	min = ft_strequ(format->size, "L") ? 8 : 1;
+	max = ft_strequ(format->size, "L") ? 16 : 2;
+	p = 0;
+	while (min > (intmax_t)(*num) || max <= (intmax_t)(*num))
+	{
+		printf("%Lf\n", *num);
+		if ((intmax_t)(*num) < min)
+		{
+			*num *= 2;
+			p--;
+		}
+		if ((intmax_t)(*num) >= max)
+		{
+			*num /= 2;
+			p++;
+		}
+	}
+	return (p);
+}
+
+static char				*find_exp(int p)
+{
+	char				*res;
+
+	if (p < 0)
+	{
+		p *= -1;
+		res = ft_itoa(p);
+		if (p < 10)
+			ft_mleak(&res, ft_strjoin("p-", res));
+		else
+			ft_mleak(&res, ft_strjoin("p-", res));
+	}
+	else
+	{
+		res = ft_itoa(p);
+		ft_mleak(&res, ft_strjoin("p+", res)); 
+	}
+	return (res);
+}
+
+static char				*f_to_hexstr(int prec, long double num)
+{
+	char *str;
+	char *dot;
+	int i;
+	char alph[16] = "0123456789abcdef";
+
+	str = ft_itoa_base(num, 16);
+	if (prec > 0)
+	{
+		str = ft_strjoin(str, ".");
+		dot = ft_strnew(prec);
+		i = 0;
+		while (prec > 0)
+		{
+			num -= (intmax_t)num;
+			num *= 16;
+			dot[i] = alph[(intmax_t)num];
+			i++;
+			prec--;
+		}
+		str = ft_strjoin(str, dot);
+	}
+	return (str);
+}
+
+static char				*make_a(t_format *format, long double num)
+{
+	char				*str;
+	char				*exp;
+	char				*pnum;
+	char				*sign;
+	char				*minus;
+
+	minus = check_sign(&num);
+	exp = find_exp(f_to_a(&num, format));
+	str = f_to_hexstr(format->precision, num);
+	str = ft_strjoin("0x", str);
+	str = ft_strjoin(str, exp);
+	if (minus)
+		str = ft_strjoin(minus, str);
+	pnum = del_sign(str);
+	sign = set_sign(format, str);
+	if (format->zero && format->width)
+		pnum = build_zero_str(format->width, str, sign);
+	else
+	{
+		if (sign)
+			pnum = ft_strjoin(sign, pnum);
+		if (format->width && !(format->zero))
+			pnum = set_width(format->minus, format->width, pnum);
+	}
+	return (pnum);
+}
+
+static long double		take_a(t_format *format, va_list args)
+{
+	if (ft_strequ(format->size, "L"))
+		return (va_arg(args, long double));
+	else
+		return ((long double)va_arg(args, double));
+}
+
+char					*build_a(t_format *format, va_list args)
+{
+	long double			num;
+	char				*str;
+
+	num = take_a(format, args);
+	if (format->precision == -1)
+		format->precision = 13;
+	str = make_a(format, num);
+	if (format->type == 'A')
+		to_upper(&str);
+	return (str);
+}
