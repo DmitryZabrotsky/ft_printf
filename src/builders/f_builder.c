@@ -38,9 +38,7 @@ static char				*make_f(t_format *format, long double num)
 	str = f_to_str(format->precision, num);
 	if (minus)
 		str = ft_strjoin(minus, str);
-	printf("num after f_to_str: %s\n", str);
 	pnum = del_sign(str);
-	printf("pnum with out sign: %s\n", pnum);
 	sign = set_sign(format, str);
 	if (format->zero && format->width)
 		pnum = build_zero_str(format->width, str, sign);

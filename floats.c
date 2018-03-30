@@ -1,7 +1,42 @@
 #include <stdio.h>
 #include "./inc/ft_printf.h"
 
-static char				*check_sign(long double *num)
+int f_to_a(long double *num)
+{
+	int p;
+
+	p = 0;
+	while (8 > (int)(*num) || 16 < (int)(*num))
+	{
+		
+		if ((int)(*num) < 8)
+		{
+			*num *= 2;
+			p--;
+			//printf("p--: %i\n", p);
+		}
+		if ((int)(*num) > 16)
+		{
+			*num /= 2;
+			p++;
+			//printf("p++: %i\n", p);
+		}
+	}
+	return (p);
+}
+
+int main(void)
+{
+	long double f = 1;
+	long double num = f;
+	int p;
+
+	check_sign(&num);
+	p = f_to_a(&num);
+	printf("\np: %i  num: %Lf\n\n%Lf => %La\n\n", p, num, f, f);
+}
+
+/*static char				*check_sign(long double *num)
 {
 	if (*num < 0)
 	{
@@ -81,7 +116,7 @@ int main(void)
 	check_sign(&num);
 	e = f_to_e(&num);
 	printf("e: %i  num: %Lf  exp: %s\n%.0Le\n%La\n", e, num, find_exp(e), f, f);
-}
+}*/
 
 /*char *f_to_str(int prec, long double num)
 {
