@@ -69,9 +69,9 @@ int		main(void)
 	ft_printf("%.10e\n%+-20E\n", e, le);*/
 
 
-	double a = 7;
-	long double la = 8;
+	double a = 6.54;
+	long double la = 1.234;
 
-	ft_printf("my: %.10a %+-20La\n", a, la);
-	printf("or: %.10A %+-20LA\n", a, la);
+	ft_printf("my: %a %La\n", a, la);
+	printf("or: %a %La\n", a, la);
 }

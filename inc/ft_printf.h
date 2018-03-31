@@ -121,6 +121,7 @@ char			*f_to_str(int prec, long double num);
  ** /builders/floats_tools.c
 */
 char			*check_sign(long double *num);
+char			*f_to_hexstr(int prec, long double num);
 
 /*
  ** /builders/e_builder.c

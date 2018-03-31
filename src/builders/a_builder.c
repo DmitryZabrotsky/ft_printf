@@ -11,7 +11,6 @@ static int f_to_a(long double *num, t_format *format)
 	p = 0;
 	while (min > (intmax_t)(*num) || max <= (intmax_t)(*num))
 	{
-		printf("%Lf\n", *num);
 		if ((intmax_t)(*num) < min)
 		{
 			*num *= 2;
@@ -45,32 +44,6 @@ static char				*find_exp(int p)
 		ft_mleak(&res, ft_strjoin("p+", res)); 
 	}
 	return (res);
-}
-
-static char				*f_to_hexstr(int prec, long double num)
-{
-	char *str;
-	char *dot;
-	int i;
-	char alph[16] = "0123456789abcdef";
-
-	str = ft_itoa_base(num, 16);
-	if (prec > 0)
-	{
-		str = ft_strjoin(str, ".");
-		dot = ft_strnew(prec);
-		i = 0;
-		while (prec > 0)
-		{
-			num -= (intmax_t)num;
-			num *= 16;
-			dot[i] = alph[(intmax_t)num];
-			i++;
-			prec--;
-		}
-		str = ft_strjoin(str, dot);
-	}
-	return (str);
 }
 
 static char				*make_a(t_format *format, long double num)
@@ -116,8 +89,6 @@ char					*build_a(t_format *format, va_list args)
 	char				*str;
 
 	num = take_a(format, args);
-	if (format->precision == -1)
-		format->precision = 13;
 	str = make_a(format, num);
 	if (format->type == 'A')
 		to_upper(&str);
