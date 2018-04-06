@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/06 14:58:32 by dzabrots          #+#    #+#             */
+/*   Updated: 2018/04/06 15:00:07 by dzabrots         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static size_t	count_len(uintmax_t num, int base)
@@ -35,7 +47,7 @@ char			*ft_itoa_base(uintmax_t num, int base)
 {
 	char		*res;
 	size_t		len;
-	
+
 	if (base < 2 || base > 16)
 		return (NULL);
 	len = count_len(num, base);

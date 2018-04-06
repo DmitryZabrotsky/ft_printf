@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/06 15:03:08 by dzabrots          #+#    #+#             */
+/*   Updated: 2018/04/06 15:03:52 by dzabrots         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/ft_printf.h"
 
 int			ft_printf(const char *format, ...)
@@ -15,7 +27,7 @@ int			ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			i = i + handle_format(format + i, &lst, args); 
+			i = i + handle_format(format + i, &lst, args);
 		}
 		else
 			i = i + handle_string(format + i, &lst);
@@ -23,5 +35,5 @@ int			ft_printf(const char *format, ...)
 	va_end(args);
 	res = print_lst(lst);
 	ft_lstfree(&lst);
-	return(res);
-}	
+	return (res);
+}
