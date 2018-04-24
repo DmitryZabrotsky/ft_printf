@@ -113,6 +113,30 @@ char	*ft_wchartochar(wchar_t chr)
 	return (res);
 }
 
+char *ft_wstrtostr(wchar_t *wstr)
+{
+	size_t len;
+	wchar_t i;
+	char *res;
+	char *buf;
+
+	if (!wstr)
+		return (NULL);
+	len = ft_wstrlen(wstr) + 1;
+	res = (char *)malloc(sizeof(char) * len);
+	res[len] = '\0';
+	i = 0;
+	while (wstr[i])
+	{
+		buf = ft_wchartochar(wstr[i]);
+		free(res);
+		res = ft_strjoin(res, buf);
+		free(buf);
+		i++;
+	}
+	return (res);
+}
+
 int main(void)
 {
 	setlocale(LC_ALL, "");
@@ -157,4 +181,6 @@ int main(void)
 
 
 	printf("wcharlen: %zu\nwstrlen: %zu\n", ft_wcharlen(wc), ft_wstrlen(ws));
+	char *testwtos = ft_wstrtostr(ws);
+	printf("wstrtostr: %s     len: %zu\n", testwtos, ft_strlen(testwtos));
 }
