@@ -6,28 +6,77 @@
 
 //need func as wchar to lschar* 
 
-void	ft_putwchar(wchar_t chr)
+void	ft_putwchar(wchar_t wchr)
 {
-	if (chr <= 0x7F)
-		ft_putchar(chr);
-	else if (chr <= 0x7FF)
+	if (!wchr)
+		return ;
+	if (wchr <= 0x7F)
+		ft_putchar(wchr);
+	else if (wchr <= 0x7FF)
 	{
-		ft_putchar((chr >> 6) + 0xC0);
-		ft_putchar((chr & 0x3F) + 0x80);
+		ft_putchar((wchr >> 6) + 0xC0);
+		ft_putchar((wchr & 0x3F) + 0x80);
 	}
-	else if (chr <= 0xFFFF)
+	else if (wchr <= 0xFFFF)
 	{
-		ft_putchar((chr >> 12) + 0xE0);
-		ft_putchar(((chr >> 6) & 0x3F) + 0x80);
-		ft_putchar((chr & 0x3F) + 0x80);
+		ft_putchar((wchr >> 12) + 0xE0);
+		ft_putchar(((wchr >> 6) & 0x3F) + 0x80);
+		ft_putchar((wchr & 0x3F) + 0x80);
 	}
-	else if (chr <= 0x10FFFF)
+	else if (wchr <= 0x10FFFF)
 	{
-		ft_putchar((chr >> 18) + 0xF0);
-		ft_putchar(((chr >> 12) & 0x3F) + 0x80);
-		ft_putchar(((chr >> 6) & 0x3F) + 0x80);
-		ft_putchar((chr & 0x3F) + 0x80);
+		ft_putchar((wchr >> 18) + 0xF0);
+		ft_putchar(((wchr >> 12) & 0x3F) + 0x80);
+		ft_putchar(((wchr >> 6) & 0x3F) + 0x80);
+		ft_putchar((wchr & 0x3F) + 0x80);
 	}
+}
+
+void	ft_putwstr(wchar_t *wstr)
+{
+	wchar_t i;
+
+	if (!wstr)
+		return ;
+	i = 0;
+	while (wstr[i])
+	{
+		ft_putwchar(wstr[i]);
+		i++;
+	}
+}
+
+size_t	ft_wcharlen(wchar_t wchr)
+{
+	size_t res;
+
+	if (!wchr)
+		return (0);
+	res = 0;
+	if (wchr <= 0x7F)
+		res = 1;
+	else if (wchr <= 0x7FF)
+		res = 2;
+	else if (wchr <= 0xFFFF)
+		res = 3;
+	else if (wchr <= 0x10FFFF)
+		res = 4;
+	return (res);
+}
+
+size_t	ft_wstrlen(wchar_t *wstr)
+{
+	wchar_t i;
+	size_t res;
+
+	i = 0;
+	res = 0;
+	while (wstr[i])
+	{
+		res += ft_wcharlen(wstr[i]);
+		i++;
+	}
+	return (res);
 }
 
 char	*ft_wchartochar(wchar_t chr)
@@ -77,7 +126,7 @@ int main(void)
 	printf("\n  %i\n", printf("%lc", wc));
 	printf("\n  %i\n", printf("%ls", ws));
 
-	printf("%i\n", MB_CUR_MAX);
+	printf("MB_CUR_MAX: %i\n", MB_CUR_MAX);
 
 	ft_putwchar(wc);
 	ft_putchar('\n');
@@ -89,4 +138,23 @@ int main(void)
 	ft_putchar('\n');
 	ft_putnbr(ft_strlen(str));
 	ft_putchar('\n');
+
+	wint_t wi = 0x2655;
+	printf("\n  %i\n", printf("%lc", wi));
+
+	ft_putchar('\n');
+	ft_putstr("wint_t: ");
+	ft_putwchar((wchar_t)wi);
+	ft_putchar('\n');
+	ft_putchar('\n');
+
+	printf("wint: %lu  wchar: %lu\n", sizeof(wint_t), sizeof(wchar_t));
+
+	ft_putstr("\n");
+	ft_putwstr(ws);
+	ft_putchar('\n');
+
+
+
+	printf("wcharlen: %zu\nwstrlen: %zu\n", ft_wcharlen(wc), ft_wstrlen(ws));
 }
