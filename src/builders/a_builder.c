@@ -64,7 +64,7 @@ static char				*make_a(t_format *format, long double num)
 	pnum = del_sign(str);
 	sign = set_sign(format, str);
 	if (format->zero && format->width)
-		pnum = build_zero_str(format->width, str, sign);
+		ft_mleak(&pnum, build_zero_str(format->width, str, sign));
 	else
 	{
 		if (sign)

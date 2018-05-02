@@ -52,13 +52,14 @@ char		*f_to_hexstr(int prec, long double num)
 	str = ft_itoa_base(num, 16);
 	if (prec == 0)
 		return (str);
-	str = ft_strjoin(str, ".");
+	ft_mleak(&str, ft_strjoin(str, "."));
 	dot = ft_strnew(prec);
 	i = 0;
 	if (prec > 0)
 		prec_hex(prec, &num, alph, &dot);
 	else
 		no_prec_hex(&num, alph, &dot);
-	str = ft_strjoin(str, dot);
+	ft_mleak(&str, ft_strjoin(str, dot));
+	free(dot);
 	return (str);
 }
