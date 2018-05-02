@@ -17,6 +17,7 @@ int	ft_mleak(char **src, char *dst)
 	if (!(*src) || !(dst))
 		return (0);
 	free(*src);
+	ft_putendl("FREEsheno!");
 	*src = dst;
 	return (1);
 }

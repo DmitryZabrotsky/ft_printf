@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/02 16:20:33 by dzabrots          #+#    #+#             */
+/*   Updated: 2018/05/02 16:20:44 by dzabrots         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
@@ -24,7 +36,7 @@ typedef struct	s_format
 t_format		*init_format(void);
 void			print_format(t_format *format);
 void			free_format(t_format **format);
-void 			print_format_table(t_format *format);
+void			print_format_table(t_format *format);
 
 /*
  ** flags_handler.c
@@ -43,7 +55,7 @@ int				print_lst(t_list *lst);
 
 /*
  ** width_handler.c
- */
+*/
 int				handle_width(const char *fstr, t_format *format, va_list args);
 
 /*
@@ -54,7 +66,8 @@ int				handle_format(const char *fstr, t_list **lst, va_list args);
 /*
  ** percision_handler.c
 */
-int				handle_precision(const char *fstr, t_format *format, va_list args);
+int				handle_precision(const char *fstr, t_format *format,
+				va_list args);
 
 /*
  ** size_handler.c
@@ -63,7 +76,7 @@ int				handle_size(const char *fstr, t_format *format);
 
 /*
  ** type_handler.c
- */
+*/
 int				handle_type(const char *fstr, t_format *format);
 
 /*

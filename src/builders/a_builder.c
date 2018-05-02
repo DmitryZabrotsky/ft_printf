@@ -57,10 +57,10 @@ static char				*make_a(t_format *format, long double num)
 	minus = check_sign(&num);
 	exp = find_exp(f_to_a(&num, format));
 	str = f_to_hexstr(format->precision, num);
-	str = ft_strjoin("0x", str);
-	str = ft_strjoin(str, exp);
+	ft_mleak(&str, ft_strjoin("0x", str));
+	ft_mleak(&str, ft_strjoin(str, exp));
 	if (minus)
-		str = ft_strjoin(minus, str);
+		ft_mleak(&str, ft_strjoin(minus, str));
 	pnum = del_sign(str);
 	sign = set_sign(format, str);
 	if (format->zero && format->width)
@@ -68,10 +68,12 @@ static char				*make_a(t_format *format, long double num)
 	else
 	{
 		if (sign)
-			pnum = ft_strjoin(sign, pnum);
+			ft_mleak(&pnum, ft_strjoin(sign, pnum));
 		if (format->width && !(format->zero))
-			pnum = set_width(format->minus, format->width, pnum);
+			ft_mleak(&pnum, set_width(format->minus, format->width, pnum));
 	}
+	free(exp);
+	free(str);
 	return (pnum);
 }
 
