@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mleak.c                                         :+:      :+:    :+:   */
+/*   ft_putwstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/06 14:57:11 by dzabrots          #+#    #+#             */
-/*   Updated: 2018/04/06 14:58:12 by dzabrots         ###   ########.fr       */
+/*   Created: 2018/05/03 12:31:27 by dzabrots          #+#    #+#             */
+/*   Updated: 2018/05/03 12:31:37 by dzabrots         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_mleak(char **src, char *dst)
+void	ft_putwstr(wchar_t *wstr)
 {
-	if (!(*src) || !(dst))
-		return (0);
-	free(*src);
-	*src = dst;
-	return (1);
+	wchar_t i;
+
+	if (!wstr)
+		return ;
+	i = 0;
+	while (wstr[i])
+	{
+		ft_putwchar(wstr[i]);
+		i++;
+	}
 }

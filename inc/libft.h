@@ -20,6 +20,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <stdint.h>
+# include <wchar.h>
 
 typedef struct		s_list
 {
@@ -105,4 +106,10 @@ char				*ft_itoa_base(uintmax_t num, int base);
 void				ft_lstfree(t_list **lst);
 int					ft_mleak(char **src, char *dst);
 
+void				ft_putwchar(wchar_t wchr);
+void				ft_putwstr(wchar_t *wstr);
+size_t				ft_wcharlen(wchar_t wchr);
+size_t				ft_wstrlen(wchar_t *wstr);
+char				*ft_wchartochar(wchar_t chr);
+char				*ft_wstrtostr(wchar_t *wstr);
 #endif

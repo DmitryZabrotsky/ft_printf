@@ -13,13 +13,14 @@ LIBSRC = ft_lstprint.c	ft_striter.c ft_striteri.c \
 	  ft_putchar_fd.c ft_strnew.c ft_itoa.c ft_putendl.c ft_strnstr.c \
 	  ft_putendl_fd.c ft_strrchr.c ft_lstadd.c ft_putnbr.c \
 	  ft_putnbr_fd.c ft_strcspn.c ft_lstlen.c \
-	  ft_putstr.c	ft_strsplit.c ft_lstdel.c ft_putstr_fd.c \
+	  ft_putstr.c ft_strsplit.c ft_lstdel.c ft_putstr_fd.c \
 	  ft_lstdelone.c ft_strcat.c ft_strstr.c ft_lstaddend.c \
 	  ft_strchr.c ft_strsub.c ft_strclr.c ft_arrtolst.c \
 	  ft_strtrim.c ft_lstiter.c ft_strcmp.c ft_tolower.c  \
 	  ft_strcpy.c ft_toupper.c ft_lstmap.c ft_strdel.c \
 	  ft_lstnew.c ft_strdup.c ft_strequ.c ft_itoa_base.c \
-	  ft_lstfree.c ft_mleak.c
+	  ft_lstfree.c ft_mleak.c ft_putwchar.c ft_putwstr.c ft_wcharlen.c \
+	  ft_wstrlen.c ft_wchartochar.c ft_wstrtostr.c
 PRINTFSRC = ./src/ft_printf.c ./inc/ft_printf.h ./src/handlers/flags_handler.c \
 			./src/lst_printer.c ./src/handlers/format_handler.c \
 			./src/init_format.c ./src/handlers/width_handler.c \

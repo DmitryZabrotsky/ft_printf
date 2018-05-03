@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mleak.c                                         :+:      :+:    :+:   */
+/*   ft_wcharlen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/06 14:57:11 by dzabrots          #+#    #+#             */
-/*   Updated: 2018/04/06 14:58:12 by dzabrots         ###   ########.fr       */
+/*   Created: 2018/05/03 12:31:51 by dzabrots          #+#    #+#             */
+/*   Updated: 2018/05/03 12:32:03 by dzabrots         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_mleak(char **src, char *dst)
+size_t	ft_wcharlen(wchar_t wchr)
 {
-	if (!(*src) || !(dst))
+	size_t res;
+
+	if (!wchr)
 		return (0);
-	free(*src);
-	*src = dst;
-	return (1);
+	res = 0;
+	if (wchr <= 0x7F)
+		res = 1;
+	else if (wchr <= 0x7FF)
+		res = 2;
+	else if (wchr <= 0xFFFF)
+		res = 3;
+	else if (wchr <= 0x10FFFF)
+		res = 4;
+	return (res);
 }

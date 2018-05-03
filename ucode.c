@@ -1,12 +1,13 @@
-#include <stdio.h>
-#include <wchar.h>
-#include "./inc/ft_printf.h"
+//#include <stdio.h>
+//#include <wchar.h>
+//#include "./inc/ft_printf.h"
+#include "libftprintf.h"
 #include <locale.h>
-#include <stdlib.h>
+//#include <stdlib.h>
 
 //need func as wchar to lschar* 
 
-void	ft_putwchar(wchar_t wchr)
+/*void	ft_putwchar(wchar_t wchr)
 {
 	if (!wchr)
 		return ;
@@ -128,8 +129,9 @@ char	*ft_wchartochar(wchar_t chr)
 		write_four(&res, chr);
 	}
 	return (res);
-}
+}*/
 
+//###################################################//
 /*char	*ft_wchartochar(wchar_t chr)
 {
 	char *res;
@@ -164,7 +166,7 @@ char	*ft_wchartochar(wchar_t chr)
 	return (res);
 }*/
 
-char *ft_wstrtostr(wchar_t *wstr)
+/*char *ft_wstrtostr(wchar_t *wstr)
 {
 	size_t len;
 	wchar_t i;
@@ -181,12 +183,12 @@ char *ft_wstrtostr(wchar_t *wstr)
 	{
 		buf = ft_wchartochar(wstr[i]);
 		free(res);
-		res = ft_strjoin(res, buf);
+		ft_mleak(&res, ft_strjoin(res, buf));
 		free(buf);
 		i++;
 	}
 	return (res);
-}
+}*/
 
 int main(void)
 {
