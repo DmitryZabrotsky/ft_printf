@@ -2,17 +2,9 @@
 
 static unsigned char		take_c(va_list args)
 {
-	//if (ft_strnequ(t_format->size, "l", 1))
-	//	take_C(t_format *format, va_list args);
-	//else
 	return ((unsigned char)va_arg(args, int));
 }
-/*
-static wchar_t		take_C(t_format *format, va_list args)
-{
-	return ((wchar_t)va_arg(int));
-}
-*/
+
 static char					*make_str(t_format *format, char chr)
 {
 	char *str;
@@ -35,14 +27,29 @@ static char					*make_str(t_format *format, char chr)
 	}
 }
 
+static char					*make_wchar(t_format *format, va_list args)
+{
+	char					*res;
+	
+	res = ft_wchartochar((wchar_t)va_arg(args, wint_t));
+	if (format->width)
+		ft_mleak(&res, set_width(format->minus, format->width, res));
+	return (res);
+}
+
 char						*build_c(t_format *format, va_list args)
 {
 	char					chr;
-	//wchar_t		wchr;
+	char					*res;
+
+	res = NULL;
 	chr = '\0';
 	if (format->type == 'c')
+	{
 		chr = (char)take_c(args);
-	//else if (format->type == 'C')
-	//	wchr = take_C(t_format *format, va_list args);
-	return (make_str(format, chr));
+		res = make_str(format, chr);
+	}
+	if (format->type == 'C' || ft_strequ(format->size, "l"))
+		res = make_wchar(format, args);
+	return (res);
 }

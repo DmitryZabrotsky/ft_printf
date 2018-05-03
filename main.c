@@ -18,12 +18,12 @@ int		main(void)
 	ft_printf("%+0#.5");
 	ft_printf("%+ 0#");*/
 
-	/*char chr = 'Y';
+	char chr = 'Y';
 	ft_printf("%-10c\n", chr);
 
 	char *str = "Hello ft_printf!";
 	char *str1 = "Hello Dina!";
-	ft_printf("%s\n%s\n", str, str1);*/
+	ft_printf("%s\n%s\n", str, str1);
 
 	/*int p = 532;
 	int n = -74;
@@ -68,11 +68,14 @@ int		main(void)
 
 	ft_printf("%.10e\n%+-20E\n", e, le);*/
 
-	double a = 6.54;
+	/*double a = 6.54;
 	long double la = 1.234;
 
 	ft_printf("my: %a %La\n", a, la);
-	printf("or: %a %La\n", a, la);
-	while (1)
-	{}
+	printf("or: %a %La\n", a, la);*/
+
+
+
+	//while (1)
+	//{}
 }

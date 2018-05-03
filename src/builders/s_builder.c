@@ -4,7 +4,10 @@ char		*build_s(t_format *format, va_list args)
 {
 	char	*arg;
 
-	arg = ft_strdup(va_arg(args, char *));
+	if (format->type == 'S' || ft_strequ(format->size, "l"))
+		arg = ft_wstrtostr(va_arg(args, wchar_t *));
+	else
+		arg = ft_strdup(va_arg(args, char *));
 	if (format->precision >= 0)
 		set_precision(&arg, format->precision);
 	if (format->width)
