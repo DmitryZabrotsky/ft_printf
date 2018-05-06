@@ -14,15 +14,13 @@
 
 size_t		ft_wstrlen(wchar_t *wstr)
 {
-	wchar_t	i;
 	size_t	res;
 
-	i = 0;
 	res = 0;
-	while (wstr[i])
+	while (*wstr)
 	{
-		res += ft_wcharlen(wstr[i]);
-		i++;
+		res += ft_wcharlen(*wstr);
+		wstr++;
 	}
 	return (res);
 }

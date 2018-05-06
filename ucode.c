@@ -190,11 +190,25 @@ char	*ft_wchartochar(wchar_t chr)
 	return (res);
 }*/
 
+void test_prec(char *str, int prec)
+{
+
+	while (str[prec] < -63 )
+				prec--;
+	while (prec != 0)
+	{
+		ft_putchar(*str);
+		str++;
+		prec--;
+	}
+	ft_putendl(" -- the end");
+}
+
 int main(void)
 {
 	setlocale(LC_ALL, "");
 	//(♕ == 9813 == 0x2655)
-	wchar_t wc = (wchar_t)0x2655; 
+	/*wchar_t wc = (wchar_t)0x2655; 
 	wchar_t ws[3];
 	ws[0] = (wchar_t)0x2655;
 	ws[1] = (wchar_t)0x2655;
@@ -235,5 +249,26 @@ int main(void)
 
 	printf("wcharlen: %zu\nwstrlen: %zu\n", ft_wcharlen(wc), ft_wstrlen(ws));
 	char *testwtos = ft_wstrtostr(ws);
-	printf("wstrtostr: %s     len: %zu\n", testwtos, ft_strlen(testwtos));
+	printf("wstrtostr: %s     len: %zu\n", testwtos, ft_strlen(testwtos));*/
+	
+	//ft_putchar('\n');
+	//test_prec(ft_wstrtostr(L"€℗Ω⅄⇳"), 10);
+	ft_putchar('\n');
+	wchar_t test[5];
+	test[0] = L'€';
+	test[1] = L'℗';
+	test[2] = L'Ω';
+	test[3] = L'⅄';
+	test[4] = L'\0';
+	ft_putendl(ft_wstrtostr(test));
+	ft_putendl(ft_wstrtostr(test));
+	ft_putendl(ft_wstrtostr(test));
+	printf("%ls\n", test);
+
+	wchar_t *utf = L"€℗Ω⅄";
+	char *uni = ft_wstrtostr(utf);
+	ft_putendl(uni);
+	printf("%.7ls\n", utf);
+	printf("%zu\n", ft_wstrlen(utf));
+	test_prec(uni, 7);
 }

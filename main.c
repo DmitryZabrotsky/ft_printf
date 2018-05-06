@@ -1,5 +1,6 @@
 #include "libftprintf.h"
 #include <stdio.h>
+#include <locale.h>
 
 int		main(void)
 {
@@ -18,12 +19,12 @@ int		main(void)
 	ft_printf("%+0#.5");
 	ft_printf("%+ 0#");*/
 
-	char chr = 'Y';
+	/*char chr = 'Y';
 	ft_printf("%-10c\n", chr);
 
 	char *str = "Hello ft_printf!";
 	char *str1 = "Hello Dina!";
-	ft_printf("%s\n%s\n", str, str1);
+	ft_printf("%s\n%s\n", str, str1);*/
 
 	/*int p = 532;
 	int n = -74;
@@ -74,7 +75,13 @@ int		main(void)
 	ft_printf("my: %a %La\n", a, la);
 	printf("or: %a %La\n", a, la);*/
 
+	/*setlocale(LC_ALL, "");
+	ft_printf("my C: %-10C\nlc: %-10lc\n", L'Ы', L'Ы');
+	printf("or: %-10lc\n", L'Ы');*/
 
+	setlocale(LC_ALL, "");
+	ft_printf("my S: %.1S\nls: %.1ls\n", L"Привет! Меня зовут ДиЗет!", L"Привет! Меня зовут ДиЗет!");
+	printf("or: %.1ls\n", L"Привет! Меня зовут ДиЗет!");
 
 	//while (1)
 	//{}

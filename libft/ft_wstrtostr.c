@@ -14,23 +14,16 @@
 
 char		*ft_wstrtostr(wchar_t *wstr)
 {
-	size_t	len;
-	wchar_t	i;
-	char	*res;
-	char	*buf;
+	char *res;
+	char *buf;
 
-	if (!wstr)
-		return (NULL);
-	len = ft_wstrlen(wstr) + 1;
-	res = (char *)malloc(sizeof(char) * len);
-	res[len] = '\0';
-	i = 0;
-	while (wstr[i])
+	res = ft_strdup("");
+	while (*wstr)
 	{
-		buf = ft_wchartochar(wstr[i]);
-		ft_mleak(&res, ft_strjoin(res, buf));
+		buf = res;
+		res = ft_strjoin(buf, ft_wchartochar(*wstr));
 		free(buf);
-		i++;
+		wstr++;
 	}
 	return (res);
 }

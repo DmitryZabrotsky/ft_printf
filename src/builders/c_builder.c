@@ -44,12 +44,13 @@ char						*build_c(t_format *format, va_list args)
 
 	res = NULL;
 	chr = '\0';
-	if (format->type == 'c')
+	if (format->type == 'C' || (ft_strequ(format->size, "l") &&
+		format->type == 'c'))
+		res = make_wchar(format, args);
+	else if (format->type == 'c')
 	{
 		chr = (char)take_c(args);
 		res = make_str(format, chr);
 	}
-	if (format->type == 'C' || ft_strequ(format->size, "l"))
-		res = make_wchar(format, args);
 	return (res);
 }
