@@ -27,7 +27,7 @@ int		handle_format(const char *fstr, t_list **lst, va_list args)
 		i += handle_type(fstr +i, format);
 		str = assemble_string(format, args);
 	}
-print_format(format);
+//print_format(format);
 	ft_lstaddend(lst, ft_lstnew(str, ft_strlen(str) + 1));
 	free(str);
 	free_format(&format);
