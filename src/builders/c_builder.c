@@ -31,10 +31,7 @@ static char					*make_wchar(t_format *format, va_list args)
 {
 	char					*res;
 	
-	if (MB_CUR_MAX >= 4)
-		res = ft_wchartochar((wchar_t)va_arg(args, wint_t));
-	else if ((int)va_arg(args, wint_t) >= 0 && (int)va_arg(args, wint_t) <= 127)
-		res = ft_wchartochar((wchar_t)va_arg(args, wint_t));
+	res = ft_wchartochar((wchar_t)va_arg(args, wint_t));
 	if (format->width)
 		ft_mleak(&res, set_width(format->minus, format->width, res));
 	return (res);
