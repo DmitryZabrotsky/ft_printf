@@ -50,7 +50,7 @@ static char			*take_oux(t_format *format, va_list args, int base)
 	else if (ft_strequ(format->size, "z"))
 		return (ft_itoa_base(va_arg(args, size_t), base));
 	else
-		return(ft_itoa_base(va_arg(args, int), base));
+		return(ft_itoa_base(va_arg(args, unsigned int), base));
 }
 
 char				*build_oux(t_format *format, va_list args)
