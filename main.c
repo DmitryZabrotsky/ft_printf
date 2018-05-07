@@ -19,12 +19,13 @@ int		main(void)
 	ft_printf("%+0#.5");
 	ft_printf("%+ 0#");*/
 
-	/*char chr = 'Y';
+	char chr = 'Y';
 	ft_printf("%-10c\n", chr);
 
 	char *str = "Hello ft_printf!";
 	char *str1 = "Hello Dina!";
-	ft_printf("%s\n%s\n", str, str1);*/
+	ft_printf("%s\n%s\n", str, str1);
+	printf("%s\n%s\n", str, str1);
 
 	/*int p = 532;
 	int n = -74;
@@ -41,10 +42,10 @@ int		main(void)
 
 	ft_printf("%D\n%hhi\n%hi\n%li\n%lli\n%ji\n%zi\n", D, hh, h, l, ll, intmax, s);*/
 
-	/*int n = 689;
+	int n = 689;
 
-	ft_printf("%#o\n%u\n%#.10x\n%#.10X\n", n, n, n, n);*/
-
+	ft_printf("%#o\n%u\n%#.10x\n%#.10X\n", n, n, n, n);
+	printf("%#o\n%u\n%#.10x\n%#.10X\n", n, n, n, n);
 
 	/*char *ptr = "Hi!";
 
@@ -79,10 +80,11 @@ int		main(void)
 	ft_printf("my C: %-10C\nlc: %-10lc\n", L'Ы', L'Ы');
 	printf("or: %-10lc\n", L'Ы');*/
 
-	setlocale(LC_ALL, "");
+	/*setlocale(LC_ALL, "");
 	ft_printf("my S: %-20.7S\nls: %-20.7ls\n", L"Привет! Меня зовут ДиЗет!", L"Привет! Меня зовут ДиЗет!");
 	printf("or: %-20.7ls\n", L"Привет! Меня зовут ДиЗет!");
-
+	*/
+	
 	//while (1)
 	//{}
 }

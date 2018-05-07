@@ -16,7 +16,10 @@ char			*set_sign(t_format *format, char *arg)
 		else if (format->hash)
 		{	
 			if (format->type == 'o' || format->type == 'O')
-				sign = "0";
+			{	
+				if (ft_strcmp(arg, "0") != 0)
+					sign = "0";
+			}
 			else if (format->type == 'x' || format->type == 'X')
 				sign = "0x";
 		}
