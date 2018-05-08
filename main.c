@@ -19,13 +19,15 @@ int		main(void)
 	ft_printf("%+0#.5");
 	ft_printf("%+ 0#");*/
 
-	char chr = 'Y';
-	ft_printf("%-10c\n", chr);
+	//char chr = 'Y';
+	//ft_printf("%-10c\n", chr);
+	ft_printf("%c\n", (char)NULL);
+	printf("%c\n", (char)NULL);
 
-	char *str = "Hello ft_printf!";
-	char *str1 = "Hello Dina!";
-	ft_printf("%s\n%s\n", str, str1);
-	printf("%s\n%s\n", str, str1);
+	// char *str = "Hello ft_printf!";
+	// char *str1 = "Hello Dina!";
+	// ft_printf("%s\n%s\n", str, str1);
+	// printf("%s\n%s\n", str, str1);
 
 	/*int p = 532;
 	int n = -74;
@@ -42,10 +44,10 @@ int		main(void)
 
 	ft_printf("%D\n%hhi\n%hi\n%li\n%lli\n%ji\n%zi\n", D, hh, h, l, ll, intmax, s);*/
 
-	int n = 689;
+	/*int n = 689;
 
 	ft_printf("%#o\n%u\n%#.10x\n%#.10X\n", n, n, n, n);
-	printf("%#o\n%u\n%#.10x\n%#.10X\n", n, n, n, n);
+	printf("%#o\n%u\n%#.10x\n%#.10X\n", n, n, n, n);*/
 
 	/*char *ptr = "Hi!";
 
