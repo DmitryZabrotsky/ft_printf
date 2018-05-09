@@ -30,10 +30,14 @@ static char					*make_str(t_format *format, char chr)
 static char					*make_wchar(t_format *format, va_list args)
 {
 	char					*res;
-	
-	if (MB_CUR_MAX != 4 && va_arg(args, wint_t) > 127)
-		return (ft_strdup(""));
-	res = ft_wchartochar((wchar_t)va_arg(args, wint_t));
+	wint_t					arg;
+
+	arg = va_arg(args, wint_t);
+	res = ft_wchartochar((wchar_t)arg);
+	if (MB_CUR_MAX != 4 && arg > 127)
+	{
+		return (make_str(format, res[0]));
+	}
 	if (format->width)
 		ft_mleak(&res, set_width(format->minus, format->width, res));
 	return (res);

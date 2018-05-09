@@ -79,7 +79,8 @@ int		main(void)
 	printf("or: %a %La\n", a, la);*/
 
 	setlocale(LC_ALL, "");
-	ft_printf("%-10lc", L'Ы');
+	ft_printf("my: %10lc", L'Ы');
+	printf("or: %10lc", L'Ы');
 	//ft_printf("return: %d\n", ft_printf("my C: %-10C\nlc: %-10lc\n", L'Ы', L'Ы'));
 	//ft_printf("return: %d\n", ft_printf("lc: %-10lc\n", L'Ы'));
 	//printf("return: %d\n", printf("or: %-10lc\n", L'Ы'));
