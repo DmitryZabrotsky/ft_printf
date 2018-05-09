@@ -23,7 +23,6 @@ static char					*make_str(t_format *format, char chr)
 	{
 		str = ft_strnew(1);
 		str[0] = chr;
-		//ft_putnbr(chr);
 		return (str);
 	}
 }
