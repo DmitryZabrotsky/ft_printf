@@ -21,8 +21,8 @@ int		main(void)
 
 	//char chr = 'Y';
 	//ft_printf("%-10c\n", chr);
-	ft_printf("%20c", (char)NULL);
-	//printf("%20c\n", (char)NULL);
+	//ft_printf("%d\n", ft_printf("%c", (char)NULL));
+	//printf("%d\n", printf("%c", (char)NULL));
 
 	// char *str = "Hello ft_printf!";
 	// char *str1 = "Hello ACDZ!";
@@ -78,9 +78,15 @@ int		main(void)
 	ft_printf("my: %a %La\n", a, la);
 	printf("or: %a %La\n", a, la);*/
 
-	/*setlocale(LC_ALL, "");
-	ft_printf("my C: %-10C\nlc: %-10lc\n", L'Ы', L'Ы');
-	printf("or: %-10lc\n", L'Ы');*/
+	setlocale(LC_ALL, "");
+	ft_printf("%-10lc", L'Ы');
+	//ft_printf("return: %d\n", ft_printf("my C: %-10C\nlc: %-10lc\n", L'Ы', L'Ы'));
+	//ft_printf("return: %d\n", ft_printf("lc: %-10lc\n", L'Ы'));
+	//printf("return: %d\n", printf("or: %-10lc\n", L'Ы'));
+	// printf("return: %d\n", printf("or: %10lc%10lc%10lc\nls", L'W', L'У', L'B'));
+	// ft_printf("return: %d\n", ft_printf("my: %10lc%10lc\n",  L'W', L'У'));
+
+	//printf("or: %10lc%10lc%10lc\nls", L'W', L'У', L'B');
 
 	/*setlocale(LC_ALL, "");
 	ft_printf("my S: %-20.7S\nls: %-20.7ls\n", L"Привет! Меня зовут ДиЗет!", L"Привет! Меня зовут ДиЗет!");
