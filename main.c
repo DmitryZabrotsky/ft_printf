@@ -21,11 +21,11 @@ int		main(void)
 
 	//char chr = 'Y';
 	//ft_printf("%-10c\n", chr);
-	ft_printf("%c\n", (char)NULL);
-	printf("%c\n", (char)NULL);
+	ft_printf("%20c", (char)NULL);
+	//printf("%20c\n", (char)NULL);
 
 	// char *str = "Hello ft_printf!";
-	// char *str1 = "Hello Dina!";
+	// char *str1 = "Hello ACDZ!";
 	// ft_printf("%s\n%s\n", str, str1);
 	// printf("%s\n%s\n", str, str1);
 
