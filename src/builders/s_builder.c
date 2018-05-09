@@ -7,7 +7,11 @@ char		*build_s(t_format *format, va_list args)
 	if (format->type == 'S' || ft_strequ(format->size, "l"))
 		arg = ft_wstrtostr(va_arg(args, wchar_t *));
 	else
-		arg = ft_strdup(va_arg(args, char *));
+		arg = va_arg(args, char *);
+		if (!arg)
+			arg = ft_strdup("(null)");
+		else 
+			arg = ft_strdup(arg);
 	if (format->precision >= 0)
 	{
 		if (format->type == 'S' || ft_strequ(format->size, "l"))
