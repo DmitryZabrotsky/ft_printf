@@ -75,14 +75,14 @@ int		main(void)
 
 	// double e = 0.64;
 	// long double le = 32.41;
-	double e = 0;
-	long double le = 0;
+	// double e = 1;
+	// long double le = 1;
 
-	ft_printf("or 'e': %e or 'LE': %LE\n", e, le);
-	printf("or 'e': %e or 'LE': %LE\n\n", e, le);
+	// ft_printf("or 'e': %e or 'LE': %LE\n", e, le);
+	// printf("or 'e': %e or 'LE': %LE\n\n", e, le);
 
-	// double a = 6.54;
-	// long double la = 1.234;
+	// double a = 42.42;
+	// long double la = 42.42;
 	double a = 0;
 	long double la = 0;
 	ft_printf("my: %a %La\n", a, la);
