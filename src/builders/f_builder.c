@@ -54,7 +54,7 @@ static char				*make_f(t_format *format, long double num)
 
 static long double		take_f(t_format *format, va_list args)
 {
-	if (format->type == 'F' || ft_strequ(format->size, "L"))
+	if (ft_strequ(format->size, "L"))
 		return (va_arg(args, long double));
 	else
 		return ((long double)va_arg(args, double));
