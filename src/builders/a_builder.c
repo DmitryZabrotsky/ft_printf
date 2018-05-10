@@ -5,9 +5,9 @@ static int f_to_a(long double *num, t_format *format)
 	int p;
 	int min;
 	int max;
-	
-	if (*num == 0)
-		return (0);
+
+	//if (*num == 0)
+		//return (0);
 	min = ft_strequ(format->size, "L") ? 8 : 1;
 	max = ft_strequ(format->size, "L") ? 16 : 2;
 	p = 0;
