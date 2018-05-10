@@ -24,6 +24,7 @@ static void		prec_hex(int prec, long double *num, char *alph, char **dot)
 		i++;
 		prec--;
 	}
+	(*dot)[i] = '\0';
 }
 
 static void		no_prec_hex(long double *num, char *alph, char **dot)
@@ -40,6 +41,7 @@ static void		no_prec_hex(long double *num, char *alph, char **dot)
 		(*dot)[i] = alph[(intmax_t)(*num)];
 		i++;
 	}
+	(*dot)[i] = '\0';
 }
 
 char		*f_to_hexstr(int prec, long double num)

@@ -52,10 +52,7 @@ static char				*find_exp(int p)
 	{
 		p *= -1;
 		res = ft_itoa(p);
-		if (p < 10)
-			ft_mleak(&res, ft_strjoin("p-", res));
-		else
-			ft_mleak(&res, ft_strjoin("p-", res));
+		ft_mleak(&res, ft_strjoin("p-", res));
 	}
 	else
 	{
@@ -74,15 +71,10 @@ static char				*make_a(t_format *format, long double num)
 	char				*minus;
 
 	minus = check_sign(&num);
-printf("minus: %s\n", minus);
 	exp = find_exp(f_to_a(&num, format));
-printf("exp: %s\n", exp);
 	str = f_to_hexstr(format->precision, num);
-printf("str: %s\n", str);
 	ft_mleak(&str, ft_strjoin("0x", str));
-printf("0x + str: %s\n", str);
 	ft_mleak(&str, ft_strjoin(str, exp));
-printf("str + exp: %s\n", str);
 	if (minus)
 		ft_mleak(&str, ft_strjoin(minus, str));
 	pnum = del_sign(str);
@@ -115,7 +107,6 @@ char					*build_a(t_format *format, va_list args)
 	char				*str;
 
 	num = take_a(format, args);
-	printf("\n\nTEST: %Lf\n\n", num);
 	str = make_a(format, num);
 	if (format->type == 'A')
 		to_upper(&str);
