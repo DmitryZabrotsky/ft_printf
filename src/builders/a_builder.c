@@ -2,29 +2,33 @@
 
 static int f_to_a(long double *num, t_format *format)
 {
-	int p;
-	int min;
-	int max;
-
+	(void)format;
 	if (*num == 0)
 		return (0);
-	min = ft_strequ(format->size, "L") ? 8 : 1;
-	max = ft_strequ(format->size, "L") ? 16 : 2;
-	p = 0;
-	while (min > (intmax_t)(*num) || max <= (intmax_t)(*num))
-	{
-		if ((intmax_t)(*num) < min)
-		{
-			*num *= 2;
-			p--;
-		}
-		if ((intmax_t)(*num) >= max)
-		{
-			*num /= 2;
-			p++;
-		}
-	}
-	return (p);
+	return (1);
+	// int p;
+	// int min;
+	// int max;
+
+	// if (*num == 0)
+	// 	return (0);
+	// min = ft_strequ(format->size, "L") ? 8 : 1;
+	// max = ft_strequ(format->size, "L") ? 16 : 2;
+	// p = 0;
+	// while (min > (intmax_t)(*num) || max <= (intmax_t)(*num))
+	// {
+	// 	if ((intmax_t)(*num) < min)
+	// 	{
+	// 		*num *= 2;
+	// 		p--;
+	// 	}
+	// 	if ((intmax_t)(*num) >= max)
+	// 	{
+	// 		*num /= 2;
+	// 		p++;
+	// 	}
+	// }
+	// return (p);
 }
 
 static char				*find_exp(int p)
