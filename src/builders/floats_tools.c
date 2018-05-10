@@ -54,7 +54,7 @@ char		*f_to_hexstr(int prec, long double num)
 	str = ft_itoa_base(num, 16);
 	if (prec <= 0 && num == 0)
 		return (str);
-	if (prec == 0)
+	if (prec == 0 || num -(intmax_t)num == 0)
 		return (str);
 	ft_mleak(&str, ft_strjoin(str, "."));
 	dot = ft_strnew(prec);
