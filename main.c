@@ -75,8 +75,64 @@ int		main(void)
 
 	// double e = 0.96;
 	// long double le = 0.96;
-	double e = 0;
-	long double le = 0;
+
+// test case: 42.000000
+
+// test case: 1001.000000
+
+// test case: -8000.000000
+
+// test case: 0.000000
+
+// test case: 0.000000
+
+// test case: 2147483647.000000
+
+// test case: -2147483648.000000
+
+// test case: -2147483649.000000
+
+// test case: 2147483648.000000
+
+// test case: 34.000000
+
+// test case: 9.000000
+
+// test case: 503.000000
+
+// test case: 42.420000
+
+// test case: 42.000000
+
+// test case: 1001.000000
+
+// test case: -8000.000000
+
+// test case: 0.000000
+
+// test case: 0.000000
+
+// test case: 2147483647.000000
+
+// test case: -2147483648.000000
+
+// test case: -2147483649.000000
+
+// test case: 2147483648.000000
+
+// test case: 34.000000
+
+// test case: 9.000000
+
+// test case: 503.000000
+
+// test case: 42.420000
+
+// test case: 42.420000
+
+
+	double e = -2147483648.000000;
+	long double le = -2147483648.000000;
 
 	ft_printf("\nmy 'e': %e or 'LE': %LE\n", e, le);
 	printf("or 'e': %e or 'LE': %LE\n\n", e, le);
