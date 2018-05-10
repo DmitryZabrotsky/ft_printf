@@ -73,19 +73,19 @@ int		main(void)
 	// printf("%020f\n%+-20LF\n", d, ld);
 
 
-	double e = 0.96;
-	long double le = 0.96;
+	// double e = 0.96;
+	// long double le = 0.96;
 	// double e = 1;
 	// long double le = 1;
 
-	ft_printf("\nmy 'e': %e or 'LE': %LE\n", e, le);
-	printf("or 'e': %e or 'LE': %LE\n\n", e, le);
+	// ft_printf("\nmy 'e': %e or 'LE': %LE\n", e, le);
+	// printf("or 'e': %e or 'LE': %LE\n\n", e, le);
 
 	// double a = 42.42;
 	// long double la = 42.42;
-	double a = 0.96;
-	long double la = 0.96;
-	ft_printf("my: %a %La\n", a, la);
+	double a = 42.42;
+	long double la = 42.42;
+	ft_printf("\nmy: %a %La\n", a, la);
 	printf("or: %a %La\n\n", a, la);
 
 	//setlocale(LC_ALL, "");

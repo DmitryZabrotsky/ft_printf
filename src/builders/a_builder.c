@@ -74,10 +74,15 @@ static char				*make_a(t_format *format, long double num)
 	char				*minus;
 
 	minus = check_sign(&num);
+printf("minus: %s\n", minus);
 	exp = find_exp(f_to_a(&num, format));
+printf("exp: %s\n", exp);
 	str = f_to_hexstr(format->precision, num);
+printf("str: %s\n", str);
 	ft_mleak(&str, ft_strjoin("0x", str));
+printf("0x + str: %s\n", str);
 	ft_mleak(&str, ft_strjoin(str, exp));
+printf("str + exp: %s\n", str);
 	if (minus)
 		ft_mleak(&str, ft_strjoin(minus, str));
 	pnum = del_sign(str);

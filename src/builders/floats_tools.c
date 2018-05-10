@@ -19,7 +19,7 @@ static void		prec_hex(int prec, long double *num, char *alph, char **dot)
 	while (prec > 0)
 	{
 		*num -= (intmax_t)(*num);
-		*num *= 16;
+		*num *= 16.0;
 		(*dot)[i] = alph[(intmax_t)(*num)];
 		i++;
 		prec--;
@@ -34,7 +34,7 @@ static void		no_prec_hex(long double *num, char *alph, char **dot)
 	while (num != 0)
 	{
 		*num -= (intmax_t)(*num);
-		*num *= 16;
+		*num *= 16.0;
 		if (*num == 0)
 			break ;
 		(*dot)[i] = alph[(intmax_t)(*num)];
