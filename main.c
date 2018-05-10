@@ -78,7 +78,7 @@ int		main(void)
 	// double e = 1;
 	// long double le = 1;
 
-	ft_printf("or 'e': %e or 'LE': %LE\n", e, le);
+	ft_printf("\nmy 'e': %e or 'LE': %LE\n", e, le);
 	printf("or 'e': %e or 'LE': %LE\n\n", e, le);
 
 	// double a = 42.42;
@@ -86,7 +86,7 @@ int		main(void)
 	double a = 0.96;
 	long double la = 0.96;
 	ft_printf("my: %a %La\n", a, la);
-	printf("or: %a %La\n", a, la);
+	printf("or: %a %La\n\n", a, la);
 
 	//setlocale(LC_ALL, "");
 	// ft_printf("%lc\n", L'ø');
