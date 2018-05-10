@@ -19,7 +19,7 @@ static int f_to_a(long double *num, t_format *format)
 	{
 		if ((intmax_t)(*num) < min)
 		{
-			*num *= 2;
+			*num *= 2.0;
 			p--;
 		}
 		if ((intmax_t)(*num) >= max)
