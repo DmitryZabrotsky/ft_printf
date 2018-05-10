@@ -22,6 +22,7 @@ char				*f_to_str(int prec, long double num)
 			i++;
 			prec--;
 		}
+		dot[i] = '\0';
 		str = ft_strjoin(str, dot);
 	}
 	return (str);

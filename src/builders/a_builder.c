@@ -2,10 +2,6 @@
 
 static int f_to_a(long double *num, t_format *format)
 {
-	// (void)format;
-	// if (*num == 0)
-	// 	return (0);
-	// return (1);
 	int p;
 	int min;
 	int max;
@@ -28,19 +24,6 @@ static int f_to_a(long double *num, t_format *format)
 			p++;
 		}
 	}
-	// while (min > (intmax_t)(*num) || max <= (intmax_t)(*num))
-	// {
-	// 	if ((intmax_t)(*num) < min)
-	// 	{
-	// 		*num *= 2;
-	// 		p--;
-	// 	}
-	// 	if ((intmax_t)(*num) >= max)
-	// 	{
-	// 		*num /= 2;
-	// 		p++;
-	// 	}
-	// }
 	return (p);
 }
 
