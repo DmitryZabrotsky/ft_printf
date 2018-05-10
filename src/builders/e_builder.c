@@ -4,6 +4,8 @@ static int				f_to_e(long double *num)
 {
 	int					e;
 
+	if (*num == 0)
+		return (0);
 	e = 0;
 	while (1 > (intmax_t)(*num) || 9 < (intmax_t)(*num))
 	{

@@ -75,18 +75,18 @@ int		main(void)
 
 	// double e = 0.64;
 	// long double le = 32.41;
-	// double e = 1;
-	// long double le = 1;
+	double e = 0;
+	long double le = 0;
 
-	// ft_printf("%.10e\n%+-20E\n", e, le);
-	// printf("%.10e\n%+-20LE\n", e, le);
+	ft_printf("or 'e': %e or 'LE': %LE\n", e, le);
+	printf("or 'e': %e or 'LE': %LE\n\n", e, le);
 
 	// double a = 6.54;
 	// long double la = 1.234;
-	// double a = 1;
-	// long double la = 1;
-	// ft_printf("my: %a %La\n", a, la);
-	// printf("or: %a %La\n", a, la);
+	double a = 1;
+	long double la = 1;
+	ft_printf("my: %a %La\n", a, la);
+	printf("or: %a %La\n", a, la);
 
 	//setlocale(LC_ALL, "");
 	// ft_printf("%lc\n", L'ø');
