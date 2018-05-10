@@ -3,7 +3,7 @@
 static int				f_to_e(long double *num)
 {
 	//int					e;
-	
+
 	if (*num == 0)
 		return (0);
 	return (1);
@@ -81,7 +81,7 @@ static char				*make_e(t_format *format, long double num)
 
 static long double		take_e(t_format *format, va_list args)
 {
-	if (format->type == 'E' || ft_strequ(format->size, "L"))
+	if (ft_strequ(format->size, "L"))
 		return (va_arg(args, long double));
 	else
 		return ((long double)va_arg(args, double));
@@ -93,6 +93,7 @@ char					*build_e(t_format *format, va_list args)
 	char				*str;
 
 	num = take_e(format, args);
+	printf("\ntest case: %Lf\n", num);
 	if (format->precision == -1)
 		format->precision = 6;
 	str = make_e(format, num);
