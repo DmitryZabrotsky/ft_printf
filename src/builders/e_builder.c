@@ -2,25 +2,26 @@
 
 static int				f_to_e(long double *num)
 {
-	int					e;
-
+	//int					e;
+	
 	if (*num == 0)
 		return (0);
-	e = 0;
-	while (1 > (intmax_t)(*num) || 10 < (intmax_t)(*num))
-	{
-		if ((intmax_t)(*num) < 1)
-		{
-			*num *= 10.0;
-			e--;
-		}
-		if ((intmax_t)(*num) > 10)
-		{
-			*num /= 10.0;
-			e++;
-		}
-	}
-	return (e);
+	return (1);
+	// e = 0;
+	// while (1 > (intmax_t)(*num) || 10 < (intmax_t)(*num))
+	// {
+	// 	if ((intmax_t)(*num) < 1)
+	// 	{
+	// 		*num *= 10.0;
+	// 		e--;
+	// 	}
+	// 	if ((intmax_t)(*num) > 10)
+	// 	{
+	// 		*num /= 10.0;
+	// 		e++;
+	// 	}
+	// }
+	// return (e);
 }
 
 static char				*find_exp(int e)
