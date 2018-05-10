@@ -93,7 +93,6 @@ char					*build_e(t_format *format, va_list args)
 	char				*str;
 
 	num = take_e(format, args);
-	printf("\ntest case: %Lf\n", num);
 	if (format->precision == -1)
 		format->precision = 6;
 	str = make_e(format, num);
