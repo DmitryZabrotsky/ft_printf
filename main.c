@@ -24,13 +24,13 @@ int		main(void)
 	//ft_printf("%d\n", ft_printf("%c", (char)NULL));
 	//printf("%d\n", printf("%c", (char)NULL));
 
-	char *str = "Hello ft_printf!";
-	char *str1 = "Hello ACDZ!";
-	ft_printf("%s\n%s\n", str, str1);
-	printf("%s\n%s\n", str, str1);
+	// char *str = "Hello ft_printf!";
+	// char *str1 = "Hello ACDZ!";
+	// ft_printf("%s\n%s\n", str, str1);
+	// printf("%s\n%s\n", str, str1);
 
-	ft_printf("%s\n", NULL);
-	printf("%s\n", NULL);
+	// ft_printf("%s\n", NULL);
+	// printf("%s\n", NULL);
 
 	/*int p = 532;
 	int n = -74;
@@ -64,22 +64,29 @@ int		main(void)
 	ft_printf("%b\n", b);*/
 
 
-	/*double d = -5.64;
-	long double ld = 32.41;
+	// double d = -5.64;
+	// long double ld = 32.41;
+	// double d = 1;
+	// long double ld = 1;
 
-	ft_printf("%020f\n%+-20F\n", d, ld);*/
+	// ft_printf("%020f\n%+-20F\n", d, ld);
+	// printf("%020f\n%+-20LF\n", d, ld);
 
 
-	/*double e = 0.64;
-	long double le = 32.41;
+	// double e = 0.64;
+	// long double le = 32.41;
+	// double e = 1;
+	// long double le = 1;
 
-	ft_printf("%.10e\n%+-20E\n", e, le);*/
+	// ft_printf("%.10e\n%+-20E\n", e, le);
+	// printf("%.10e\n%+-20LE\n", e, le);
 
-	/*double a = 6.54;
-	long double la = 1.234;
-
-	ft_printf("my: %a %La\n", a, la);
-	printf("or: %a %La\n", a, la);*/
+	// double a = 6.54;
+	// long double la = 1.234;
+	// double a = 1;
+	// long double la = 1;
+	// ft_printf("my: %a %La\n", a, la);
+	// printf("or: %a %La\n", a, la);
 
 	//setlocale(LC_ALL, "");
 	// ft_printf("%lc\n", L'ø');
