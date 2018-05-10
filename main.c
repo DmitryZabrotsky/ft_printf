@@ -134,8 +134,8 @@ int		main(void)
 	double e = -2147483648.000000;
 	long double le = -2147483648.000000;
 
-	ft_printf("\nmy 'e': %e or 'LE': %LE\n", e, le);
-	printf("or 'e': %e or 'LE': %LE\n\n", e, le);
+	ft_printf("\nmy 'e': %.15e my 'LE': %.15LE\n", e, le);
+	printf("or 'e': %.15e or 'LE': %.15LE\n\n", e, le);
 
 	// double a = 42.42;
 	// long double la = 42.42;

@@ -97,6 +97,7 @@ char			*build_s(t_format *format, va_list args);
 /*
  ** tools.c
 */
+void			rounder(int prec, long double *num);
 void			set_precision(char **str, size_t precision);
 char			*set_width(int minus, size_t width, char *arg);
 

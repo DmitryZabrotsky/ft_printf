@@ -11,8 +11,9 @@ char				*f_to_str(int prec, long double num)
 	{	
 		str = ft_strjoin(str, ".");
 		dot = ft_strnew(prec);
-		if (prec <= 6)
-			num += 1e-9;
+		rounder(prec, &num);
+		// if (prec <= 6)
+		// 	num += 1e-9;
 		i = 0;
 		while (prec > 0)
 		{

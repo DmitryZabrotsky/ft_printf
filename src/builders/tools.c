@@ -1,5 +1,30 @@
 #include "../../inc/ft_printf.h"
 
+void		rounder(int prec, long double *num)
+{
+	long double number;
+	int			i;
+	int			ten;
+
+	number = *num;
+	i = 0;
+	ten = 1;
+	while (i < prec)
+	{
+		number *= 10;
+		number -= (intmax_t)number;
+		i++;
+		ten *= 10;
+	}
+	if (number - (intmax_t)number < 0.5)
+	{
+		ten *= 10;
+		*num += 1.0 / ten;
+	}
+	else
+		*num += 1.0 / ten;
+}
+
 char		*set_width(int minus, size_t width, char *arg)
 {
 	char	*str;
