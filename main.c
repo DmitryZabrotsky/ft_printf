@@ -131,11 +131,11 @@ int		main(void)
 // test case: 42.420000
 
 
-	double e = -2147483648.000000;
-	long double le = -2147483648.000000;
+	// double e = -2147483648.000000;
+	// long double le = -2147483648.000000;
 
-	ft_printf("\nmy 'e': %.15e my 'LE': %.15LE\n", e, le);
-	printf("or 'e': %.15e or 'LE': %.15LE\n\n", e, le);
+	// ft_printf("\nmy 'e': %.15e my 'LE': %.15LE\n", e, le);
+	// printf("or 'e': %.15e or 'LE': %.15LE\n\n", e, le);
 
 	// double a = 42.42;
 	// long double la = 42.42;
@@ -163,4 +163,7 @@ int		main(void)
 	
 	//while (1)
 	//{}
+
+	ft_printf("@moulitest: %#.x %#.0x", 0, 0);
+	printf("@moulitest: %#.x %#.0x", 0, 0);
 }

@@ -24,14 +24,19 @@ static void			make_oux(t_format *format, char **arg)
 		num = build_zero_str(format->width, *arg, sign);
 	else
 	{
+		
 		if (format->precision >= 0)
-			num = set_num_precision(format->precision, *arg);
+		{
+			if (format->precision == 0 && !(ft_strcmp(*arg, "0")))
+				num = ft_strdup("");
+			else
+				num = set_num_precision(format->precision, *arg);
+		}
 		if (sign)
 			num = ft_strjoin(sign, num);
 		if (format->width && !(format->zero))
 			num = set_width(format->minus, format->width, num);
 	}
-
 	*arg = num;
 }
 
@@ -56,7 +61,6 @@ static char			*take_oux(t_format *format, va_list args, int base)
 char				*build_oux(t_format *format, va_list args)
 {
 	char			*arg;
-
 	if (format->type == 'u' || format->type == 'U')
 		arg = take_oux(format, args, 10);
 	else if (format->type == 'o')
@@ -65,6 +69,8 @@ char				*build_oux(t_format *format, va_list args)
 		arg = take_oux(format, args, 16);
 	else if (format->type == 'b')
 		arg = take_oux(format, args, 2);
+	if ((format->type == 'x' || format->type == 'o') && !(ft_strcmp(arg, "0")))
+		format->hash = 0;
 	make_oux(format, &arg);
 	if (format->type == 'X')
 		to_upper(&arg);
