@@ -22,9 +22,9 @@ static int f_to_a(long double *num, t_format *format)
 			*num *= 2;
 			p--;
 		}
-		if ((intmax_t)(*num) > max)
+		if ((intmax_t)(*num) >= max)
 		{
-			*num /= 2;
+			*num /= 2.0;
 			p++;
 		}
 	}

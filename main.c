@@ -83,8 +83,8 @@ int		main(void)
 
 	// double a = 42.42;
 	// long double la = 42.42;
-	double a = 0;
-	long double la = 0;
+	double a = 0.42324242342;
+	long double la = 0.42324223423;
 	ft_printf("my: %a %La\n", a, la);
 	printf("or: %a %La\n", a, la);
 
