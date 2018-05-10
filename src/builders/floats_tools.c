@@ -52,6 +52,8 @@ char		*f_to_hexstr(int prec, long double num)
 	char alph[16] = "0123456789abcdef";
 
 	str = ft_itoa_base(num, 16);
+	if (prec <= 0 && num == 0)
+		return (str);
 	if (prec == 0)
 		return (str);
 	ft_mleak(&str, ft_strjoin(str, "."));
