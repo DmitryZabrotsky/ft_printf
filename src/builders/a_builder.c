@@ -107,6 +107,7 @@ char					*build_a(t_format *format, va_list args)
 	char				*str;
 
 	num = take_a(format, args);
+	printf("\n\nTEST: %Lf\n\n", num);
 	str = make_a(format, num);
 	if (format->type == 'A')
 		to_upper(&str);
