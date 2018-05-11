@@ -29,33 +29,23 @@ static void			make_oux(t_format *format, char **arg)
 		if (format->precision >= 0)
 		{
 			if (format->precision == 0 && ft_strequ(*arg, "0") && !format->hash)
-			{
 				num = ft_strdup("");
-				//printf("num if prec 0 arg 0: %s\n", num);
-			}
 			else
-			{
 				num = set_num_precision(format->precision, *arg);
-				//printf("num after prec: %s\n", num);
-			}
 		}
 		if (sign)
-		{
 			num = ft_strjoin(sign, num);
-			//printf("sign + num: %s\n", num);
-		}
 		if (format->width && !(format->zero))
-		{
 			num = set_width(format->minus, format->width, num);
-			//printf("after width: %s\n", num);
-		}
 	}
 	*arg = num;
 }
 
 static char			*take_oux(t_format *format, va_list args, int base)
 {
-	if (ft_strequ(format->size, "hh"))
+	if (format->type == 'U')
+		return (ft_itoa_base(va_arg(args, unsigned long), base));
+	else if (ft_strequ(format->size, "hh"))
 		return (ft_itoa_base((unsigned char)va_arg(args, int), base));
 	else if (ft_strequ(format->size, "h"))
 		return (ft_itoa_base((unsigned short)va_arg(args, int), base));
@@ -74,6 +64,9 @@ static char			*take_oux(t_format *format, va_list args, int base)
 char				*build_oux(t_format *format, va_list args)
 {
 	char			*arg;
+
+	format->space = 0;
+	format->plus = 0;
 	if (format->type == 'u' || format->type == 'U')
 		arg = take_oux(format, args, 10);
 	else if (format->type == 'o')

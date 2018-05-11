@@ -4,11 +4,15 @@
 
 int		main(void)
 {
-	ft_printf("my: %#.o %#.0o\n", 0, 0); //nothing out
-	printf("@or: %#.o %#.0o\n", 0, 0);
 
-	ft_printf("my: %.o %.0o\n", 0, 0); //0 out
-	printf("or: %.o %.0o\n", 0, 0);
+	ft_printf("%hU\n", 4294967296);
+  	ft_printf("%U\n", 4294967296);
+
+	// ft_printf("my: %#.o %#.0o\n", 0, 0); //nothing out
+	// printf("@or: %#.o %#.0o\n", 0, 0);
+
+	// ft_printf("my: %.o %.0o\n", 0, 0); //0 out
+	// printf("or: %.o %.0o\n", 0, 0);
 	// ft_printf("my: %5.o %5.0o\n", 0, 0);
 	// printf("or: %5.o %5.0o\n", 0, 0);
 

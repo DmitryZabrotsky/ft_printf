@@ -52,10 +52,8 @@ char			*assemble_string(t_format *format, va_list args)
 		return (build_f(format, args));
 	else if (format->type == 'e' || format->type == 'E')
 		return (build_e(format, args));
-		//return (ft_strdup("idi nahyu"));
 	else if (format->type == 'a' || format->type == 'A')
 		return (build_a(format, args));
-		//return (ft_strdup("idi nahyu"));
 	else
 		return (NULL);
 }
