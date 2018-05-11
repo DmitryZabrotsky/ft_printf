@@ -12,7 +12,12 @@ static void			make_di(t_format *format, char **arg)
 	else
 	{
 		if (format->precision >= 0)
+		{	
+			if (format->precision == 0 && !(ft_strcmp(*arg, "0")))
+				num = ft_strdup("");
+			else
 			num = set_num_precision(format->precision, *arg);
+		}
 		if (sign)
 			num = ft_strjoin(sign, num);
 		if (format->width && !(format->zero))

@@ -19,23 +19,36 @@ static void			make_oux(t_format *format, char **arg)
 	char			*sign;
 
 	num = del_sign(*arg);
+//printf("num: %s\n", num);
 	sign = set_sign(format, *arg);
+//printf("sign: %s\n", sign);
 	if (format->zero && format->width)
 		num = build_zero_str(format->width, *arg, sign);
 	else
 	{
-		
 		if (format->precision >= 0)
 		{
-			if (format->precision == 0 && !(ft_strcmp(*arg, "0")))
+			if (format->precision == 0 && ft_strequ(*arg, "0") && !format->hash)
+			{
 				num = ft_strdup("");
+				//printf("num if prec 0 arg 0: %s\n", num);
+			}
 			else
+			{
 				num = set_num_precision(format->precision, *arg);
+				//printf("num after prec: %s\n", num);
+			}
 		}
 		if (sign)
+		{
 			num = ft_strjoin(sign, num);
+			//printf("sign + num: %s\n", num);
+		}
 		if (format->width && !(format->zero))
+		{
 			num = set_width(format->minus, format->width, num);
+			//printf("after width: %s\n", num);
+		}
 	}
 	*arg = num;
 }
@@ -69,7 +82,8 @@ char				*build_oux(t_format *format, va_list args)
 		arg = take_oux(format, args, 16);
 	else if (format->type == 'b')
 		arg = take_oux(format, args, 2);
-	if ((format->type == 'x' || format->type == 'o') && !(ft_strcmp(arg, "0")))
+	if (format->type == 'x' && ft_strequ(arg, "0")
+		&& format->hash)
 		format->hash = 0;
 	make_oux(format, &arg);
 	if (format->type == 'X')

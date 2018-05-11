@@ -4,7 +4,7 @@ char			*set_sign(t_format *format, char *arg)
 {
 	char 		*sign;
 
-	sign = 0;
+	sign = NULL;
 	if (*arg == '-')
 		sign = "-";
 	else
@@ -17,7 +17,7 @@ char			*set_sign(t_format *format, char *arg)
 		{	
 			if (format->type == 'o' || format->type == 'O')
 			{	
-				if (ft_strcmp(arg, "0") != 0)
+				if (!ft_strequ(arg, "0"))
 					sign = "0";
 			}
 			else if (format->type == 'x' || format->type == 'X')

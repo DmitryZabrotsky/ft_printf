@@ -4,6 +4,21 @@
 
 int		main(void)
 {
+	ft_printf("my: %#.o %#.0o\n", 0, 0); //nothing out
+	printf("@or: %#.o %#.0o\n", 0, 0);
+
+	ft_printf("my: %.o %.0o\n", 0, 0); //0 out
+	printf("or: %.o %.0o\n", 0, 0);
+	// ft_printf("my: %5.o %5.0o\n", 0, 0);
+	// printf("or: %5.o %5.0o\n", 0, 0);
+
+
+	// ft_printf("%#6o\n", 2500);
+	// printf("%#6o\n", 2500);
+	// ft_printf("%-#6o\n", 2500);
+	// printf("%-#6o\n", 2500);
+
+
 	//char *f = "some text: %+#21.7X\n";
 	//char *s = "--- ---\nPRIVET!\n--- ---";
 	
@@ -76,60 +91,33 @@ int		main(void)
 	// double e = 0.96;
 	// long double le = 0.96;
 
-// test case: 42.000000
-
-// test case: 1001.000000
-
-// test case: -8000.000000
-
-// test case: 0.000000
-
-// test case: 0.000000
-
-// test case: 2147483647.000000
-
-// test case: -2147483648.000000
-
-// test case: -2147483649.000000
-
-// test case: 2147483648.000000
-
-// test case: 34.000000
-
-// test case: 9.000000
-
-// test case: 503.000000
-
-// test case: 42.420000
-
-// test case: 42.000000
-
-// test case: 1001.000000
-
-// test case: -8000.000000
-
-// test case: 0.000000
-
-// test case: 0.000000
-
-// test case: 2147483647.000000
-
-// test case: -2147483648.000000
-
-// test case: -2147483649.000000
-
-// test case: 2147483648.000000
-
-// test case: 34.000000
-
-// test case: 9.000000
-
-// test case: 503.000000
-
-// test case: 42.420000
-
-// test case: 42.420000
-
+	// test case: 42.000000
+	// test case: 1001.000000
+	// test case: -8000.000000
+	// test case: 0.000000
+	// test case: 0.000000
+	// test case: 2147483647.000000
+	// test case: -2147483648.000000
+	// test case: -2147483649.000000
+	// test case: 2147483648.000000
+	// test case: 34.000000
+	// test case: 9.000000
+	// test case: 503.000000
+	// test case: 42.420000
+	// test case: 42.000000
+	// test case: 1001.000000
+	// test case: -8000.000000
+	// test case: 0.000000
+	// test case: 0.000000
+	// test case: 2147483647.000000
+	// test case: -2147483648.000000
+	// test case: -2147483649.000000
+	// test case: 2147483648.000000
+	// test case: 34.000000
+	// test case: 9.000000
+	// test case: 503.000000
+	// test case: 42.420000
+	// test case: 42.420000
 
 	// double e = -2147483648.000000;
 	// long double le = -2147483648.000000;
@@ -164,6 +152,9 @@ int		main(void)
 	//while (1)
 	//{}
 
-	ft_printf("@moulitest: %#.x %#.0x", 0, 0);
-	printf("@moulitest: %#.x %#.0x", 0, 0);
+	// ft_printf("@moulitest: %#.x %#.0x", 0, 0);
+	// printf("@moulitest: %#.x %#.0x", 0, 0);
+
+	// ft_printf("@moulitest: %.d %.0d", 0, 0);
+	// printf("@moulitest: %.d %.0d", 0, 0);
 }
