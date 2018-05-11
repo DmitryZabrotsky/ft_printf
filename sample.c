@@ -13,17 +13,25 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdint.h>
-#include "./libft/libft.h"
+//#include "./libft/libft.h"
 
 int	main(void)
 {
-	int a = 0x77; 
-	int	b = -20;
-	char c = 'F';
-	float f = 12.2341524;
-	double d = 2e8;
+
+	printf("%%\n");
+	printf("%05%\n");
+	printf("%-%\n");
+	printf("%+%\n");
+	printf("% %\n");
+	printf("%.5%\n");
+	printf("%0%\n");
+	// int a = 0x77; 
+	// int	b = -20;
+	// char c = 'F';
+	// float f = 12.2341524;
+	// double d = 2e8;
 	
-	char	*string = "Hello, World!";
+	// char	*string = "Hello, World!";
 /*
 	printf("%s\n", string);
 	printf("a = %d, b = %d\n", a, b);
@@ -61,12 +69,12 @@ while (n != 0)
 	printf("n = %ju res = %i\n", n, res);
 }*/
 
-printf("%s\n", ft_itoa_base(356, 2));
-printf("%s\n", ft_itoa_base(356, 8));
-printf("%s\n", ft_itoa_base(356, 10));
-printf("%s\n\n", ft_itoa_base(356, 16));
-printf("%s\n", ft_itoa_base(45896325, 2));
-printf("%s\n", ft_itoa_base(45896325, 8));
-printf("%s\n", ft_itoa_base(45896325, 10));
-printf("%s\n", ft_itoa_base(45896325, 16));
+// printf("%s\n", ft_itoa_base(356, 2));
+// printf("%s\n", ft_itoa_base(356, 8));
+// printf("%s\n", ft_itoa_base(356, 10));
+// printf("%s\n\n", ft_itoa_base(356, 16));
+// printf("%s\n", ft_itoa_base(45896325, 2));
+// printf("%s\n", ft_itoa_base(45896325, 8));
+// printf("%s\n", ft_itoa_base(45896325, 10));
+// printf("%s\n", ft_itoa_base(45896325, 16));
 }

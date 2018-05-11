@@ -4,9 +4,14 @@
 
 int		main(void)
 {
-
-	ft_printf("%hU\n", 4294967296);
-  	ft_printf("%U\n", 4294967296);
+  //ft_printf("%.2c", NULL);
+  ft_printf("@moulitest: %c", 0);
+  //ft_printf("%2c", 0);
+  ft_printf("null %c and text", 0);
+  //ft_printf("% c", 0);
+  
+	// ft_printf("%hU\n", 4294967296);
+ 	//  ft_printf("%U\n", 4294967296);
 
 	// ft_printf("my: %#.o %#.0o\n", 0, 0); //nothing out
 	// printf("@or: %#.o %#.0o\n", 0, 0);

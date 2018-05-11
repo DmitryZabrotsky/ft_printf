@@ -45,8 +45,23 @@ void 				print_format(t_format *format)
 
 void				free_format(t_format **format)
 {
-	if ((*format)->size)
-		free((*format)->size);
 	free(*format);
 	*format = NULL;
+}
+
+t_flags				*init_flags(void)
+{
+	t_flags			*ret;
+
+	if ((ret = (t_flags *)malloc(sizeof(t_format))))
+	{
+		ret->cnull = 0;
+	}
+	return (ret);
+}
+
+void				free_flags(t_flags **flags)
+{
+	free(*flags);
+	*flags = NULL;
 }

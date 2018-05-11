@@ -18,8 +18,10 @@ int			ft_printf(const char *format, ...)
 	t_list	*lst;
 	int		i;
 	int		res;
+	t_flags *flags;
 
 	va_start(args, format);
+	flags = init_flags();
 	lst = NULL;
 	i = 0;
 	while (format[i])
@@ -27,13 +29,14 @@ int			ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			i = i + handle_format(format + i, &lst, args);
+			i = i + handle_format(format + i, &lst, args, flags);
 		}
 		else
 			i = i + handle_string(format + i, &lst);
 	}
 	va_end(args);
-	res = print_lst(lst);
+	res = print_lst(lst, flags);
 	ft_lstfree(&lst);
+	free_flags(&flags);
 	return (res);
 }

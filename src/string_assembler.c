@@ -35,7 +35,9 @@ static int		check_format(t_format *format)
 char			*assemble_string(t_format *format, va_list args)
 {
 	check_format(format);
-	if (format->type == 'c' || format->type == 'C')
+	if (format->type == '%')
+		return (build_percent(format));
+	else if (format->type == 'c' || format->type == 'C')
 		return (build_c(format, args));
 	else if (format->type == 's' || format->type == 'S')
 		return (build_s(format, args));

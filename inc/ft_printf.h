@@ -30,14 +30,19 @@ typedef struct	s_format
 	char		type;
 }				t_format;
 
+typedef struct	s_flags
+{
+	int			cnull;
+}				t_flags;
+
 /*
  ** init_format.c
 */
 t_format		*init_format(void);
-void			print_format(t_format *format);
 void			free_format(t_format **format);
-void			print_format_table(t_format *format);
-
+t_flags			*init_flags(void);
+void			free_flags(t_flags **flags);
+void			print_format(t_format *format); // DEL AFTER DONE!!!!
 /*
  ** flags_handler.c
 */
@@ -51,7 +56,7 @@ int				handle_string(const char *fstr, t_list **lst);
 /*
  ** lst_printer.c
 */
-int				print_lst(t_list *lst);
+int				print_lst(t_list *lst, t_flags *flags);
 
 /*
  ** width_handler.c
@@ -61,7 +66,7 @@ int				handle_width(const char *fstr, t_format *format, va_list args);
 /*
  ** format_handler.c
 */
-int				handle_format(const char *fstr, t_list **lst, va_list args);
+int				handle_format(const char *fstr, t_list **lst, va_list args, t_flags *flags);
 
 /*
  ** percision_handler.c
@@ -147,4 +152,9 @@ char			*build_e(t_format *format, va_list args);
  ** /builders/a_builder.c
 */
 char			*build_a(t_format *format, va_list args);
+
+/*
+ ** /builders/percent_builder.c
+*/
+char 			*build_percent(t_format *format);
 #endif

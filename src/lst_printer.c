@@ -26,7 +26,7 @@ void	put_content(t_list *lst)
 	}
 }
 
-int		print_lst(t_list *lst)
+int		print_lst(t_list *lst, t_flags *flags)
 {
 	int chars;
 
@@ -35,16 +35,10 @@ int		print_lst(t_list *lst)
 	chars = 0;
 	while (lst)
 	{
-		//printf("c_size: %zu\n", lst->content_size);
-		//ft_lstprint(lst);
-		//write(1, (char **)&(lst->content), lst->content_size);
-		//ft_putendl("\n-------------------------");
-		//ft_putstr((char *)lst->content);
-		//ft_putendl("\n-------------------------");
-		//ft_putchar(((char *)(lst->content))[0]);
 		put_content(lst);
-		// ft_putnbr((int)lst->content_size);
 		chars += ft_strlen((char *)lst->content);
+		chars += flags->cnull;
+		flags->cnull = 0;
 		lst = lst->next;
 	}
 	return (chars);

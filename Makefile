@@ -31,7 +31,8 @@ PRINTFSRC = ./src/ft_printf.c ./src/handlers/flags_handler.c \
 			./src/builders/num_tools.c ./src/builders/di_builder.c \
 			./src/builders/oux_builder.c ./src/builders/p_builder.c \
 			./src/builders/f_builder.c ./src/builders/e_builder.c \
-			./src/builders/floats_tools.c ./src/builders/a_builder.c
+			./src/builders/floats_tools.c ./src/builders/a_builder.c \
+			./src/builders/percent_builder.c
 
 OBJ = $(addprefix $(LIBDIR), $(LIBSRC:.c=.o)) $(PRINTFSRC:.c=.o)
 
