@@ -56,6 +56,7 @@ t_flags				*init_flags(void)
 	if ((ret = (t_flags *)malloc(sizeof(t_format))))
 	{
 		ret->cnull = 0;
+		ret->p = 0;
 	}
 	return (ret);
 }

@@ -33,6 +33,7 @@ typedef struct	s_format
 typedef struct	s_flags
 {
 	int			cnull;
+	int 		p;
 }				t_flags;
 
 /*
@@ -87,7 +88,7 @@ int				handle_type(const char *fstr, t_format *format);
 /*
   ** string_assembler.c
 */
-char			*assemble_string(t_format *format, va_list args);
+char			*assemble_string(t_format *format, va_list args, t_flags *flags);
 
 /*
  ** builders/c_builder.c
@@ -123,13 +124,13 @@ char			*build_zero_str(size_t width, char *num, char *sign);
 /*
  ** /builders/oux_builder.c
 */
-char			*build_oux(t_format *format, va_list args);
+char			*build_oux(t_format *format, va_list args, t_flags *flags);
 void			to_upper(char **str);
 
 /*
  ** /builders/p_builder.c
 */
-char			*build_p(t_format *format, va_list args);
+char			*build_p(t_format *format, va_list args, t_flags *flags);
 
 /*
  ** /builders/f_builder.c

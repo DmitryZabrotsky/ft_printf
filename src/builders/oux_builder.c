@@ -19,9 +19,7 @@ static void			make_oux(t_format *format, char **arg)
 	char			*sign;
 
 	num = del_sign(*arg);
-//printf("num: %s\n", num);
 	sign = set_sign(format, *arg);
-//printf("sign: %s\n", sign);
 	if (format->zero && format->width)
 		num = build_zero_str(format->width, *arg, sign);
 	else
@@ -61,7 +59,7 @@ static char			*take_oux(t_format *format, va_list args, int base)
 		return(ft_itoa_base(va_arg(args, unsigned int), base));
 }
 
-char				*build_oux(t_format *format, va_list args)
+char				*build_oux(t_format *format, va_list args, t_flags *flags)
 {
 	char			*arg;
 
@@ -76,9 +74,10 @@ char				*build_oux(t_format *format, va_list args)
 	else if (format->type == 'b')
 		arg = take_oux(format, args, 2);
 	if (format->type == 'x' && ft_strequ(arg, "0")
-		&& format->hash)
+		&& format->hash && !flags->p)
 		format->hash = 0;
 	make_oux(format, &arg);
+	flags->p = 0;
 	if (format->type == 'X')
 		to_upper(&arg);
 	return (arg);

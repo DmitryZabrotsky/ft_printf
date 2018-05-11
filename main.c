@@ -5,11 +5,11 @@
 int		main(void)
 {
   //ft_printf("%.2c", NULL);
-  ft_printf("@moulitest: %c", 0);
+  //ft_printf("@moulitest: %c", 0);
   //ft_printf("%2c", 0);
-  ft_printf("null %c and text", 0);
+  //ft_printf("null %c and text", 0);
   //ft_printf("% c", 0);
-  
+  ft_printf("%p\n", 0);
 	// ft_printf("%hU\n", 4294967296);
  	//  ft_printf("%U\n", 4294967296);
 

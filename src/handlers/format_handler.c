@@ -15,7 +15,7 @@ int		handle_format(const char *fstr, t_list **lst, va_list args,
 		i += handle_precision(fstr + i, format, args);
 		i += handle_size(fstr + i, format);
 		i += handle_type(fstr +i, format);
-		str = assemble_string(format, args);
+		str = assemble_string(format, args, flags);
 //print_format(format);
 	content = ft_lstnew(str, ft_strlen(str) + 1);
 	if ((format->type == 'c' || format->type == 'C') &&

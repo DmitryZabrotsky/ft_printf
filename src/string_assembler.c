@@ -32,7 +32,7 @@ static int		check_format(t_format *format)
 	return (0);
 }
 
-char			*assemble_string(t_format *format, va_list args)
+char			*assemble_string(t_format *format, va_list args, t_flags *flags)
 {
 	check_format(format);
 	if (format->type == '%')
@@ -45,11 +45,11 @@ char			*assemble_string(t_format *format, va_list args)
 		return (build_di(format, args));
 	else if (format->type == 'o' || format->type == 'u' || format->type == 'U'
 		|| format->type == 'x' || format->type == 'X')
-		return (build_oux(format, args));
+		return (build_oux(format, args, flags));
 	else if (format->type == 'p')
-		return (build_p(format, args));
+		return (build_p(format, args, flags));
 	else if (format->type == 'b')
-		return (build_oux(format, args));
+		return (build_oux(format, args, flags));
 	else if (format->type == 'f' || format->type == 'F')
 		return (build_f(format, args));
 	else if (format->type == 'e' || format->type == 'E')
