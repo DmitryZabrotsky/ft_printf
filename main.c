@@ -4,26 +4,29 @@
 
 int main(void)
 {
-	ft_printf("%%\n");
-	printf("%%\n");
+	// ft_printf("my: %%\n");
+	// printf("or: %%\n");
 
-	ft_printf("aa%%bb\n");
-	printf("aa%%bb\n");
+	// ft_printf("my: aa%%bb\n");
+	// printf("or: aa%%bb\n");
 
-	ft_printf("%%%%%%%%%%\n");
-	printf("%%%%%%%%%%\n");
+	// ft_printf("my: %%%%%%%%%%\n");
+	// printf("or: %%%%%%%%%%\n");
 
-	ft_printf(".%%.%%.%%.%%.%%.%%.%%.%%.\n");
-	printf(".%%.%%.%%.%%.%%.%%.%%.%%.\n");
+	// ft_printf("my: .%%.%%.%%.%%.%%.%%.%%.%%.\n");
+	// printf("or: .%%.%%.%%.%%.%%.%%.%%.%%.\n");
 	
-	ft_printf("%"); // inv conv
+	ft_printf("my: %"); // inv conv
+	printf("or: %");
 
-	ft_printf("% Zoooo\n"); // inv conv
-	
-	ft_printf("{%}\n"); //inv conv
-	
-	ft_printf("{% %}\n");
-	printf("{% %}\n");
+	ft_printf("my: % Zoooo\n"); // inv conv
+	printf("or: % Zoooo\n");
+
+	ft_printf("my: {%}\n"); //inv conv
+	printf("or: {%}\n");
+
+	ft_printf("my: {% %}\n");
+	printf("or: {% %}\n");
 }
 
 // int		main(void)

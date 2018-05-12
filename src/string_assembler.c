@@ -57,5 +57,5 @@ char			*assemble_string(t_format *format, va_list args, t_flags *flags)
 	else if (format->type == 'a' || format->type == 'A')
 		return (build_a(format, args));
 	else
-		return (NULL);
+		return (ft_strdup(""));
 }

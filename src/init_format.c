@@ -57,6 +57,8 @@ t_flags				*init_flags(void)
 	{
 		ret->cnull = 0;
 		ret->p = 0;
+		ret->error = 0;
+		ret->chr = '\0';
 	}
 	return (ret);
 }
