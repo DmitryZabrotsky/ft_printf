@@ -41,7 +41,7 @@ static void			make_oux(t_format *format, char **arg)
 
 static char			*take_oux(t_format *format, va_list args, int base)
 {
-	if (format->type == 'U')
+	if (format->type == 'U' || format->type == 'O')
 		return (ft_itoa_base(va_arg(args, unsigned long), base));
 	else if (ft_strequ(format->size, "hh"))
 		return (ft_itoa_base((unsigned char)va_arg(args, int), base));
@@ -67,7 +67,7 @@ char				*build_oux(t_format *format, va_list args, t_flags *flags)
 	format->plus = 0;
 	if (format->type == 'u' || format->type == 'U')
 		arg = take_oux(format, args, 10);
-	else if (format->type == 'o')
+	else if (format->type == 'o'|| format->type == 'O')
 		arg = take_oux(format, args, 8);
 	else if (format->type == 'x' || format->type == 'X')
 		arg = take_oux(format, args, 16);

@@ -3,9 +3,16 @@
 char		*build_s(t_format *format, va_list args)
 {
 	char	*arg;
+	wchar_t *wchr;
 
 	if (format->type == 'S' || ft_strequ(format->size, "l"))
-		arg = ft_wstrtostr(va_arg(args, wchar_t *));
+	{
+		wchr = va_arg(args, wchar_t *);
+		if (wchr)
+			arg = ft_wstrtostr(wchr);
+		else
+			arg = ft_strdup("(null)");
+	}
 	else
 		arg = va_arg(args, char *);
 		if (!arg)
