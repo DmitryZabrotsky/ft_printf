@@ -1,14 +1,26 @@
 #include "../../inc/ft_printf.h"
 
-char	*handle_error(t_flags *flags)
+char	*handle_error(t_format *format, t_flags *flags)
 {
-	char *res;
+	char *str;
 
-	res = ft_strnew(1);
-	res[0] = flags->chr;
+	if (format->width)
+	{
+		str = ft_strnew(format->width);
+		str = (char *)(ft_memset(str, ' ', format->width));
+		if (format->minus)
+			str[0] = flags->chr;
+		else
+			str[format->width - 1] = flags->chr;
+	}
+	else
+	{
+		str = ft_strnew(1);
+		str[0] = flags->chr;
+	}
 	flags->error = 0;
 	flags->chr = '\0';
-	return (res);
+	return (str);
 }
 
 int		handle_format(const char *fstr, t_list **lst, va_list args,
@@ -27,7 +39,7 @@ int		handle_format(const char *fstr, t_list **lst, va_list args,
 	i += handle_size(fstr + i, format);
 	i += handle_type(fstr +i, format, flags);
 	if (flags->error)
-		str = handle_error(flags);
+		str = handle_error(format, flags);
 	else
 		str = assemble_string(format, args, flags);
 

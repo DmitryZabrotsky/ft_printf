@@ -68,18 +68,24 @@ char			*build_zero_str(size_t width, char *num, char *sign)
 {
 	char			*str;
 	char			*buf;
+	size_t			len;
 
-	str = set_free_width(width, 1);
-	buf = del_sign(num);
-	if (sign)
+	str = num;
+	len = ft_strlen(num);
+	if (width > len)
 	{
-		ft_memcpy(str, sign, ft_strlen(sign));
-		ft_memcpy(str + width - ft_strlen(buf), buf, ft_strlen(buf));
+		str = set_free_width(width, 1);
+		buf = del_sign(num);
+		if (sign)
+		{
+			ft_memcpy(str, sign, ft_strlen(sign));
+			ft_memcpy(str + width - ft_strlen(buf), buf, ft_strlen(buf));
+		}
+		else
+			ft_memcpy(str + width - ft_strlen(buf), buf, ft_strlen(buf));
+		free (buf);
+		buf = NULL;
 	}
-	else
-		ft_memcpy(str + width - ft_strlen(buf), buf, ft_strlen(buf));
-	free (buf);
-	buf = NULL;
 	return (str);
 }
 

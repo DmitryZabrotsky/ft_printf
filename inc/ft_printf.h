@@ -70,7 +70,7 @@ int				handle_width(const char *fstr, t_format *format, va_list args);
  ** format_handler.c
 */
 int				handle_format(const char *fstr, t_list **lst, va_list args, t_flags *flags);
-char			*handle_error(t_flags *flags);
+char			*handle_error(t_format *format, t_flags *flags);
 
 /*
  ** percision_handler.c

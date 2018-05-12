@@ -4,25 +4,29 @@ static void			make_di(t_format *format, char **arg)
 {
 	char			*num;
 	char			*sign;
+	int 			zeroformat;
 
+	zeroformat = 0;
 	num = del_sign(*arg);
 	sign = set_sign(format, *arg);
-	if (format->zero && format->width)
-		num = build_zero_str(format->width, *arg, sign);
-	else
-	{
-		if (format->precision >= 0)
-		{	
-			if (format->precision == 0 && !(ft_strcmp(*arg, "0")))
-				num = ft_strdup("");
-			else
+	if (format->precision >= 0)
+	{	
+		if (format->precision == 0 && !(ft_strcmp(*arg, "0")))
+			num = ft_strdup("");
+		else
 			num = set_num_precision(format->precision, *arg);
-		}
-		if (sign)
-			num = ft_strjoin(sign, num);
-		if (format->width && !(format->zero))
-			num = set_width(format->minus, format->width, num);
 	}
+	if (format->zero && format->width)
+	{
+		num = build_zero_str(format->width, num, sign);
+		zeroformat = 1;
+		if (sign && !ft_strequ(sign, "-") && num[0] != '+' && num[0] != ' ')
+			num = ft_strjoin(sign, num);
+	}
+	if (sign && !zeroformat)
+		num = ft_strjoin(sign, num);
+	if (format->width && !(format->zero))
+		num = set_width(format->minus, format->width, num);
 	*arg = num;
 }
 

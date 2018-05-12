@@ -73,7 +73,7 @@ char				*build_oux(t_format *format, va_list args, t_flags *flags)
 		arg = take_oux(format, args, 16);
 	else if (format->type == 'b')
 		arg = take_oux(format, args, 2);
-	if (format->type == 'x' && ft_strequ(arg, "0")
+	if ((format->type == 'x' || format->type == 'X')&& ft_strequ(arg, "0")
 		&& format->hash && !flags->p)
 		format->hash = 0;
 	make_oux(format, &arg);

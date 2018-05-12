@@ -4,9 +4,67 @@
 
 int main(void)
 {
-	ft_printf("my: {%S}", NULL);
-	printf("or: {%S}", NULL);
+	ft_printf("my: {% 03d}\n", 0);
+	printf("or: {% 03d}\n", 0);
+
+
+	ft_printf("my: {%+03d}\n", 0);
+	printf("or: {%+03d}\n", 0);
+// }
+
+// int main(void)
+// {
+	ft_printf("my: {%+03d}\n", 123456);
+	printf("or: {%+03d}\n", 123456);
+
+	ft_printf("my: {%010d}\n", -42);
+	printf("or: {%010d}\n", -42);
 }
+
+// int main(void)
+// {
+// 	ft_printf("my: %#X\n", 0);
+// 	printf("or: %#X\n", 0);
+// }
+
+// int main(void)
+// {
+// 	setlocale(LC_ALL, "");
+// 	ft_printf("my: {%03c}\n", 0);
+// 	printf("or: {%03c}\n", 0);
+// 	ft_printf("my: {%05s}\n", "abc");
+// 	printf("or: {%05s}\n", "abc");
+// 	ft_printf("my: {%030S}\n", L"我是一只猫。");
+// 	printf("or: {%030S}\n", L"我是一只猫。");
+// 	ft_printf("my: {%05p}\n", 0);
+// 	printf("or: {%05p}\n", 0);
+// }
+
+// int main(void)
+// {
+// 	ft_printf("my: {%04d}\n", 10000);
+// 	printf("or: {%04d}\n", 10000);
+
+// 	ft_printf("my: (%4s)\n", "Privet");
+// 	printf("or: (%4s)\n", "Privet");
+// }
+// int main(void)
+// {
+// 	printf("or: {%10R}");
+// 	ft_printf("my: {%10R}");
+// }
+
+// int main(void)
+// {
+// 	ft_printf("%C", 0);
+// 	printf("%C", 0);
+// }
+
+// int main(void)
+// {
+// 	ft_printf("my: {%S}", NULL);
+// 	printf("or: {%S}", NULL);
+// }
 
 // int main(void)
 // {

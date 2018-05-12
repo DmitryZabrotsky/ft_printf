@@ -33,14 +33,19 @@ static char					*make_wchar(t_format *format, va_list args)
 	wint_t					arg;
 
 	arg = va_arg(args, wint_t);
-	res = ft_wchartochar((wchar_t)arg);
-	if (MB_CUR_MAX != 4 && arg > 127)
-	{
+	if (!arg)
 		return (make_str(format, (char)arg));
+	else
+	{
+		res = ft_wchartochar((wchar_t)arg);
+		if (MB_CUR_MAX != 4 && arg > 127)
+		{
+			return (make_str(format, (char)arg));
+		}
+		if (format->width)
+			ft_mleak(&res, set_width(format->minus, format->width, res));
+		return (res);
 	}
-	if (format->width)
-		ft_mleak(&res, set_width(format->minus, format->width, res));
-	return (res);
 }
 
 char						*build_c(t_format *format, va_list args)
