@@ -59,6 +59,9 @@ static char				*make_e(t_format *format, long double num)
 	char				*sign;
 	char				*minus;
 
+	print_format(format);
+	printf("%Lf\n", num);
+	return (ft_strdup(" e "));
 	minus = check_sign(&num);
 	exp = find_exp(f_to_e(&num));
 	str = f_to_str(format->precision, num);

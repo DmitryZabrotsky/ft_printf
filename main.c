@@ -4,19 +4,35 @@
 
 int main(void)
 {
+	double e = 0.000000;
+	long double le = 0.000000;
 
-	ft_printf("{%3*p}\n", 10, 0);
-	printf("{%3*p}\n", 10, 0);
+	ft_printf("\nmy 'e': %.0e my 'LE': %.0LE\n", e, le);
+	printf("or 'e': %.0e or 'LE': %.0LE\n\n", e, le);
 
-	// ft_printf("\n{%3*d}\n", 0, 0);
-	// printf("{%3*d}\n", 0, 0);
-	// ft_printf("\n{%*3d}\n", 0, 0);
-	// printf("{%*3d}\n", 0, 0);
-	// ft_printf("\n{%*3d}\n", 5, 0);
-	// printf("{%*3d}\n", 5, 0);
-
-	//ft_printf("%---d\n", 50);
+	// double a = 42.42;
+	// long double la = 42.42;
+	// double a = -2147483648.000000;
+	// long double la = -2147483648.000000;
+	// ft_printf("\nmy: %a %La\n", a, la);
+	// printf("or: %a %La\n\n", a, la);
 }
+
+// int main(void)
+// {
+
+// 	ft_printf("{%3*p}\n", 10, 0);
+// 	printf("{%3*p}\n", 10, 0);
+
+// 	// ft_printf("\n{%3*d}\n", 0, 0);
+// 	// printf("{%3*d}\n", 0, 0);
+// 	// ft_printf("\n{%*3d}\n", 0, 0);
+// 	// printf("{%*3d}\n", 0, 0);
+// 	// ft_printf("\n{%*3d}\n", 5, 0);
+// 	// printf("{%*3d}\n", 5, 0);
+
+// 	//ft_printf("%---d\n", 50);
+// }
 
 // int main(void)
 // {
