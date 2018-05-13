@@ -4,11 +4,11 @@
 
 int main(void)
 {
-	double e = 0.000000;
-	long double le = 0.000000;
+	double e = 42.42;
+	long double le = 42.42;
 
-	ft_printf("%e\n", 42.000000);
-	printf("%e\n", 42.000000);
+	ft_printf("%e\n", 42.42);
+	printf("%e\n", 42.42);
 
 	ft_printf("%e\n", 1001.000000);
 	printf("%e\n", 1001.000000);

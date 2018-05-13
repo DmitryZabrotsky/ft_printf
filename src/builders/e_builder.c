@@ -3,24 +3,26 @@
 static int				f_to_e(long double *num)
 {
 	int					e;
-
+	//printf("--------------- NUM: %Lf\n", *num);
 	if (*num == 0)
 		return (0);
-	return (1);
+	//return (1);
 	e = 0;
-	while (1 > (intmax_t)(*num) || 10 <= (intmax_t)(*num))
+	while ((intmax_t)1 > (intmax_t)(*num) || (intmax_t)10 <= (intmax_t)(*num))
 	{
-		if ((intmax_t)(*num) < 1)
+		if ((intmax_t)(*num) < (intmax_t)1)
 		{
 			*num *= (long double)10.0;
 			e--;
 		}
-		if ((intmax_t)(*num) >= 10)
+		if ((intmax_t)(*num) >= (intmax_t)10)
 		{
 			*num /= (long double)10.0;
 			e++;
 		}
+		//printf("%Lf\n", *num);
 	}
+	//printf("------------ END OF FUNC e: %d\n", e);
 	return (e);
 }
 
