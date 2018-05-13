@@ -50,8 +50,8 @@ char			*assemble_string(t_format *format, va_list args, t_flags *flags)
 	else if (format->type == 'o' || format->type == 'O' ||
 			format->type == 'u' || format->type == 'U' ||
 			format->type == 'x' || format->type == 'X')
-		return ("DZ <3 AC");
-		//return (build_oux(format, args, flags));
+		//return ("DZ <3 AC");
+		return (build_oux(format, args, flags));
 	else if (format->type == 'p')
 		return ("DZ <3 AC");
 		//return (build_p(format, args, flags));
