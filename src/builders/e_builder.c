@@ -6,7 +6,7 @@ static int				f_to_e(long double *num)
 
 	if (*num == 0)
 		return (0);
-	//return (1);
+	return (1);
 	e = 0;
 	while (1 > (intmax_t)(*num) || 10 <= (intmax_t)(*num))
 	{
@@ -59,9 +59,11 @@ static char				*make_e(t_format *format, long double num)
 	char				*sign;
 	char				*minus;
 
-	print_format(format);
-	printf("%Lf\n", num);
-	return (ft_strdup(" e "));
+	//print_format(format);
+	//printf("%Lf\n", num);
+
+	//return (ft_strdup(" e "));
+	
 	minus = check_sign(&num);
 	exp = find_exp(f_to_e(&num));
 	str = f_to_str(format->precision, num);
