@@ -3,30 +3,27 @@
 static int				f_to_e(long double *num)
 {
 	int					e;
-	//long double			dnum;
+	long double			dnum;
 
-	//dnum = *num;
+	dnum = *num;
 	if (*num == 0)
 		return (0);
-	//printf("%ji\n", (intmax_t)(*num));
 	//return (1);
 	e = 0;
-	while (1 > (intmax_t)(*num) || 10 <= (intmax_t)(*num))
+	while (1 > (intmax_t)(dnum) || 10 <= (intmax_t)(dnum))
 	{
-		if ((intmax_t)(*num) < 1)
+		if ((intmax_t)(dnum) < 1)
 		{
-			*num *= 10.0;
-			//printf("SALAM EBATb%Lf\n", *num);
+			dnum *= 10.0;
 			e--;
 		}
-		if ((intmax_t)(*num) >= 10)
+		if ((intmax_t)(dnum) >= 10)
 		{
-			*num /= 10.0;
-			//printf("DELI YMNOSHAY EBATb%Lf\n", *num);
+			dnum /= 10.0;
 			e++;
 		}
-		//printf("%Lf\n", dnum);
 	}
+	*num = dnum;
 	return (e);
 }
 
