@@ -6,7 +6,7 @@ static int				f_to_e(long double *num)
 
 	if (*num == 0)
 		return (0);
-	//return (1);
+	return (1);
 	e = 0;
 	while (1 > (intmax_t)(*num) || 10 <= (intmax_t)(*num))
 	{
