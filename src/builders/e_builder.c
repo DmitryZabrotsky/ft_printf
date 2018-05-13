@@ -10,16 +10,19 @@ static int				f_to_e(long double *num)
 	e = 0;
 	while (1 > (intmax_t)(*num) || 10 <= (intmax_t)(*num))
 	{
-		// if ((intmax_t)(*num) < 1)
-		// {
-		// 	*num *= 10.0;
-		// 	e--;
-		// }
-		if ((intmax_t)(*num) >= 10)
+		if ((intmax_t)(*num) < 1)
 		{
+			*num *= 10.0;
+			e--;
+		}
+		else
 			*num /= 10.0;
 			e++;
-		}
+		// if ((intmax_t)(*num) >= 10)
+		// {
+		// 	*num /= 10.0;
+		// 	e++;
+		// }
 	}
 	return (e);
 }
