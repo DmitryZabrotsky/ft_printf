@@ -36,6 +36,8 @@ typedef struct	s_flags
 	int 		p;
 	int 		error;
 	char		chr;
+	int 		minuscnull;
+	int 		len;
 }				t_flags;
 
 /*
@@ -96,7 +98,7 @@ char			*assemble_string(t_format *format, va_list args, t_flags *flags);
 /*
  ** builders/c_builder.c
 */
-char			*build_c(t_format *format, va_list args);
+char			*build_c(t_format *format, va_list args, t_flags * flags);
 
 /*
  ** builders/s_builder.c

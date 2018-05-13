@@ -4,22 +4,70 @@
 
 int main(void)
 {
-	ft_printf("my: {% 03d}\n", 0);
-	printf("or: {% 03d}\n", 0);
+ft_printf("{%3*p}", 10, 0);
+printf("{%3*p}", 10, 0);
+}
 
+// int main(void)
+// {
+// 	setlocale(LC_ALL, "");
 
-	ft_printf("my: {%+03d}\n", 0);
-	printf("or: {%+03d}\n", 0);
+// 	ft_printf("my: %#.o, %#.0o\n", 0, 0);
+// printf("or: %#.o, %#.0o\n", 0, 0);
+// 	ft_printf("my: %#.x, %#.0x\n", 0, 0);
+// printf("or: %#.x, %#.0x\n", 0, 0);
+// 	ft_printf("my: %.p, %.0p\n", 0, 0);
+// printf("or: %.p, %.0p\n", 0, 0);
+// 	ft_printf("my: {%05.c}\n", 0);
+// printf("or: {%05.c}\n", 0);
+// 	ft_printf("my: {%05.s}\n", 0);
+// printf("or: {%05.s}\n", 0);
+// 	ft_printf("my: {%05.%}\n", 0);
+// printf("or: {%05.%}\n", 0);
+// 	ft_printf("my: {%05.Z}\n", 0);
+// printf("or: {%05.Z}\n", 0);
+// 	ft_printf("my: {%#.5x}\n", 1);
+// printf("or: {%#.5x}\n", 1);
+// 	ft_printf("my: %#.3o\n", 1);
+// printf("or: %#.3o\n", 1);
+// 	ft_printf("my: {%05.S}\n", L"42 c est cool");
+// printf("or: {%05.S}\n", L"42 c est cool");
 // }
 
 // int main(void)
 // {
-	ft_printf("my: {%+03d}\n", 123456);
-	printf("or: {%+03d}\n", 123456);
+// 	ft_printf("my: %.0p, %.p\n", 0, 0);
+// 	printf("or: %.0p, %.p\n", 0, 0);
+// 	ft_printf("my: %.5p\n", 0);
+// 	printf("or: %.5p\n", 0);
+// 	// ft_printf("my: %9.2p\n", 1234);
+// 	// printf("or: %9.2p\n", 1234);
+// 	// ft_printf("my: %9.2p\n", 1234567);
+// 	// printf("or: %9.2p\n", 1234567);
+// 	// ft_printf("my: %2.9p\n", 1234);
+// 	printf("or: %2.9p\n", 1234);
+// 	ft_printf("my: %2.9p\n", 1234567);
+// 	printf("or: %2.9p\n", 1234567);
+// }
 
-	ft_printf("my: {%010d}\n", -42);
-	printf("or: {%010d}\n", -42);
-}
+// int main(void)
+// {
+// 	ft_printf("my: {% 03d}\n", 0);
+// 	printf("or: {% 03d}\n", 0);
+
+
+// 	ft_printf("my: {%+03d}\n", 0);
+// 	printf("or: {%+03d}\n", 0);
+// // }
+
+// // int main(void)
+// // {
+// 	ft_printf("my: {%+03d}\n", 123456);
+// 	printf("or: {%+03d}\n", 123456);
+
+// 	ft_printf("my: {%010d}\n", -42);
+// 	printf("or: {%010d}\n", -42);
+// }
 
 // int main(void)
 // {

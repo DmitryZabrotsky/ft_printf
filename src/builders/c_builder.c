@@ -48,7 +48,7 @@ static char					*make_wchar(t_format *format, va_list args)
 	}
 }
 
-char						*build_c(t_format *format, va_list args)
+char						*build_c(t_format *format, va_list args, t_flags * flags)
 {
 	char					chr;
 	char					*res;
@@ -62,6 +62,11 @@ char						*build_c(t_format *format, va_list args)
 	{
 		chr = (char)take_c(args);
 		res = make_str(format, chr);
+	}
+	if (!res[0] && format->minus && format->width && !chr)
+	{
+		flags->minuscnull = 1;
+		flags->len = format->width;
 	}
 	return (res);
 }

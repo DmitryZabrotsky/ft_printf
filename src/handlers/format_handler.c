@@ -42,10 +42,11 @@ int		handle_format(const char *fstr, t_list **lst, va_list args,
 		str = handle_error(format, flags);
 	else
 		str = assemble_string(format, args, flags);
-
 //print_format(format);
-
-	content = ft_lstnew(str, ft_strlen(str) + 1);
+	if (flags->minuscnull)
+		content = ft_lstnew(str, format->width);
+	else
+		content = ft_lstnew(str, ft_strlen(str) + 1);
 	if ((format->type == 'c' || format->type == 'C') &&
 		(!(content->content_size - 1) ||
 		(size_t)format->width > content->content_size -1))

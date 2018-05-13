@@ -36,9 +36,18 @@ int		print_lst(t_list *lst, t_flags *flags)
 	while (lst)
 	{
 		put_content(lst);
-		chars += ft_strlen((char *)lst->content);
-		chars += flags->cnull;
-		flags->cnull = 0;
+		if (flags->minuscnull)
+		{
+			chars += flags->len;
+		 	flags->minuscnull = 0;
+		 	flags->len = 0;
+		}
+		else
+		{
+			chars += ft_strlen((char *)lst->content);
+			chars += flags->cnull;
+			flags->cnull = 0;
+		}
 		lst = lst->next;
 	}
 	return (chars);

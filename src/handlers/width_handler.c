@@ -3,18 +3,27 @@
 int		handle_width(const char *fstr, t_format *format, va_list args)
 {
 	int i;
+	int width;
 
 	i = 0;
 	if (fstr[i] == '*')
 	{
-		format->width = va_arg(args, int);
+		width = va_arg(args, int);
 		i++;
 	}
 	else
 	{
 		while (ft_isdigit(fstr[i]))
 			i++;
-		format->width = ft_atoi(fstr); 
+		width = ft_atoi(fstr);
 	}
+	if (width < 0)
+	{
+		format->width = width * -1;
+		if (!format->minus)
+			format->minus = 1;
+	}
+	else
+		format->width = width;
 	return (i);
 }

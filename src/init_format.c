@@ -59,6 +59,8 @@ t_flags				*init_flags(void)
 		ret->p = 0;
 		ret->error = 0;
 		ret->chr = '\0';
+		ret->minuscnull = 0;
+		ret->len = 0;
 	}
 	return (ret);
 }

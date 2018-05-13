@@ -38,7 +38,7 @@ char			*assemble_string(t_format *format, va_list args, t_flags *flags)
 	if (format->type == '%')
 		return (build_percent(format));
 	else if (format->type == 'c' || format->type == 'C')
-		return (build_c(format, args));
+		return (build_c(format, args, flags));
 	else if (format->type == 's' || format->type == 'S')
 		return (build_s(format, args));
 	else if (format->type == 'd' || format->type == 'D' || format->type == 'i')
@@ -58,5 +58,5 @@ char			*assemble_string(t_format *format, va_list args, t_flags *flags)
 	else if (format->type == 'a' || format->type == 'A')
 		return (build_a(format, args));
 	else
-		return (ft_strdup(""));
+		return (ft_strdup("")); //think about this!
 }
