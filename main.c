@@ -4,6 +4,11 @@
 
 int main(void)
 {
+
+	// double e = 80000000.0000000000;
+	// ft_printf("%e\n", e);
+	// printf("%e\n", e);
+	
 	//ft_printf("%g\n", 10);
 
 	double e = 42.42;

@@ -8,16 +8,16 @@ static int				f_to_e(long double *num)
 		return (0);
 	//return (1);
 	e = 0;
-	while ((intmax_t)1 > (intmax_t)(*num) || (intmax_t)10 <= (intmax_t)(*num))
+	while (1.0 > *num || 10.0 <= *num)
 	{
-		if ((intmax_t)(*num) < (intmax_t)1)
+		if (*num < 1.0)
 		{
-			*num *= (long double)10.0;
+			*num *= 10.0;
 			e--;
 		}
-		if ((intmax_t)(*num) >= (intmax_t)10)
+		if (*num >= 10.0)
 		{
-			*num /= (long double)10.0;
+			*num /= 10.0;
 			e++;
 		}
 	}
