@@ -36,11 +36,11 @@ char			*assemble_string(t_format *format, va_list args, t_flags *flags)
 {
 	check_format(format);
 	if (format->type == '%')
-		return ("DZ <3 AC");
-		//return (build_percent(format));
+		//return ("DZ <3 AC");
+		return (build_percent(format));
 	else if (format->type == 'c' || format->type == 'C')
-		return ("DZ <3 AC");
-		//return (build_c(format, args, flags));
+		//return ("DZ <3 AC");
+		return (build_c(format, args, flags));
 	else if (format->type == 's' || format->type == 'S')
 		return ("DZ <3 AC");
 		//return (build_s(format, args));
