@@ -16,8 +16,7 @@ static int				f_to_e(long double *num)
 			e--;
 		}
 		else
-			*num /= 10.0;
-			e++;
+			return (1);
 		// if ((intmax_t)(*num) >= 10)
 		// {
 		// 	*num /= 10.0;
