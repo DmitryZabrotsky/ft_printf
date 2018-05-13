@@ -4,8 +4,10 @@
 
 int main(void)
 {
-	double e = 42.42;
-	long double le = 42.42;
+	//ft_printf("%g\n", 10);
+
+	// double e = 42.42;
+	// long double le = 42.42;
 
 	ft_printf("%e\n", 42.42);
 	printf("%e\n", 42.42);
@@ -44,8 +46,8 @@ int main(void)
 	printf("%e\n", 503.000000);
 	
 
-	ft_printf("\nmy 'e': %.0e my 'LE': %.0LE\n", e, le);
-	printf("or 'e': %.0e or 'LE': %.0LE\n\n", e, le);
+	// ft_printf("\nmy 'e': %.0e my 'LE': %.0LE\n", e, le);
+	// printf("or 'e': %.0e or 'LE': %.0LE\n\n", e, le);
 
 	// double a = 42.42;
 	// long double la = 42.42;

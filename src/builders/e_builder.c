@@ -12,12 +12,12 @@ static int				f_to_e(long double *num)
 	{
 		if ((intmax_t)(*num) < 1)
 		{
-			*num = *num * 10.0;
+			*num = *num * (long double)10;
 			e--;
 		}
 		if ((intmax_t)(*num) >= 10)
 		{
-			*num = *num / 10.0;
+			*num = *num / (long double)10;
 			e++;
 		}
 	}
@@ -87,7 +87,7 @@ static char				*make_e(t_format *format, long double num)
 static long double		take_e(t_format *format, va_list args)
 {
 	if (ft_strequ(format->size, "L"))
-		return (va_arg(args, long double));
+		return ((long double)va_arg(args, long double));
 	else
 		return ((long double)va_arg(args, double));
 }
