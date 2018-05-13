@@ -3,9 +3,12 @@
 static int				f_to_e(long double *num)
 {
 	int					e;
+	//long double			dnum;
 
+	//dnum = *num;
 	if (*num == 0)
 		return (0);
+	//printf("%ji\n", (intmax_t)(*num));
 	//return (1);
 	e = 0;
 	while (1 > (intmax_t)(*num) || 10 <= (intmax_t)(*num))
@@ -13,13 +16,16 @@ static int				f_to_e(long double *num)
 		if ((intmax_t)(*num) < 1)
 		{
 			*num *= 10.0;
+			//printf("SALAM EBATb%Lf\n", *num);
 			e--;
 		}
 		if ((intmax_t)(*num) >= 10)
 		{
-			*num *= 10.0;
+			*num /= 10.0;
+			//printf("DELI YMNOSHAY EBATb%Lf\n", *num);
 			e++;
 		}
+		//printf("%Lf\n", dnum);
 	}
 	return (e);
 }

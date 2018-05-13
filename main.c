@@ -7,7 +7,7 @@ int main(void)
 	//ft_printf("%g\n", 10);
 
 	double e = 42.42;
-	long double le = 42.42;
+	long double le = 43.43;
 
 	ft_printf("%e\n", 42.42);
 	printf("%e\n", 42.42);
