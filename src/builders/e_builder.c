@@ -3,27 +3,24 @@
 static int				f_to_e(long double *num)
 {
 	int					e;
-	long double			dnum;
-
-	dnum = *num;
+	
 	if (*num == 0)
 		return (0);
-	return (1);
+	//return (1);
 	e = 0;
-	while (1 > (intmax_t)(dnum) || 10 <= (intmax_t)(dnum))
+	while ((intmax_t)1 > (intmax_t)(*num) || (intmax_t)10 <= (intmax_t)(*num))
 	{
-		if ((intmax_t)(dnum) < 1)
+		if ((intmax_t)(*num) < (intmax_t)1)
 		{
-			dnum *= 10.0;
+			*num *= (long double)10.0;
 			e--;
 		}
-		if ((intmax_t)(dnum) >= 10)
+		if ((intmax_t)(*num) >= (intmax_t)10)
 		{
-			dnum /= 10.0;
+			*num /= (long double)10.0;
 			e++;
 		}
 	}
-	*num = dnum;
 	return (e);
 }
 
