@@ -1,29 +1,28 @@
 #include "../../inc/ft_printf.h"
 
 static int				f_to_e(long double *num)
- {
- 	int					e;
- 
- 	if (*num == 0)
-  		return (0);
-  	//return (1);
-  	e = 0;
+{
+	int					e;
 
- 	while (1 > (intmax_t)(*num) || 10 <= (intmax_t)(*num))
-  	{
-  		if ((intmax_t)(*num) < 1)
-  		{
-  			*num *= 10.0;
-  			e--;
-  		}
- 		if ((intmax_t)(*num) >= 10)
-  		{
-  			*num /= 10.0;
-  			e++;
- 		}
- 	}
- 	return (e);
- }
+	if (*num == 0)
+		return (0);
+	//return (1);
+	e = 0;
+	while (1 > (intmax_t)(*num) || 10 <= (intmax_t)(*num))
+	{
+		if ((intmax_t)(*num) < 1)
+		{
+			*num *= 10.0;
+			e--;
+		}
+		if ((intmax_t)(*num) >= 10)
+		{
+			*num *= 10.0;
+			e++;
+		}
+	}
+	return (e);
+}
 
 static char				*find_exp(int e)
 {
