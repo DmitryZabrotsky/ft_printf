@@ -7,6 +7,43 @@ int main(void)
 	double e = 0.000000;
 	long double le = 0.000000;
 
+	ft_printf("%e\n", 42.000000);
+	printf("%e\n", 42.000000);
+
+	ft_printf("%e\n", 1001.000000);
+	printf("%e\n", 1001.000000);
+	
+	ft_printf("%e\n", -8000.000000);
+	printf("%e\n", -8000.000000);
+
+	ft_printf("%e\n", 0.000000);
+	printf("%e\n", 0.000000);
+
+	ft_printf("%e\n", 0.000000);
+	printf("%e\n", 0.000000);
+
+	ft_printf("%e\n", 2147483647.000000);
+	printf("%e\n", 2147483647.000000);
+
+	ft_printf("%e\n", -2147483648.000000);
+	printf("%e\n", -2147483648.000000);
+
+	ft_printf("%e\n", -2147483649.000000);
+	printf("%e\n", -2147483649.000000);
+
+	ft_printf("%e\n", 2147483648.000000);
+	printf("%e\n", 2147483648.000000);
+
+	ft_printf("%e\n", 34.000000);
+	printf("%e\n", 34.000000);
+
+	ft_printf("%e\n", 9.000000);
+	printf("%e\n", 9.000000);
+
+	ft_printf("%e\n", 503.000000);
+	printf("%e\n", 503.000000);
+	
+
 	ft_printf("\nmy 'e': %.0e my 'LE': %.0LE\n", e, le);
 	printf("or 'e': %.0e or 'LE': %.0LE\n\n", e, le);
 

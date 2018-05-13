@@ -18,7 +18,7 @@ char				*f_to_str(int prec, long double num)
 		while (prec > 0)
 		{
 			num -= (intmax_t)num;
-			num *= 10;
+			num *= (long double)10.0;
 			dot[i] = '0' + (intmax_t)num;
 			i++;
 			prec--;

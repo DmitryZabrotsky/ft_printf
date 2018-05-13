@@ -12,12 +12,12 @@ static int				f_to_e(long double *num)
 	{
 		if ((intmax_t)(*num) < 1)
 		{
-			*num *= 10.0;
+			*num *= (long double)10.0;
 			e--;
 		}
 		if ((intmax_t)(*num) >= 10)
 		{
-			*num /= 10.0;
+			*num /= (long double)10.0;
 			e++;
 		}
 	}

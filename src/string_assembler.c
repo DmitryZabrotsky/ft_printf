@@ -52,8 +52,8 @@ char			*assemble_string(t_format *format, va_list args, t_flags *flags)
 	else if (format->type == 'b')
 		return (build_oux(format, args, flags));
 	else if (format->type == 'f' || format->type == 'F')
-		return (ft_strdup("DZAC"));
-		//return (build_f(format, args));
+		//return (ft_strdup("DZAC"));
+		return (build_f(format, args));
 	else if (format->type == 'e' || format->type == 'E')
 		//return (ft_strdup("DZAC"));
 		return (build_e(format, args));
