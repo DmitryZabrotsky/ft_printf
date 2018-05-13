@@ -16,8 +16,8 @@ int main(void)
 	ft_printf("%e\n", -8000.000000);
 	printf("%e\n", -8000.000000);
 
-	ft_printf("%e\n", 0.000000);
-	printf("%e\n", 0.000000);
+	ft_printf("%e\n", 0.2000000);
+	printf("%e\n", 0.2000000);
 
 	ft_printf("%e\n", 0.000000);
 	printf("%e\n", 0.000000);

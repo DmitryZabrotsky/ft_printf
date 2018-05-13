@@ -12,16 +12,18 @@ static int				f_to_e(long double *num)
 	{
 		if ((intmax_t)(*num) < 1)
 		{
+			//printf("< 1\n");
+			return (1);
 			*num *= 10.0;
 			e--;
 		}
-		else
-			return (1);
-		// if ((intmax_t)(*num) >= 10)
-		// {
-		// 	*num /= 10.0;
-		// 	e++;
-		// }
+		if ((intmax_t)(*num) >= 10)
+		{
+			//printf(">= 10\n");
+			return (2);
+			*num /= 10.0;
+			e++;
+		}
 	}
 	return (e);
 }
