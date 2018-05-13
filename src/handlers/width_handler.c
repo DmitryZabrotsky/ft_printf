@@ -24,6 +24,10 @@ int		handle_width(const char *fstr, t_format *format, va_list args)
 			format->minus = 1;
 	}
 	else
-		format->width = width;
+		format->width = width;	
+	if (fstr[i] == '*' || ft_isdigit(fstr[i]))
+	{
+		return(i + handle_width(fstr + i, format, args));
+	}
 	return (i);
 }

@@ -4,8 +4,18 @@
 
 int main(void)
 {
-ft_printf("{%3*p}", 10, 0);
-printf("{%3*p}", 10, 0);
+
+	ft_printf("{%3*p}\n", 10, 0);
+	printf("{%3*p}\n", 10, 0);
+
+	// ft_printf("\n{%3*d}\n", 0, 0);
+	// printf("{%3*d}\n", 0, 0);
+	// ft_printf("\n{%*3d}\n", 0, 0);
+	// printf("{%*3d}\n", 0, 0);
+	// ft_printf("\n{%*3d}\n", 5, 0);
+	// printf("{%*3d}\n", 5, 0);
+
+	//ft_printf("%---d\n", 50);
 }
 
 // int main(void)
