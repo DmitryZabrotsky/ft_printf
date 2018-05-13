@@ -65,8 +65,8 @@ char			*assemble_string(t_format *format, va_list args, t_flags *flags)
 		//return ("DZ <3 AC");
 		return (build_e(format, args));
 	else if (format->type == 'a' || format->type == 'A')
-		return ("DZ <3 AC");
-		//return (build_a(format, args));
+		//return ("DZ <3 AC");
+		return (build_a(format, args));
 	else
 		return (ft_strdup("")); //think about this!
 }
