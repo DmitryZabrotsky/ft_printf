@@ -45,8 +45,8 @@ char			*assemble_string(t_format *format, va_list args, t_flags *flags)
 		//return ("DZ <3 AC");
 		return (build_s(format, args));
 	else if (format->type == 'd' || format->type == 'D' || format->type == 'i')
-		return ("DZ <3 AC");
-		//return (build_di(format, args));
+		//return ("DZ <3 AC");
+		return (build_di(format, args));
 	else if (format->type == 'o' || format->type == 'O' ||
 			format->type == 'u' || format->type == 'U' ||
 			format->type == 'x' || format->type == 'X')
