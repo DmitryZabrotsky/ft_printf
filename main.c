@@ -14,45 +14,52 @@ int main(void)
 	double e = 42.42;
 	long double le = 43.43;
 
-	ft_printf("%e\n", 42.42);
-	printf("%e\n", 42.42);
+	// ft_printf("%e\n", 42.42);
+	// printf("%e\n", 42.42);
 
-	ft_printf("%e\n", 1001.000000);
-	printf("%e\n", 1001.000000);
+	// ft_printf("%e\n", 1001.000000);
+	// printf("%e\n", 1001.000000);
 	
-	ft_printf("%e\n", -8000.000000);
-	printf("%e\n", -8000.000000);
+	// ft_printf("%e\n", -8000.000000);
+	// printf("%e\n", -8000.000000);
 
-	ft_printf("%e\n", 0.2000000);
-	printf("%e\n", 0.2000000);
+	// ft_printf("%e\n", 0.2000000);
+	// printf("%e\n", 0.2000000);
 
-	ft_printf("%e\n", 0.000000);
-	printf("%e\n", 0.000000);
+	// ft_printf("%e\n", 0.000000);
+	// printf("%e\n", 0.000000);
 
-	ft_printf("%e\n", 2147483647.000000);
-	printf("%e\n", 2147483647.000000);
+	// ft_printf("%e\n", 2147483647.000000);
+	// printf("%e\n", 2147483647.000000);
 
-	ft_printf("%e\n", -2147483648.000000);
-	printf("%e\n", -2147483648.000000);
+	// ft_printf("%e\n", -2147483648.000000);
+	// printf("%e\n", -2147483648.000000);
 
-	ft_printf("%e\n", -2147483649.000000);
-	printf("%e\n", -2147483649.000000);
+	// ft_printf("%e\n", -2147483649.000000);
+	// printf("%e\n", -2147483649.000000);
 
-	ft_printf("%e\n", 2147483648.000000);
-	printf("%e\n", 2147483648.000000);
+	// ft_printf("%e\n", 2147483648.000000);
+	// printf("%e\n", 2147483648.000000);
 
-	ft_printf("%e\n", 34.000000);
-	printf("%e\n", 34.000000);
+	// ft_printf("%e\n", 34.000000);
+	// printf("%e\n", 34.000000);
 
-	ft_printf("%e\n", 9.000000);
-	printf("%e\n", 9.000000);
+	// ft_printf("%e\n", 9.000000);
+	// printf("%e\n", 9.000000);
 
-	ft_printf("%e\n", 503.000000);
-	printf("%e\n", 503.000000);
+	// ft_printf("%e\n", 503.000000);
+	// printf("%e\n", 503.000000);
 	
+	// ft_printf("\nmy 'e': %.0e my 'LE': %.0LE\n", e, le);
+	// printf("or\n%n\n", &fuck);
 
-	ft_printf("\nmy 'e': %.0e my 'LE': %.0LE\n", e, le);
-	printf("or 'e': %.0e or 'LE': %.0LE\n\n", e, le);
+	int box;
+	int mybox;
+
+	printf("fuck!\n%f\n%Lf\n%n", e, le, &box);
+	printf("%i\n", box);
+	ft_printf("fuck!\n%f\n%Lf\n%n", e, le, &mybox);
+	ft_printf("%i\n", mybox);
 
 	// double a = 42.42;
 	// long double la = 42.42;

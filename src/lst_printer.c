@@ -35,7 +35,8 @@ int		print_lst(t_list *lst, t_flags *flags)
 	chars = 0;
 	while (lst)
 	{
-		put_content(lst);
+		if (!flags->n)
+			put_content(lst);
 		if (flags->minuscnull)
 		{
 			chars += flags->len;

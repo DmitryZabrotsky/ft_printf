@@ -38,6 +38,7 @@ typedef struct	s_flags
 	char		chr;
 	int 		minuscnull;
 	int 		len;
+	int 		n;
 }				t_flags;
 
 /*
@@ -93,7 +94,7 @@ int				handle_type(const char *fstr, t_format *format, t_flags *flags);
 /*
   ** string_assembler.c
 */
-char			*assemble_string(t_format *format, va_list args, t_flags *flags);
+char			*assemble_string(t_format *format, va_list args, t_flags *flags, t_list *lst);
 
 /*
  ** builders/c_builder.c
@@ -163,4 +164,9 @@ char			*build_a(t_format *format, va_list args);
  ** /builders/percent_builder.c
 */
 char 			*build_percent(t_format *format);
+
+/*
+ ** /builders/n_builder.c
+*/
+char			*build_n(va_list args, t_flags *flag, t_list *lst);
 #endif

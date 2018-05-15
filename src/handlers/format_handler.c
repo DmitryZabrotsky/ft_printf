@@ -41,7 +41,7 @@ int		handle_format(const char *fstr, t_list **lst, va_list args,
 	if (flags->error)
 		str = handle_error(format, flags);
 	else
-		str = assemble_string(format, args, flags);
+		str = assemble_string(format, args, flags, *lst);
 //print_format(format);
 	if (flags->minuscnull)
 		content = ft_lstnew(str, format->width);

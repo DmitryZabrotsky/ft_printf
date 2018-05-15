@@ -61,6 +61,7 @@ t_flags				*init_flags(void)
 		ret->chr = '\0';
 		ret->minuscnull = 0;
 		ret->len = 0;
+		ret->n = 0;
 	}
 	return (ret);
 }

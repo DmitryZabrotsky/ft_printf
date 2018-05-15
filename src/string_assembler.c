@@ -32,7 +32,8 @@ static int		check_format(t_format *format)
 	return (0);
 }
 
-char			*assemble_string(t_format *format, va_list args, t_flags *flags)
+char			*assemble_string(t_format *format, va_list args, t_flags *flags,
+	t_list *lst)
 {
 	check_format(format);
 	if (format->type == '%')
@@ -52,13 +53,13 @@ char			*assemble_string(t_format *format, va_list args, t_flags *flags)
 	else if (format->type == 'b')
 		return (build_oux(format, args, flags));
 	else if (format->type == 'f' || format->type == 'F')
-		//return (ft_strdup("DZAC"));
 		return (build_f(format, args));
 	else if (format->type == 'e' || format->type == 'E')
-		//return (ft_strdup("DZAC"));
 		return (build_e(format, args));
 	else if (format->type == 'a' || format->type == 'A')
 		return (build_a(format, args));
+	else if (format->type == 'n')
+		return (build_n(args, flags, lst));
 	else
 		return (ft_strdup("")); //think about this!
 }
