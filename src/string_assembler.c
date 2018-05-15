@@ -60,6 +60,8 @@ char			*assemble_string(t_format *format, va_list args, t_flags *flags,
 		return (build_a(format, args));
 	else if (format->type == 'n')
 		return (build_n(args, flags, lst));
+	else if (format->type == 't')
+		return (build_t(args));
 	else
 		return (ft_strdup("")); //think about this!
 }

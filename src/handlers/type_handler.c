@@ -4,7 +4,7 @@ int			handle_type(const char *fstr, t_format *format, t_flags *flags)
 {
 	char *types;
 
-	types = ft_strdup("cCsSdDioOuUxXpbfFeEaAn%");
+	types = ft_strdup("cCsSdDioOuUxXpbfFeEaAnt%");
 	if (fstr[0])
 	{
 		format->type = fstr[0];

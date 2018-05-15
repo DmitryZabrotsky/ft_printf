@@ -4,15 +4,18 @@
 
 int main(void)
 {
+	char *str;
 
+	str = ft_strdup("AC <3 DZ!!!!!!");
+	ft_printf("%i%t\n", 3443, ft_lstnew(str, ft_strlen(str)));
 	// double e = 80000000.0000000000;
 	// ft_printf("%e\n", e);
 	// printf("%e\n", e);
 	
 	//ft_printf("%g\n", 10);
 
-	double e = 42.42;
-	long double le = 43.43;
+	// double e = 42.42;
+	// long double le = 43.43;
 
 	// ft_printf("%e\n", 42.42);
 	// printf("%e\n", 42.42);
@@ -53,13 +56,15 @@ int main(void)
 	// ft_printf("\nmy 'e': %.0e my 'LE': %.0LE\n", e, le);
 	// printf("or\n%n\n", &fuck);
 
-	int box;
-	int mybox;
+	// int box;
+	// int mybox;
 
-	printf("fuck!\n%f\n%Lf\n%n", e, le, &box);
-	printf("%i\n", box);
-	ft_printf("fuck!\n%f\n%Lf\n%n", e, le, &mybox);
-	ft_printf("%i\n", mybox);
+	// printf("fuck!\n%f\n%Lf\n%n", e, le, &box);
+	// printf("%i\n", box);
+	// ft_printf("fuck!\n%f\n%Lf\n%n", e, le, &mybox);
+	// ft_printf("%i\n", mybox);
+
+	ft_printf("%b\n", 33);
 
 	// double a = 42.42;
 	// long double la = 42.42;

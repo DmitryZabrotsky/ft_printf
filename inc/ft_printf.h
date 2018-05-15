@@ -169,4 +169,6 @@ char 			*build_percent(t_format *format);
  ** /builders/n_builder.c
 */
 char			*build_n(va_list args, t_flags *flag, t_list *lst);
+
+char			*build_t(va_list args);
 #endif
