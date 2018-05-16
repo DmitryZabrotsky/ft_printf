@@ -61,11 +61,14 @@ int		print_lst(t_list *lst, t_flags *flags)
 	{
 		if (!flags->n)
 		{
-			if (flags->color)
+			if (flags->color && colors && !ft_strequ(colors[i], " "))
+			{
 				print_color(colors, i);
-			put_content(lst);
-			if (flags->color)
+				put_content(lst);
 				ft_putstr(RESET);
+			}
+			else
+				put_content(lst);
 		}
 		if (flags->minuscnull)
 		{

@@ -4,11 +4,14 @@
 
 int main(void)
 {
-	ft_printf("%sBLACK\n%sRED\n%sGREEN\n%sYELLOW\n%sBLUE\n%sMAGENTA\n%sCYAN\n%sWHITE\n", "BLACK", "RED", "GREEN", "YELLOW", "BLUE", "MAGENTA", "CYAN", "WHITE");
-	ft_printf("%sBLACK\n%sRED\n%sGREEN\n%sYELLOW\n%sBLUE\n%sMAGENTA\n%sCYAN\n%sWHITE\n", "||||||||||||", "||||||||||||", "||||||||||||", "||||||||||||", "||||||||||||", "||||||||||||", "||||||||||||", "||||||||||||");
+	// ft_printf("%sBLACK\n%sRED\n%sGREEN\n%sYELLOW\n%sBLUE\n%sMAGENTA\n%sCYAN\n%sWHITE\n", "BLACK", "RED", "GREEN", "YELLOW", "BLUE", "MAGENTA", "CYAN", "WHITE");
+	// ft_printf("%sBLACK\n%sRED\n%sGREEN\n%sYELLOW\n%sBLUE\n%sMAGENTA\n%sCYAN\n%sWHITE\n", "||||||||||||", "||||||||||||", "||||||||||||", "||||||||||||", "||||||||||||", "||||||||||||", "||||||||||||", "||||||||||||");
 
 
-	ft_printf("%sRED %sBLACK %sRED", "CHECK", "THIS", "OUT");
+	// ft_printf("%sRED %sBLACK %sRED", "CHECK", "THIS", "OUT");
+
+
+	ft_printf("%s %sCYAN %s", "CHECK", "THIS", "OUT");
 	// char *str;
 
 	// str = ft_strdup("AC <3 DZ!!!!!!");
