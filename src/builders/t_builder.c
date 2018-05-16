@@ -10,5 +10,4 @@ char	*build_t(va_list args)
 	ft_mleak(&res, ft_strjoin(res, " "));
 	ft_mleak(&res, ft_strjoin(res, (ft_itoa(lst->content_size))));
 	return (res);
-
 }

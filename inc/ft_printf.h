@@ -17,6 +17,16 @@
 # include <stdarg.h>
 # include <stdio.h> //DELETE after done!
 
+#define BLACK	"\x1b[30;1m"
+#define RED		"\x1b[31;1m"
+#define GREEN	"\x1b[32;1m"
+#define YELLOW	"\x1b[33;1m"
+#define BLUE 	"\x1b[34;1m"
+#define MAGENTA	"\x1b[35;1m"
+#define CYAN	"\x1b[36;1m"
+#define WHITE	"\x1b[37;1m"
+#define RESET	"\x1b[0m"
+
 typedef struct	s_format
 {
 	int			minus;
@@ -39,6 +49,7 @@ typedef struct	s_flags
 	int 		minuscnull;
 	int 		len;
 	int 		n;
+	char 		*color;
 }				t_flags;
 
 /*
@@ -57,12 +68,17 @@ int				handle_flags(const char *fstr, t_format *format);
 /*
  ** strings_handler.c
 */
-int				handle_string(const char *fstr, t_list **lst);
+int				handle_string(const char *fstr, t_list **lst, t_flags *flags);
 
 /*
  ** lst_printer.c
 */
 int				print_lst(t_list *lst, t_flags *flags);
+
+/*
+ ** /handlers/color_handler.c
+*/
+int				handle_color(const char *fstr, t_flags *flags);
 
 /*
  ** width_handler.c
@@ -170,5 +186,10 @@ char 			*build_percent(t_format *format);
 */
 char			*build_n(va_list args, t_flags *flag, t_list *lst);
 
+
+/*
+ ** /builders/t_builder.c
+*/
 char			*build_t(va_list args);
+
 #endif

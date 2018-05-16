@@ -112,4 +112,5 @@ size_t				ft_wcharlen(wchar_t wchr);
 size_t				ft_wstrlen(wchar_t *wstr);
 char				*ft_wchartochar(wchar_t chr);
 char				*ft_wstrtostr(wchar_t *wstr);
+void				ft_arrfree(char ***arr);
 #endif

@@ -38,6 +38,7 @@ int		handle_format(const char *fstr, t_list **lst, va_list args,
 	i += handle_precision(fstr + i, format, args);
 	i += handle_size(fstr + i, format);
 	i += handle_type(fstr +i, format, flags);
+	i += handle_color(fstr + i, flags);
 	if (flags->error)
 		str = handle_error(format, flags);
 	else

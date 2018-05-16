@@ -4,10 +4,16 @@
 
 int main(void)
 {
-	char *str;
+	ft_printf("%sBLACK\n%sRED\n%sGREEN\n%sYELLOW\n%sBLUE\n%sMAGENTA\n%sCYAN\n%sWHITE\n", "BLACK", "RED", "GREEN", "YELLOW", "BLUE", "MAGENTA", "CYAN", "WHITE");
+	ft_printf("%sBLACK\n%sRED\n%sGREEN\n%sYELLOW\n%sBLUE\n%sMAGENTA\n%sCYAN\n%sWHITE\n", "||||||||||||", "||||||||||||", "||||||||||||", "||||||||||||", "||||||||||||", "||||||||||||", "||||||||||||", "||||||||||||");
 
-	str = ft_strdup("AC <3 DZ!!!!!!");
-	ft_printf("%i%t\n", 3443, ft_lstnew(str, ft_strlen(str)));
+
+	ft_printf("%sRED %sBLACK %sRED", "CHECK", "THIS", "OUT");
+	// char *str;
+
+	// str = ft_strdup("AC <3 DZ!!!!!!");
+
+	// ft_printf("%tRED\n", ft_lstnew(str, ft_strlen(str)));
 	// double e = 80000000.0000000000;
 	// ft_printf("%e\n", e);
 	// printf("%e\n", e);
@@ -64,7 +70,7 @@ int main(void)
 	// ft_printf("fuck!\n%f\n%Lf\n%n", e, le, &mybox);
 	// ft_printf("%i\n", mybox);
 
-	ft_printf("%b\n", 33);
+	//ft_printf("%bWHITE\n", 33);
 
 	// double a = 42.42;
 	// long double la = 42.42;

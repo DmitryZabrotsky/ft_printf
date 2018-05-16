@@ -62,6 +62,7 @@ t_flags				*init_flags(void)
 		ret->minuscnull = 0;
 		ret->len = 0;
 		ret->n = 0;
+		ret->color = NULL;
 	}
 	return (ret);
 }

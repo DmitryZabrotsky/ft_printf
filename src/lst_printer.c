@@ -26,17 +26,47 @@ void	put_content(t_list *lst)
 	}
 }
 
+void	print_color(char **colors, int i)
+{
+	if (ft_strequ(colors[i], "BLACK"))
+		ft_putstr(BLACK);
+	else if (ft_strequ(colors[i], "RED"))
+		ft_putstr(RED);
+	else if (ft_strequ(colors[i], "GREEN"))
+		ft_putstr(GREEN);
+	else if (ft_strequ(colors[i], "YELLOW"))
+		ft_putstr(YELLOW);
+	else if (ft_strequ(colors[i], "BLUE"))
+		ft_putstr(BLUE);
+	else if (ft_strequ(colors[i], "MAGENTA"))
+		ft_putstr(MAGENTA);
+	else if (ft_strequ(colors[i], "CYAN"))
+		ft_putstr(CYAN);
+	else if (ft_strequ(colors[i], "WHITE"))
+		ft_putstr(WHITE);
+}
+
 int		print_lst(t_list *lst, t_flags *flags)
 {
 	int chars;
+	int i;
+	char **colors;
 
 	if (!lst)
 		return (0);
+	i = 0;
+	colors = ft_strsplit(flags->color, ',');
 	chars = 0;
 	while (lst)
 	{
 		if (!flags->n)
+		{
+			if (flags->color)
+				print_color(colors, i);
 			put_content(lst);
+			if (flags->color)
+				ft_putstr(RESET);
+		}
 		if (flags->minuscnull)
 		{
 			chars += flags->len;
@@ -50,6 +80,9 @@ int		print_lst(t_list *lst, t_flags *flags)
 			flags->cnull = 0;
 		}
 		lst = lst->next;
+		i++;
 	}
+	free(flags->color);
+	ft_arrfree(&colors);
 	return (chars);
 }

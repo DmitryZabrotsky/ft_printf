@@ -32,7 +32,7 @@ int			ft_printf(const char *format, ...)
 			i = i + handle_format(format + i, &lst, args, flags);
 		}
 		else
-			i = i + handle_string(format + i, &lst);
+			i = i + handle_string(format + i, &lst, flags);
 	}
 	va_end(args);
 	res = print_lst(lst, flags);

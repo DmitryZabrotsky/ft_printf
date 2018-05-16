@@ -20,7 +20,7 @@ LIBSRC = ft_lstprint.c	ft_striter.c ft_striteri.c \
 	  ft_strcpy.c ft_toupper.c ft_lstmap.c ft_strdel.c \
 	  ft_lstnew.c ft_strdup.c ft_strequ.c ft_itoa_base.c \
 	  ft_lstfree.c ft_mleak.c ft_putwchar.c ft_putwstr.c ft_wcharlen.c \
-	  ft_wstrlen.c ft_wchartochar.c ft_wstrtostr.c
+	  ft_wstrlen.c ft_wchartochar.c ft_wstrtostr.c ft_arrfree.c
 PRINTFSRC = ./src/ft_printf.c ./src/handlers/flags_handler.c \
 			./src/lst_printer.c ./src/handlers/format_handler.c \
 			./src/init_format.c ./src/handlers/width_handler.c \
@@ -33,7 +33,7 @@ PRINTFSRC = ./src/ft_printf.c ./src/handlers/flags_handler.c \
 			./src/builders/f_builder.c ./src/builders/e_builder.c \
 			./src/builders/floats_tools.c ./src/builders/a_builder.c \
 			./src/builders/percent_builder.c ./src/builders/n_builder.c \
-			./src/builders/t_builder.c
+			./src/builders/t_builder.c ./src/handlers/color_handler.c
 
 OBJ = $(addprefix $(LIBDIR), $(LIBSRC:.c=.o)) $(PRINTFSRC:.c=.o)
 
