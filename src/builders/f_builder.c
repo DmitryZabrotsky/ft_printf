@@ -1,32 +1,53 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   f_builder.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/18 15:03:55 by dzabrots          #+#    #+#             */
+/*   Updated: 2018/05/18 15:03:58 by dzabrots         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/ft_printf.h"
 
-char				*f_to_str(int prec, long double num)
+static char				*end_f_to_str(char *str, char *dot)
 {
-	char *str;
-	char *dot;
-	int i;
+	char				*res;
 
+	res = ft_strdup(str);
+	free(str);
+	if (dot)
+		free(dot);
+	return (res);
+}
+
+char					*f_to_str(int prec, long double num)
+{
+	char				*str;
+	char				*dot;
+	int					i;
+
+	dot = NULL;
 	str = ft_itoa(num);
 	if (prec > 0)
-	{	
-		str = ft_strjoin(str, ".");
+	{
+		ft_mleak(&str, ft_strjoin(str, "."));
 		dot = ft_strnew(prec);
 		rounder(prec, &num);
-		// if (prec <= 6)
-		// 	num += 1e-9;
 		i = 0;
 		while (prec > 0)
 		{
 			num -= (intmax_t)num;
 			num *= (long double)10.0;
-			dot[i] = '0' + (intmax_t)num;
-			i++;
+			dot[i++] = '0' + (intmax_t)num;
 			prec--;
 		}
 		dot[i] = '\0';
-		str = ft_strjoin(str, dot);
+		ft_mleak(&str, ft_strjoin(str, dot));
 	}
-	return (str);
+	return (end_f_to_str(str, dot));
 }
 
 static char				*make_f(t_format *format, long double num)
@@ -39,18 +60,19 @@ static char				*make_f(t_format *format, long double num)
 	minus = check_sign(&num);
 	str = f_to_str(format->precision, num);
 	if (minus)
-		str = ft_strjoin(minus, str);
+		ft_mleak(&str, ft_strjoin(minus, str));
 	pnum = del_sign(str);
 	sign = set_sign(format, str);
 	if (format->zero && format->width)
-		pnum = build_zero_str(format->width, str, sign);
+		ft_mleak(&pnum, build_zero_str(format->width, str, sign));
 	else
 	{
 		if (sign)
-			pnum = ft_strjoin(sign, pnum);
+			ft_mleak(&pnum, ft_strjoin(sign, pnum));
 		if (format->width && !(format->zero))
-			pnum = set_width(format->minus, format->width, pnum);
+			ft_mleak(&pnum, set_width(format->minus, format->width, pnum));
 	}
+	free(str);
 	return (pnum);
 }
 

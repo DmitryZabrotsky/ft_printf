@@ -16,13 +16,16 @@ char		*ft_wstrtostr(wchar_t *wstr)
 {
 	char *res;
 	char *buf;
+	char *buf1;
 
 	res = ft_strdup("");
 	while (*wstr)
 	{
 		buf = res;
-		res = ft_strjoin(buf, ft_wchartochar(*wstr));
+		buf1 = ft_wchartochar(*wstr);
+		res = ft_strjoin(buf, buf1);
 		free(buf);
+		free(buf1);
 		wstr++;
 	}
 	return (res);

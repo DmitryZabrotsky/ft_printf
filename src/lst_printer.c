@@ -12,10 +12,10 @@
 
 #include "../inc/ft_printf.h"
 
-void	put_content(t_list *lst)
+void		put_content(t_list *lst)
 {
-	char *str;
-	size_t i;
+	char	*str;
+	size_t	i;
 
 	i = 0;
 	str = (char *)lst->content;
@@ -26,7 +26,7 @@ void	put_content(t_list *lst)
 	}
 }
 
-void	print_color(char **colors, int i)
+void		print_color(char **colors, int i)
 {
 	if (ft_strequ(colors[i], "BLACK"))
 		ft_putstr(BLACK);
@@ -46,46 +46,56 @@ void	print_color(char **colors, int i)
 		ft_putstr(WHITE);
 }
 
-int		print_lst(t_list *lst, t_flags *flags)
+void static		check_color(t_list *lst, t_flags *flags, char **colors, int i)
 {
-	int chars;
-	int i;
-	char **colors;
+	if (flags->color && colors && !ft_strequ(colors[i], " "))
+	{
+		print_color(colors, i);
+		put_content(lst);
+		ft_putstr(RESET);
+	}
+	else
+		put_content(lst);
+}
 
-	if (!lst)
-		return (0);
+void static		printer(t_list *lst, t_flags *flags, char **colors, int *chars)
+{
+	int i;
+
 	i = 0;
-	colors = ft_strsplit(flags->color, ',');
-	chars = 0;
 	while (lst)
 	{
 		if (!flags->n)
-		{
-			if (flags->color && colors && !ft_strequ(colors[i], " "))
-			{
-				print_color(colors, i);
-				put_content(lst);
-				ft_putstr(RESET);
-			}
-			else
-				put_content(lst);
-		}
+			check_color(lst, flags, colors, i);
 		if (flags->minuscnull)
 		{
-			chars += flags->len;
-		 	flags->minuscnull = 0;
-		 	flags->len = 0;
+			*chars += flags->len;
+			flags->minuscnull = 0;
+			flags->len = 0;
 		}
 		else
 		{
-			chars += ft_strlen((char *)lst->content);
-			chars += flags->cnull;
+			*chars += ft_strlen((char *)lst->content);
+			*chars += flags->cnull;
 			flags->cnull = 0;
 		}
 		lst = lst->next;
 		i++;
 	}
-	free(flags->color);
+}
+
+int			print_lst(t_list *lst, t_flags *flags)
+{
+	int		chars;
+	char	**colors;
+
+	if (!lst)
+		return (0);
+	colors = ft_strsplit(flags->color, ',');
+	chars = 0;
+	printer(lst, flags, colors, &chars);
+	if (!flags->n)
+		free(flags->color);
 	ft_arrfree(&colors);
 	return (chars);
 }

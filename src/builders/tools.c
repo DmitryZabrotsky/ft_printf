@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tools.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/18 16:12:31 by dzabrots          #+#    #+#             */
+/*   Updated: 2018/05/18 16:12:33 by dzabrots         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/ft_printf.h"
 
 void		rounder(int prec, long double *num)
@@ -32,7 +44,7 @@ char		*set_width(int minus, size_t width, char *arg)
 
 	len = ft_strlen(arg);
 	if (width > len)
-	{	
+	{
 		if ((str = ft_strnew(width)))
 		{
 			if (minus)
@@ -48,7 +60,7 @@ char		*set_width(int minus, size_t width, char *arg)
 			return (str);
 		}
 	}
-	return (arg);
+	return (ft_strdup(arg));
 }
 
 void		set_precision(char **str, size_t precision)

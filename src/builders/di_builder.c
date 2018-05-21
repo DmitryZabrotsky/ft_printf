@@ -1,33 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   di_builder.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/18 15:00:41 by dzabrots          #+#    #+#             */
+/*   Updated: 2018/05/18 15:00:44 by dzabrots         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/ft_printf.h"
 
-static void			make_di(t_format *format, char **arg)
+static char			*make_di(t_format *format, char **arg, int zeroformat)
 {
 	char			*num;
 	char			*sign;
-	int 			zeroformat;
 
-	zeroformat = 0;
 	num = del_sign(*arg);
 	sign = set_sign(format, *arg);
 	if (format->precision >= 0)
-	{	
+	{
 		if (format->precision == 0 && !(ft_strcmp(*arg, "0")))
-			num = ft_strdup("");
+			ft_mleak(&num, ft_strdup(""));
 		else
-			num = set_num_precision(format->precision, *arg);
+			ft_mleak(&num, set_num_precision(format->precision, *arg));
 	}
 	if (format->zero && format->width)
 	{
-		num = build_zero_str(format->width, num, sign);
+		ft_mleak(&num, build_zero_str(format->width, num, sign));
 		zeroformat = 1;
 		if (sign && !ft_strequ(sign, "-") && num[0] != '+' && num[0] != ' ')
-			num = ft_strjoin(sign, num);
+			ft_mleak(&num, ft_strjoin(sign, num));
 	}
 	if (sign && !zeroformat)
-		num = ft_strjoin(sign, num);
+		ft_mleak(&num, ft_strjoin(sign, num));
 	if (format->width && !(format->zero))
-		num = set_width(format->minus, format->width, num);
-	*arg = num;
+		ft_mleak(&num, set_width(format->minus, format->width, num));
+	return (num);
 }
 
 static char			*take_di(t_format *format, va_list args)
@@ -60,8 +70,10 @@ static char			*take_di(t_format *format, va_list args)
 char				*build_di(t_format *format, va_list args)
 {
 	char			*arg;
+	char			*res;
 
 	arg = take_di(format, args);
-	make_di(format, &arg);
-	return (arg);
+	res = make_di(format, &arg, 0);
+	free(arg);
+	return (res);
 }

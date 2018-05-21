@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   a_builder.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/18 14:26:37 by dzabrots          #+#    #+#             */
+/*   Updated: 2018/05/18 14:26:50 by dzabrots         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/ft_printf.h"
 
-static int f_to_a(long double *num, t_format *format)
+static int		f_to_a(long double *num, t_format *format)
 {
 	int p;
 	int min;
@@ -27,9 +39,9 @@ static int f_to_a(long double *num, t_format *format)
 	return (p);
 }
 
-static char				*find_exp(int p)
+static char		*find_exp(int p)
 {
-	char				*res;
+	char		*res;
 
 	if (p < 0)
 	{
@@ -40,24 +52,32 @@ static char				*find_exp(int p)
 	else
 	{
 		res = ft_itoa(p);
-		ft_mleak(&res, ft_strjoin("p+", res)); 
+		ft_mleak(&res, ft_strjoin("p+", res));
 	}
 	return (res);
 }
 
-static char				*make_a(t_format *format, long double num)
+static char		*init_a(t_format *format, char **m, char **exp, long double *n)
 {
-	char				*str;
-	char				*exp;
-	char				*pnum;
-	char				*sign;
-	char				*minus;
+	char *str;
 
-	minus = check_sign(&num);
-	exp = find_exp(f_to_a(&num, format));
-	str = f_to_hexstr(format->precision, num);
+	*m = check_sign(n);
+	*exp = find_exp(f_to_a(n, format));
+	str = f_to_hexstr(format->precision, *n);
 	ft_mleak(&str, ft_strjoin("0x", str));
-	ft_mleak(&str, ft_strjoin(str, exp));
+	ft_mleak(&str, ft_strjoin(str, *exp));
+	return (str);
+}
+
+static char		*make_a(t_format *format, long double num)
+{
+	char		*str;
+	char		*exp;
+	char		*pnum;
+	char		*sign;
+	char		*minus;
+
+	str = init_a(format, &minus, &exp, &num);
 	if (minus)
 		ft_mleak(&str, ft_strjoin(minus, str));
 	pnum = del_sign(str);
@@ -76,20 +96,15 @@ static char				*make_a(t_format *format, long double num)
 	return (pnum);
 }
 
-static long double		take_a(t_format *format, va_list args)
+char			*build_a(t_format *format, va_list args)
 {
+	long double	num;
+	char		*str;
+
 	if (ft_strequ(format->size, "L"))
-		return (va_arg(args, long double));
+		num = va_arg(args, long double);
 	else
-		return ((long double)va_arg(args, double));
-}
-
-char					*build_a(t_format *format, va_list args)
-{
-	long double			num;
-	char				*str;
-
-	num = take_a(format, args);
+		num = (long double)va_arg(args, double);
 	str = make_a(format, num);
 	if (format->type == 'A')
 		to_upper(&str);

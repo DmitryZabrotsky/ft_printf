@@ -1,12 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   e_builder.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/18 14:55:26 by dzabrots          #+#    #+#             */
+/*   Updated: 2018/05/18 14:55:29 by dzabrots         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/ft_printf.h"
 
 static int				f_to_e(long double *num)
 {
 	int					e;
-	
+
 	if (*num == 0)
 		return (0);
-	//return (1);
 	e = 0;
 	while (1.0 > *num || 10.0 <= *num)
 	{
@@ -33,7 +44,7 @@ static char				*find_exp(int e)
 		e *= -1;
 		res = ft_itoa(e);
 		if (e < 10)
-		{	
+		{
 			ft_mleak(&res, ft_strjoin("0", res));
 			ft_mleak(&res, ft_strjoin("e-", res));
 		}
@@ -46,9 +57,15 @@ static char				*find_exp(int e)
 		if (e < 10)
 			ft_mleak(&res, ft_strjoin("e+0", res));
 		else
-			ft_mleak(&res, ft_strjoin("e+", res)); 
+			ft_mleak(&res, ft_strjoin("e+", res));
 	}
 	return (res);
+}
+
+static void				free_make_e(char *exp, char *str)
+{
+	free(exp);
+	free(str);
 }
 
 static char				*make_e(t_format *format, long double num)
@@ -62,29 +79,22 @@ static char				*make_e(t_format *format, long double num)
 	minus = check_sign(&num);
 	exp = find_exp(f_to_e(&num));
 	str = f_to_str(format->precision, num);
-	str = ft_strjoin(str, exp);
+	ft_mleak(&str, ft_strjoin(str, exp));
 	if (minus)
-		str = ft_strjoin(minus, str);
+		ft_mleak(&str, ft_strjoin(minus, str));
 	pnum = del_sign(str);
 	sign = set_sign(format, str);
 	if (format->zero && format->width)
-		pnum = build_zero_str(format->width, str, sign);
+		ft_mleak(&pnum, build_zero_str(format->width, str, sign));
 	else
 	{
 		if (sign)
-			pnum = ft_strjoin(sign, pnum);
+			ft_mleak(&pnum, ft_strjoin(sign, pnum));
 		if (format->width && !(format->zero))
-			pnum = set_width(format->minus, format->width, pnum);
+			ft_mleak(&pnum, set_width(format->minus, format->width, pnum));
 	}
+	free_make_e(exp, str);
 	return (pnum);
-}
-
-static long double		take_e(t_format *format, va_list args)
-{
-	if (ft_strequ(format->size, "L"))
-		return ((long double)va_arg(args, long double));
-	else
-		return ((long double)va_arg(args, double));
 }
 
 char					*build_e(t_format *format, va_list args)
@@ -92,7 +102,10 @@ char					*build_e(t_format *format, va_list args)
 	long double			num;
 	char				*str;
 
-	num = take_e(format, args);
+	if (ft_strequ(format->size, "L"))
+		num = (long double)va_arg(args, long double);
+	else
+		num = (long double)va_arg(args, double);
 	if (format->precision == -1)
 		format->precision = 6;
 	str = make_e(format, num);

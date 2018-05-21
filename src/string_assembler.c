@@ -32,6 +32,19 @@ static int		check_format(t_format *format)
 	return (0);
 }
 
+static char		*assemble_bnt(t_format *format, va_list args, t_flags *flags,
+	t_list *lst)
+{
+	if (format->type == 'b')
+		return (build_oux(format, args, flags));
+	else if (format->type == 'n')
+		return (build_n(args, flags, lst));
+	else if (format->type == 't')
+		return (build_t(args));
+	else
+		return (ft_strdup(""));
+}
+
 char			*assemble_string(t_format *format, va_list args, t_flags *flags,
 	t_list *lst)
 {
@@ -50,18 +63,14 @@ char			*assemble_string(t_format *format, va_list args, t_flags *flags,
 		return (build_oux(format, args, flags));
 	else if (format->type == 'p')
 		return (build_p(format, args, flags));
-	else if (format->type == 'b')
-		return (build_oux(format, args, flags));
 	else if (format->type == 'f' || format->type == 'F')
 		return (build_f(format, args));
 	else if (format->type == 'e' || format->type == 'E')
 		return (build_e(format, args));
 	else if (format->type == 'a' || format->type == 'A')
 		return (build_a(format, args));
-	else if (format->type == 'n')
-		return (build_n(args, flags, lst));
-	else if (format->type == 't')
-		return (build_t(args));
+	else if (format->type == 'b' || format->type == 'n' || format->type == 't')
+		return (assemble_bnt(format, args, flags, lst));
 	else
-		return (ft_strdup("")); //think about this!
+		return (ft_strdup(""));
 }

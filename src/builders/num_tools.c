@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   num_tools.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/18 16:00:15 by dzabrots          #+#    #+#             */
+/*   Updated: 2018/05/18 16:00:16 by dzabrots         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/ft_printf.h"
 
 char			*set_sign(t_format *format, char *arg)
 {
-	char 		*sign;
+	char		*sign;
 
 	sign = NULL;
 	if (*arg == '-')
@@ -14,9 +26,9 @@ char			*set_sign(t_format *format, char *arg)
 		else if (format->plus)
 			sign = "+";
 		else if (format->hash)
-		{	
+		{
 			if (format->type == 'o' || format->type == 'O')
-			{	
+			{
 				if (!ft_strequ(arg, "0"))
 					sign = "0";
 			}
@@ -46,7 +58,7 @@ char			*set_num_precision(int precision, char *arg)
 			ft_strcpy(str + precision - len, num);
 			free(num);
 			num = NULL;
-			return (str); 
+			return (str);
 		}
 	}
 	return (num);
@@ -59,9 +71,9 @@ char			*set_free_width(size_t width, int zero)
 	str = ft_strnew(width);
 	if (zero)
 		ft_memset(str, '0', width);
-	else		
+	else
 		ft_memset(str, ' ', width);
-	return(str);
+	return (str);
 }
 
 char			*build_zero_str(size_t width, char *num, char *sign)
@@ -69,12 +81,13 @@ char			*build_zero_str(size_t width, char *num, char *sign)
 	char			*str;
 	char			*buf;
 	size_t			len;
+	char			*res;
 
-	str = num;
+	str = ft_strdup(num);
 	len = ft_strlen(num);
 	if (width > len)
 	{
-		str = set_free_width(width, 1);
+		ft_mleak(&str, set_free_width(width, 1));
 		buf = del_sign(num);
 		if (sign)
 		{
@@ -83,10 +96,12 @@ char			*build_zero_str(size_t width, char *num, char *sign)
 		}
 		else
 			ft_memcpy(str + width - ft_strlen(buf), buf, ft_strlen(buf));
-		free (buf);
+		free(buf);
 		buf = NULL;
 	}
-	return (str);
+	res = ft_strdup(str);
+	free(str);
+	return (res);
 }
 
 char			*del_sign(char *arg)

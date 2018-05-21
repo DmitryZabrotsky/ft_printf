@@ -15,17 +15,16 @@
 
 # include "../libftprintf.h"
 # include <stdarg.h>
-# include <stdio.h> //DELETE after done!
 
-#define BLACK	"\x1b[30;1m"
-#define RED		"\x1b[31;1m"
-#define GREEN	"\x1b[32;1m"
-#define YELLOW	"\x1b[33;1m"
-#define BLUE 	"\x1b[34;1m"
-#define MAGENTA	"\x1b[35;1m"
-#define CYAN	"\x1b[36;1m"
-#define WHITE	"\x1b[37;1m"
-#define RESET	"\x1b[0m"
+# define BLACK		"\x1b[30;1m"
+# define RED		"\x1b[31;1m"
+# define GREEN		"\x1b[32;1m"
+# define YELLOW		"\x1b[33;1m"
+# define BLUE 		"\x1b[34;1m"
+# define MAGENTA	"\x1b[35;1m"
+# define CYAN		"\x1b[36;1m"
+# define WHITE		"\x1b[37;1m"
+# define RESET		"\x1b[0m"
 
 typedef struct	s_format
 {
@@ -43,13 +42,13 @@ typedef struct	s_format
 typedef struct	s_flags
 {
 	int			cnull;
-	int 		p;
-	int 		error;
+	int			p;
+	int			error;
 	char		chr;
-	int 		minuscnull;
-	int 		len;
-	int 		n;
-	char 		*color;
+	int			minuscnull;
+	int			len;
+	int			n;
+	char		*color;
 }				t_flags;
 
 /*
@@ -59,7 +58,6 @@ t_format		*init_format(void);
 void			free_format(t_format **format);
 t_flags			*init_flags(void);
 void			free_flags(t_flags **flags);
-void			print_format(t_format *format); // DEL AFTER DONE!!!!
 /*
  ** flags_handler.c
 */
@@ -88,7 +86,8 @@ int				handle_width(const char *fstr, t_format *format, va_list args);
 /*
  ** format_handler.c
 */
-int				handle_format(const char *fstr, t_list **lst, va_list args, t_flags *flags);
+int				handle_format(const char *fstr, t_list **lst, va_list args,
+				t_flags *flags);
 char			*handle_error(t_format *format, t_flags *flags);
 
 /*
@@ -110,12 +109,13 @@ int				handle_type(const char *fstr, t_format *format, t_flags *flags);
 /*
   ** string_assembler.c
 */
-char			*assemble_string(t_format *format, va_list args, t_flags *flags, t_list *lst);
+char			*assemble_string(t_format *format, va_list args, t_flags *flags,
+				t_list *lst);
 
 /*
  ** builders/c_builder.c
 */
-char			*build_c(t_format *format, va_list args, t_flags * flags);
+char			*build_c(t_format *format, va_list args, t_flags *flags);
 
 /*
  ** builders/s_builder.c
@@ -179,14 +179,12 @@ char			*build_a(t_format *format, va_list args);
 /*
  ** /builders/percent_builder.c
 */
-char 			*build_percent(t_format *format);
+char			*build_percent(t_format *format);
 
 /*
  ** /builders/n_builder.c
 */
 char			*build_n(va_list args, t_flags *flag, t_list *lst);
-
-
 /*
  ** /builders/t_builder.c
 */

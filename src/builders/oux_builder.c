@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   oux_builder.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/18 16:02:41 by dzabrots          #+#    #+#             */
+/*   Updated: 2018/05/18 16:02:43 by dzabrots         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/ft_printf.h"
 
-void			to_upper(char **str)
+void				to_upper(char **str)
 {
 	int i;
 
@@ -21,21 +33,22 @@ static void			make_oux(t_format *format, char **arg)
 	num = del_sign(*arg);
 	sign = set_sign(format, *arg);
 	if (format->zero && format->width)
-		num = build_zero_str(format->width, *arg, sign);
+		ft_mleak(&num, build_zero_str(format->width, *arg, sign));
 	else
 	{
 		if (format->precision >= 0)
 		{
 			if (format->precision == 0 && ft_strequ(*arg, "0") && !format->hash)
-				num = ft_strdup("");
+				ft_mleak(&num, ft_strdup(""));
 			else
-				num = set_num_precision(format->precision, *arg);
+				ft_mleak(&num, set_num_precision(format->precision, *arg));
 		}
 		if (sign)
-			num = ft_strjoin(sign, num);
+			ft_mleak(&num, ft_strjoin(sign, num));
 		if (format->width && !(format->zero))
-			num = set_width(format->minus, format->width, num);
+			ft_mleak(&num, set_width(format->minus, format->width, num));
 	}
+	free(*arg);
 	*arg = num;
 }
 
@@ -56,7 +69,7 @@ static char			*take_oux(t_format *format, va_list args, int base)
 	else if (ft_strequ(format->size, "z"))
 		return (ft_itoa_base(va_arg(args, size_t), base));
 	else
-		return(ft_itoa_base(va_arg(args, unsigned int), base));
+		return (ft_itoa_base(va_arg(args, unsigned int), base));
 }
 
 char				*build_oux(t_format *format, va_list args, t_flags *flags)
@@ -67,13 +80,13 @@ char				*build_oux(t_format *format, va_list args, t_flags *flags)
 	format->plus = 0;
 	if (format->type == 'u' || format->type == 'U')
 		arg = take_oux(format, args, 10);
-	else if (format->type == 'o'|| format->type == 'O')
+	else if (format->type == 'o' || format->type == 'O')
 		arg = take_oux(format, args, 8);
 	else if (format->type == 'x' || format->type == 'X')
 		arg = take_oux(format, args, 16);
 	else if (format->type == 'b')
 		arg = take_oux(format, args, 2);
-	if ((format->type == 'x' || format->type == 'X')&& ft_strequ(arg, "0")
+	if ((format->type == 'x' || format->type == 'X') && ft_strequ(arg, "0")
 		&& format->hash && !flags->p)
 		format->hash = 0;
 	make_oux(format, &arg);

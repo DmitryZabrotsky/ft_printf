@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   strings_handler.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzabrots <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/18 16:51:36 by dzabrots          #+#    #+#             */
+/*   Updated: 2018/05/18 16:51:37 by dzabrots         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/ft_printf.h"
 
 int			handle_string(const char *fstr, t_list **lst, t_flags *flags)
 {
-	char *str;
-	int i;
+	char	*str;
+	int		i;
 
 	str = NULL;
 	i = 0;
